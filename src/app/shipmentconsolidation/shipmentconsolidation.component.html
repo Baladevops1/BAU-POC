@@ -1,0 +1,465 @@
+<div class="container-fluid" style="width: 100%">
+  <div class="row" style="width: 100%">
+    <div class="col-2 innerpage-column1">
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <div class="heading">
+        <h2 class="LibreFranklinBold">IDT Overview</h2>
+        <p class="LibreFranklinRegular">Transfer Process</p>
+      </div>
+
+      <ul class="StepProgress">
+        <li
+          class="StepProgress-item current"
+          *ngFor="let item of steps"
+          [ngClass]="{ grey: !item.active }"
+        >
+          <p class="LibreFranklinRegular">{{ item.p }}</p>
+          <h2 class="LibreFranklinSemiBold">{{ item.h2 }}</h2>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-10 column2">
+      <div class="container-fluid outer-container1">
+        <div class="row">
+          <div class="col-6">
+            <span class="order-lbl LibreFranklinRegular active-red">
+              Outbound Shipment Consolidation
+            </span>
+          </div>
+
+          <div class="col-6 text-right buttons-container">
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-print" aria-hidden="true"></i> Print
+            </button>
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-envelope" aria-hidden="true"></i> Email
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm">
+              <i class="fa fa-undo" aria-hidden="true"></i>Undo
+            </button>
+          </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div class="container1">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="material-textfield col-10">
+                  <mat-label>Destination Location</mat-label>
+                  <mat-select name="toLocation" [(ngModel)]="selectedTo">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="toLocations"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredToLocations = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let toLocation of filteredToLocations"
+                      [value]="toLocation.abbrev"
+                    >
+                      {{ toLocation.name }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+
+                <div class="material-textfield col-4">
+                  <button
+                    type="submit"
+                    style="width: 40%"
+                    class="btn btn-danger btn-sm"
+                  >
+                    <i class="fa fa-barcode" aria-hidden="true"></i> Search
+                  </button>
+                </div>
+              </div>
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- <div class="container-fluid outer-container2">
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order
+            </button>
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-arrow-right" aria-hidden="true"></i> Tracking
+            </button>
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-history" aria-hidden="true"></i> Product
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div *ngIf="gridData" class="container-fluid outer-container3">
+        <div class="row">
+          <div class="col-6" style="display: inline-flex">
+            <button
+              type="button"
+              style="margin: 5px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-plus" aria-hidden="true"></i>
+            </button>
+            <button
+              type="button"
+              style="margin: 5px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-upload" aria-hidden="true"></i> Export
+            </button>
+            <button
+              type="button"
+              style="margin: 5px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-download" aria-hidden="true"></i> Import
+            </button>
+          </div>
+          <div class="col-6 text-right">
+            <button
+              type="button"
+              (click)="openDialogInit()"
+              class="btn btn-danger btn-sm"
+            >
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              Shipement Consolidation
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-hover" style="border: 1px soild grey">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </th>
+                  <th scope="col">PRODUCT</th>
+                  <th scope="col">ORDER ID</th>
+                  <th scope="col">UPC/GTIN</th>
+                  <th scope="col">PRODUCT DESC</th>
+                  <th scope="col">TRANSFER QUANTITY</th>
+                  <th scope="col">STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.upc }}</td>
+                  <td>{{ item.productDesc }}</td>
+                  <td>{{ item.transferQuantity }}</td>
+                  <td>{{ item.comments }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> -->
+
+      <div
+        *ngIf="itemsDataFrom.length != 0"
+        class="container-fluid outer-container4"
+      >
+        <div class="row text-center">
+          <div class="col-12">
+            <!-- <mat-label>Search Receiver</mat-label> -->
+            <input
+              matInput
+              class="d-none"
+              (keyup)="applyFilter($event)"
+              placeholder="Search Order"
+              #input
+            />
+            <div
+              class="table-heads text-left LibreFranklinSemiBold h5 mb-0 active-red"
+            >
+              Orders
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-12">
+            <div
+              class="mat-elevation-z8"
+              style="
+                box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),
+                  0px 5px 15px rgba(0, 0, 0, 0.1); ;
+              "
+            >
+              <table mat-table [dataSource]="dataSource" style="width: 100%">
+                <ng-container matColumnDef="select">
+                  <th mat-header-cell *matHeaderCellDef>
+                    <mat-checkbox
+                      (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()"
+                      [aria-label]="checkboxLabel()"
+                    >
+                    </mat-checkbox>
+                  </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-checkbox
+                      (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)"
+                    >
+                    </mat-checkbox>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="index">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    #
+                  </th>
+                  <td mat-cell *matCellDef="let element; let i = index">
+                    {{ i + 1 }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="orderid">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Order ID
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.id }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="eta">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    ETA
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.shipmentDeliveryDate }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="totalitems">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Total Items
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.totalItem }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="totalunits">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Total Units
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{ element.transferQuantity }}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="specialproducts">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Special Products
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <select (change)="setSpecialProducts($event, element)">
+                      <option value="Yes">Yes</option>
+                      <option value="No">No</option>
+                    </select>
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="shipmentweight">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Shipment Weight
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <input
+                      type="text"
+                      placeholder="ml/kg"
+                      (input)="setShipmentWeight($event, element)"
+                    />
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="packageinfo">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Package Info.
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <input
+                      type="text"
+                      placeholder="No.of pallets"
+                      (input)="setPackageInfo($event, element)"
+                    />
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="dimension">
+                  <th
+                    mat-header-cell
+                    *matHeaderCellDef
+                    style="font-size: medium"
+                  >
+                    Dimension
+                  </th>
+                  <td mat-cell *matCellDef="let element">
+                    <input
+                      type="text"
+                      placeholder="Package size"
+                      (input)="setDimension($event, element)"
+                    />
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr
+                  mat-row
+                  *matRowDef="let row; columns: displayedColumns"
+                  (click)="selection.toggle(row)"
+                ></tr>
+
+                <tr class="mat-row" *matNoDataRow>
+                  <td class="mat-cell" colspan="4">
+                    No data matching the filter "{{ input.value }}"
+                  </td>
+                </tr>
+              </table>
+              <mat-paginator
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page of users"
+              ></mat-paginator>
+            </div>
+            <mat-divider></mat-divider>
+            <mat-dialog-actions align="end">
+              <button
+                mat-raised-button
+                color="warn"
+                class="submitBtn"
+                (click)="onOrdersSubmit()"
+              >
+                Consolidate
+              </button>
+            </mat-dialog-actions>
+          </div>
+        </div>
+      </div>
+
+      <div
+        *ngIf="stockData.length != 0 && [3].includes(activeRole)"
+        class="container-fluid outer-container3"
+      >
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="button"
+              style="margin: 5px; border: none; background: #d9d6d6"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-history" aria-hidden="true"></i> Activity Logs
+            </button>
+            <div class="activityScroll">
+              <div
+                class="LibreFranklinRegular h6"
+                *ngIf="stockData.length == 0"
+                style="margin: 5px; margin-left: 25px"
+              >
+                No Activity
+              </div>
+
+              <div *ngFor="let item of stockData; let i = index">
+                <div class="clearfix">
+                  <div class="card-body" style="padding: 10px">
+                    <div class="title-header" style="font-weight: bold">
+                      Shipment ID : #{{ item.id }}
+                    </div>
+                    <div class="p-text">
+                      <span style="font-weight: 500">
+                        shipment Delivery Date :
+                      </span>
+                      {{ item.shipmentDeliveryDate }} |
+                      <span style="font-weight: 500">Total Items :</span
+                      >{{ item.totalItem }} |
+                      <span style="font-weight: 500">Total Quantity :</span
+                      >{{ item.totalQuantity }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

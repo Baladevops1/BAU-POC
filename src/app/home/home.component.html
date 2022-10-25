@@ -1,0 +1,144 @@
+<div class="container-fluid our-container" id="boundHeightForQuickTodos">
+  <div class="row">
+    <div
+      class="column1"
+      [ngClass]="
+        isQuickTodosExpanded
+          ? 'col-xl-9 col-lg-9 col-md-12 col-sm-12'
+          : 'col-xl-12 col-lg-12 col-md-12 col-sm-12'
+      "
+    >
+      <button class="quickTodosBtn" (click)="toggleQuickTodos()">
+        <i
+          class="fa-solid"
+          [ngClass]="
+            isQuickTodosExpanded ? 'fa-angles-right' : 'fa-angles-left'
+          "
+        ></i>
+        <span *ngIf="!isQuickTodosExpanded">Quick Todos</span>
+      </button>
+
+      <div class="jumbotron1">
+        <div class="container-fluid">
+          <h4 class="LibreFranklinMedium" style="color: #bf2f1a">
+            Good afternoon, {{ activeRoleName }}.
+          </h4>
+          <p class="lead LibreFranklinBold">Welcome to OneDFS.</p>
+        </div>
+      </div>
+
+      <div class="container-fluid container1">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="top-label">
+              <h3 class="LibreFranklinSemiBold m-0">Quick Actions</h3>
+              <h3 class="m-0">
+                <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="container-fluid">
+              <div class="row">
+                <ng-container *ngFor="let item of icons; let i = index">
+                  <div
+                    class="col-2 text-center pt-25 pb-25 icons"
+                    *ngIf="item.role.includes(activeRole)"
+                    routerLink="{{ item.link }}"
+                    [queryParams]="
+                      item.link == '/category/' ? { type: 'Beauty' } : {}
+                    "
+                    routerLinkActive="active"
+                    (mousemove)="onHoverAllItems($event, i, 2)"
+                    (mouseout)="onHoverOutAllItems($event, i, 2)"
+                  >
+                    <ng-container *ngIf="!item.size">
+                      <img src="{{ item.file }}" style="width: 48px" />
+                    </ng-container>
+                    
+                    <ng-container *ngIf="item.size">
+                      <img src="{{ item.file }}" [ngStyle]="{'width': item.size}" />
+                    </ng-container>
+
+                    <br />
+                    <br />
+
+                    <a class="linktext LibreFranklinSemiBold" *ngIf="item.hot">
+                      {{ item.text }}
+                    </a>
+                    <a class="linktext LibreFranklinMedium" *ngIf="!item.hot">
+                      {{ item.text }}
+                    </a>
+
+                    <span *ngIf="item.hot">
+                      <i class="fa-solid fa-star"> </i>
+                    </span>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="container-fluid container2">
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="top-label">
+              <h3 class="LibreFranklinSemiBold m-0">Hot Apps</h3>
+              <h3 class="m-0">
+                <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 p-0">
+            <div class="container-fluid">
+              <div class="row">
+                <div
+                  class="col-2 col-xs-6 text-center pt-25 pb-25 icons"
+                  *ngFor="let item of icons.slice(0, 4); let i = index"
+                  routerLink="{{ item.link }}"
+                  (mousemove)="onHover($event, i, 2)"
+                  (mouseout)="onHoverOut($event, i, 2)"
+                >
+                  <img src="{{ item.file }}" style="width: 48px" />
+
+                  <br />
+                  <br />
+
+                  <a class="linktext LibreFranklinMedium">{{ item.text }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <div
+      id="column2"
+      class="col-3 column2"
+      [ngClass]="isQuickTodosExpanded ? '' : 'collapse'"
+    >
+      <app-quicktodos></app-quicktodos>
+    </div>
+  </div>
+
+  <div class="desc-data" *ngFor="let item of icons; let i = index">
+    <span id="description-1-{{ i }}">
+      {{ item.desc }}
+    </span>
+  </div>
+
+  <div class="desc-data" *ngFor="let item of icons.slice(0, 4); let i = index">
+    <span id="description-2-{{ i }}">
+      {{ item.desc }}
+    </span>
+  </div>
+</div>

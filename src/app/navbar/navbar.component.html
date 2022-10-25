@@ -1,0 +1,153 @@
+<nav
+  *ngIf="!isAuthenticated"
+  class="navbar navbar-expand-lg navbar-dark pb-0"
+  style="
+    background-color: #fff;
+    padding-left: 40px;
+    padding-right: 40px;
+    z-index: 9;
+    height: 50px;
+  "
+>
+  <a
+    class="navbar-brand"
+    (click)="onSelectTab('home'); this.activetab = 'home'"
+    routerLink=""
+    style="margin-bottom: 0.5rem"
+  >
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 61 62"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M30.3765 61.1917C13.59 61.1917 0 47.5267 0 30.6816C0 13.8252 13.59 0.16626 30.3765 0.16626C47.169 0.16626 60.7755 13.8244 60.7755 30.6809C60.7755 47.526 47.169 61.191 30.3765 61.191"
+        fill="#C0311A"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M15.2632 39.2913C13.755 39.2913 12.6922 39.0994 12.4717 38.8334C12.1965 38.569 12.1965 36.5788 12.1965 31.2522V26.5594C12.1965 23.9376 12.231 23.2357 12.462 23.0332C12.6525 22.8746 12.9622 22.7907 14.0475 22.7907C18.708 22.7907 21.1777 25.6543 21.1777 31.0769C21.1777 36.2978 19.023 39.2913 15.2632 39.2913ZM14.6782 21.1579C14.3745 21.1579 14.037 21.1799 13.6485 21.2033C13.1025 21.2433 12.495 21.2819 11.706 21.2819C10.446 21.2819 8.562 21.2373 7.86375 21.1587H7.82475C7.53075 21.136 7.16625 21.1519 7.104 21.4806C7.0365 21.8243 7.45875 21.9656 7.824 22.0782C8.454 22.2822 9.09 22.3774 9.1755 22.694C9.36075 23.2939 9.3885 27.145 9.3885 30.9975C9.3885 34.6756 9.333 38.782 9.1755 39.3918C9.0795 39.7031 8.454 39.7945 7.82475 40.0038C7.45875 40.1156 7.0365 40.2508 7.104 40.6014C7.16625 40.9233 7.5315 40.9399 7.824 40.9172H7.86375C8.562 40.8386 10.4467 40.7994 11.7067 40.7994C12.495 40.7994 13.2825 40.8447 13.8285 40.884C14.2335 40.9119 14.7683 40.9293 15.033 40.9293C17.6205 40.9293 19.9957 39.861 21.7177 37.9298C23.3452 36.1164 24.273 33.642 24.273 31.157C24.273 28.3546 23.5132 25.9663 22.068 24.2255C20.3842 22.1855 17.9025 21.1579 14.679 21.1579H14.6782ZM39.6525 23.3868C39.6353 21.3876 39.5962 21.1383 39.1635 21.161C37.9192 21.2063 36.3503 21.2856 33.3 21.2856C30.8003 21.2856 28.9552 21.2403 27.3225 21.1557H27.3067C26.9737 21.1383 26.6542 21.161 26.5695 21.4277C26.4682 21.7662 26.7668 21.9301 27.1545 22.0646C27.447 22.1553 28.4482 22.3366 28.5442 22.7038C28.7467 23.2629 28.7752 27.1268 28.7752 31.0074C28.7752 34.9219 28.7475 38.8311 28.5442 39.3902C28.4257 39.7295 27.7447 39.7915 27.1095 40C26.7322 40.1194 26.3212 40.2493 26.3895 40.6052C26.445 40.9218 26.817 40.9384 27.1095 40.9218H27.1425C27.8475 40.847 28.899 40.7971 30.159 40.7971C31.4093 40.7971 32.5507 40.847 33.255 40.9218H33.3C33.5865 40.9384 33.9578 40.9218 34.014 40.6052C34.0815 40.2493 33.6593 40.1194 33.3 40.0007C32.6632 39.7915 31.9537 39.7129 31.8075 39.3902C31.605 38.9671 31.5832 36.9385 31.5832 34.9846C31.5832 33.5997 31.5382 31.8264 31.7183 31.6738C31.8307 31.5211 32.3032 31.4879 33.4852 31.4879C35.5507 31.4879 35.8148 31.5053 36.2423 33.2725C36.3045 33.577 36.4673 34.1029 36.816 34.081C37.176 34.0583 37.233 33.5838 37.227 33.2725C37.2098 32.968 37.1768 32.381 37.1768 30.7135C37.1768 29.0527 37.2098 28.4649 37.227 28.1718C37.233 27.8559 37.1768 27.3754 36.816 27.3527C36.468 27.3301 36.3045 27.8612 36.2423 28.1665C35.8148 29.9398 35.5507 29.9277 33.4852 29.9277C32.253 29.9277 32.0168 29.9511 31.7798 29.6806C31.5435 29.3912 31.566 27.0702 31.566 26.6471C31.566 25.1609 31.5765 23.7367 31.7798 23.2123C31.9035 22.8564 32.3145 22.7718 33.9802 22.7718C36.7657 22.7718 37.1887 23.0544 37.6553 23.3989C38.1278 23.7487 38.6167 25.0135 38.8147 25.4994C38.9385 25.7653 39.1185 26.0872 39.495 26.0131C39.7035 25.9799 39.8272 25.7933 39.7822 25.3135C39.7702 25.0264 39.6637 24.0487 39.6525 23.3868ZM49.731 29.3172C47.7622 28.0229 46.068 26.9107 46.068 25.0075C46.068 23.0468 47.6273 22.3464 48.9548 22.3464C50.2995 22.3464 51.0817 22.901 51.5647 23.3687C52.1737 23.9505 52.5675 24.9214 52.77 25.4639C52.866 25.7185 53.0512 26.0184 53.2942 25.9852C53.5747 25.9391 53.5913 25.652 53.5913 25.2674C53.5913 24.8821 53.5582 24.357 53.5252 23.6906C53.5149 23.2495 53.4956 22.8086 53.4675 22.3683C53.4398 21.9966 53.355 21.9392 53.0295 21.7254C52.731 21.5448 51.312 20.7756 49.422 20.7756C45.8145 20.7756 43.389 22.7083 43.389 25.8379C43.389 28.6107 45.6517 30.1763 47.8515 31.6224C49.968 33.0171 51.9712 34.3348 51.9712 36.6211C51.9712 39.3102 49.911 39.7114 48.6787 39.7114C47.3737 39.7114 46.2817 39.3834 45.534 38.6551C44.7292 37.8814 44.1202 36.5131 43.6365 34.8645C43.53 34.5026 43.3335 34.2094 43.0065 34.2374C42.6975 34.2653 42.6015 34.5479 42.6353 35.1969C42.675 35.7961 42.714 36.8969 42.7477 37.4462C42.7762 37.8595 42.8153 38.9482 42.8153 39.1122C42.843 39.4235 43.1362 39.5927 43.3335 39.7454C43.5412 39.8919 45.3368 41.3101 48.2348 41.3101C52.6523 41.3101 54.6607 38.5599 54.6607 36.0114C54.6607 32.5661 52.0387 30.8359 49.731 29.3172Z"
+        fill="white"
+      />
+    </svg>
+  </a>
+  <h1
+    class="LibreFranklinBold"
+    style="
+      margin: 5px;
+      margin-left: -5px;
+      color: var(--active-red);
+      font-size: 19px;
+      margin-bottom: 0.5rem;
+    "
+  >
+    OneDFS
+  </h1>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li
+        class="nav-item"
+        [ngClass]="{ active: this.activetab == 'home' }"
+        (click)="onSelectTab('home')"
+      >
+        <a
+          class="nav-link LibreFranklinSemiBold h6 mb-0"
+          routerLink="/home"
+          routerLinkActive="active"
+          ><i class="fa fa-star-o mr-1" aria-hidden="true"></i> Quick Access</a
+        >
+      </li>
+      <li
+        class="nav-item"
+        [ngClass]="{ active: this.activetab == 'toDo' }"
+        (click)="onSelectTab('toDo')"
+      >
+        <a
+          class="nav-link LibreFranklinSemiBold h6 mb-0 position-relative"
+          routerLink="/todo"
+          routerLinkActive="active"
+        >
+          <i class="fa fa-list-alt mr-1" aria-hidden="true"></i> My To-do's
+          <span
+            *ngIf="[1, 2, 5].includes(activeRole) && ordersLength > 0"
+            class="badge badge-warning"
+            style="position: absolute; top: 0px; right: -13px"
+          >
+            {{ ordersLength }}
+          </span>
+        </a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0" style="margin-bottom: 0.5rem">
+      <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+      <a class="nav-link h6 pr-0 mb-0" href="#"
+        ><i class="fa fa-bell" aria-hidden="true"></i
+      ></a>
+      <a
+        class="nav-link dropdown-toggle LibreFranklinSemiBold h6 mb-0"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        style="color: var(--active-red) !important"
+      >
+        <i class="fa-regular fa-user mr-1" aria-hidden="true"></i>
+        {{ roles[activeRole].name + " (" + roles[activeRole].role + ")" }}
+      </a>
+      <div
+        class="dropdown-menu"
+        aria-labelledby="navbarDropdown"
+        style="left: 76%"
+      >
+        <a
+          (click)="
+            this.activeRole = role.id;
+            onChangeRole(role.id);
+            onSelectTab('home');
+            this.activetab = 'home'
+          "
+          routerLink=""
+          *ngFor="let role of roles"
+          class="dropdown-item mb-0 LibreFranklinLight h6"
+          [ngClass]="role.id == activeRole ? 'active' : ''"
+        >
+          {{ role.name + " (" + role.role + ")" }}
+        </a>
+
+        <!-- <a
+          *ngIf="!(authStateService.authState$ | async).isAuthenticated"
+          routerLink="/login"
+          class="dropdown-item mb-0 LibreFranklinLight h6"
+        >
+          Login
+        </a>
+        <a
+          *ngIf="(authStateService.authState$ | async).isAuthenticated"
+          (click)="logout()"
+          class="dropdown-item mb-0 LibreFranklinLight h6"
+        >
+          Logout
+        </a> -->
+      </div>
+    </form>
+  </div>
+</nav>

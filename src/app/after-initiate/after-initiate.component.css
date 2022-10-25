@@ -1,0 +1,16 @@
+h3,
+h2 {
+  font-weight: bold;
+  font-family: "FontAwesome";
+}
+
+.text-style {
+  font-family: ui-serif !important;
+}
+
+.popup-btns button {
+  background-color: #000;
+  border-radius: 2px;
+  width: 100%;
+  font-family: LibreFranklinRegular;
+}

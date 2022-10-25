@@ -1,0 +1,115 @@
+<section class="logo-section">
+    <div class="container-fluid">
+        <div class="header-container col-lg-12 col-md-12 col-sm-12">
+            <h1 style="padding: 10px;">Price Lookup</h1>
+            <div class="row-container row">
+                <div class="search col-lg-3 col-md-3 col-sm-3">
+                    <input
+                        type="text"
+                        class="searchTerm"
+                        placeholder="Enter Article Number"
+                        name="searchProd"
+                        matTooltip="ENTER ARTICLE NUMBER"
+                        [(ngModel)]="articleNumber"
+                    />
+                </div>
+                <div class="dropdown col-lg-3 col-md-3 col-sm-3">
+                    <mat-form-field appearance="fill" class="dropdown-wrap">
+                        <mat-label>SELECT DIVISION</mat-label>
+                        <mat-select name="division" required placeholder="SELECT DIVISION" matTooltip="SELECT DIVISION" [formControl]="divisionControl" [(ngModel)]="selectedDivision" (selectionChange)="onDivisionSelection($event.value)">
+                            <mat-option>
+                              <lib-mat-select-search
+                                [list]="division"
+                                [searchProperties]="['name']"
+                                (filtered)="filteredDivision = $event"
+                              >
+                              </lib-mat-select-search>
+                            </mat-option>
+                            <mat-option disabled>PLEASE SELECT DIVISION</mat-option>
+                            <mat-option
+                              *ngFor="let division of filteredDivision"
+                              [value]="division.value"
+                            >
+                            {{ division.name }}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="divisionControl.hasError('required')">PLEASE SELECT DIVISION.</mat-error>
+                        <mat-hint>{{divisionControl.value?.sound}}</mat-hint>
+                    </mat-form-field>
+                </div>
+                <div class="dropdown col-lg-3 col-md-3 col-sm-3">
+                    <mat-form-field appearance="fill" class="dropdown-wrap">
+                        <mat-label>SELECT LOCATION</mat-label>
+                        <mat-select name="location" required matTooltip="SELECT LOCATION" (ngModelChange)="onLocationSelection($event)" placeholder="SELECT LOCATION" [formControl]="locationControl" [(ngModel)]="selectedLocation">
+                            <mat-option>
+                              <lib-mat-select-search
+                                [list]="location"
+                                [searchProperties]="['name']"
+                                (filtered)="filteredLocation = $event"
+                              >
+                              </lib-mat-select-search>
+                            </mat-option>
+                            <mat-option disabled>PLEASE SELECT LOCATION</mat-option>
+                            <mat-option
+                                *ngFor="let loc of filteredLocation"
+                                [value]="{id: loc.Location, name: loc.LocationDescription}"
+                            >
+                            {{ loc.LocationDescription }} - {{loc.Location}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="locationControl.hasError('required')">PLEASE SELECT LOCATION.</mat-error>
+                        <mat-hint>{{locationControl.value?.sound}}</mat-hint>
+                    </mat-form-field>
+                </div>
+                <button type="button" class="btn btn-md large-buttons buttonload" matTooltip="Search Inventory"  style="color: #FFF;" (click)="onGetPriceLookup()">
+                    <i *ngIf="isSearched == true" class="fa fa-spinner fa-spin"></i> Search
+                </button>
+            </div>
+            <div class="tab-container row" style="margin-right: 0px; margin-left: 0px;" #TABLE>
+                <div class="card-container col-lg-12 col-md-12 col-sm-12" style="margin-top: 4px; box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),0px 5px 15px rgba(0, 0, 0, 0.1);">
+                    <div class="export-button" *ngIf="exportCsvButtonActive">
+                        <button type="button" class="btn btn-md large-buttons buttonExportToCvs" matTooltip="Export to CSV"  style="color: #FFF;" (click)="exportToCsv()">
+                            Export to CSV <i class="fa fa-file-export"></i> 
+                      </button>
+                    </div>
+                    <h2 class="header-text">Retail Price</h2>
+                    <table class="table table-hover text-nowrap" #table>
+                        <thead>
+                         <tr style="background-color: #e6e4e4;">
+                            <th scope="col">CSKU</th>
+                            <th scope="col">RSKU</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Price Type</th>
+                            <th scope="col">SAP Price</th>
+                            <th scope="col">MCS Price</th>
+                            <th scope="col">POS Price</th>
+                            <th scope="col">Comall Price</th>
+                            <th scope="col">Currency</th>
+                            <th scope="col">PCN No</th>
+                            <th scope="col">Start Date</th>
+                            <th scope="col">End Date</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let lookup of getPriceLookup">
+                                <td>{{lookup.CSKU}}</td>
+                                <td>{{lookup.RSKU}}</td>
+                                <td>{{lookup.Location}}</td>
+                                <td>{{lookup.PriceType}}</td>
+                                <td>{{lookup.PriceValue}}</td>
+                                <td>{{lookup.PriceValue}}</td>
+                                <td>{{lookup.PriceValue}}</td>
+                                <td>{{lookup.PriceValue}}</td>
+                                <td>{{lookup.PriceCurrency}}</td>
+                                <td>{{lookup.PCN_No}}</td>
+                                <td>{{lookup.startYear}} - {{lookup.startMonth}} - {{lookup.startDay}}</td>
+                                <td>{{lookup.endYear}} - {{lookup.endMonth}} - {{lookup.endDay}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

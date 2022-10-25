@@ -1,0 +1,318 @@
+<div class="container-fluid" style="width: 100%">
+  <div class="row" style="width: 100%">
+    <div class="col-2 innerpage-column1">
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <div class="heading">
+        <h2 class="LibreFranklinBold">IDT Overview</h2>
+        <p class="LibreFranklinRegular">Transfer Process</p>
+      </div>
+
+      <ul class="StepProgress">
+        <li
+          class="StepProgress-item current"
+          *ngFor="let item of steps"
+          [ngClass]="{ grey: !item.active }"
+        >
+          <p class="LibreFranklinRegular">{{ item.p }}</p>
+          <h2 class="LibreFranklinSemiBold">{{ item.h2 }}</h2>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-10 column2">
+      <div class="container-fluid outer-container1">
+        <div class="row justify-content-between" style="margin-bottom: -25px">
+          <div class="col-6">
+            <span class="order-lbl LibreFranklinRegular active-red"
+              >Interdivison Transfer Out</span
+            >
+          </div>
+          <div class="col-6 text-right buttons-container">
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-print" aria-hidden="true"></i> Print
+            </button>
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-envelope" aria-hidden="true"></i> Email
+            </button>
+            <!-- <button type="button" class="btn btn-outline-danger btn-sm">
+              <i class="fa fa-undo" aria-hidden="true"></i>Undo
+            </button> -->
+          </div>
+        </div>
+
+        <br />
+        <br />
+        <br />
+
+        <div class="container1">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="material-textfield col-10">
+                  <mat-label>Source Location</mat-label>
+                  <mat-select name="fromLocation" [(ngModel)]="selectedFrom">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="fromLocations"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredFromLocations = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let fromLocation of filteredFromLocations"
+                      [value]="fromLocation.abbrev"
+                    >
+                      {{ fromLocation.name }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+
+                <div class="material-textfield col-10">
+                  <mat-label>To Division</mat-label>
+                  <mat-select name="toDivision" [(ngModel)]="division">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="toDivisions"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredDivision = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let toDivision of filteredDivision"
+                      [value]="toDivision.name"
+                    >
+                      {{ toDivision.name }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+
+                <div class="material-textfield col-10">
+                  <mat-label>Estimated Delivery Date</mat-label>
+                  <!-- <br /> -->
+                  <input
+                    matInput
+                    [matDatepicker]="picker1"
+                    [formControl]="etaDateLink"
+                    placeholder="Choose..."
+                    name="shipmentDeliveryDate"
+                    (dateInput)="setDateAndMonthAndYear($event.value)"
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker1"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+                </div>
+
+                <div class="material-textfield col-10">
+                  <mat-label>Destination Location</mat-label>
+                  <mat-select name="toLocation" [(ngModel)]="selectedTo">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="toLocations"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredToLocations = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let toLocation of filteredToLocations"
+                      [value]="toLocation.abbrev"
+                    >
+                      {{ toLocation.name }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+
+                <div class="material-textfield col-10">
+                  <mat-label>Request Initiated Date</mat-label>
+                  <br />
+                  <input
+                    matInput
+                    [matDatepicker]="picker2"
+                    [formControl]="currentDate"
+                    name="transferInitiatedDate"
+                    readonly
+                  />
+                  <mat-datepicker-toggle
+                    matSuffix
+                    [for]="picker2"
+                    disabled
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker2></mat-datepicker>
+                </div>
+
+                <div class="material-textfield col-10">
+                  <mat-label>Reference</mat-label>
+                  <input
+                    placeholder=""
+                    matInput
+                    type="text"
+                    name="reference"
+                    class="form-control form-control-sm"
+                    [ngModel]="reference"
+                  />
+                </div>
+
+                <div class="col-10" style="display: inline-flex">
+                  <form
+                    #userForm="ngForm"
+                    (ngSubmit)="onSubmit(userForm.value)"
+                  >
+                    <button
+                      type="submit"
+                      style="margin: 5px"
+                      class="btn btn-outline-dark btn-sm"
+                    >
+                      <i class="fa fa-barcode" aria-hidden="true"></i> Choose
+                      Product
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="container-fluid outer-container4" *ngIf="items.length != 0">
+        <div class="row">
+          <!-- <div class="col-10" style="display: inline-flex">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+              <button
+                type="submit"
+                style="margin: 5px"
+                class="btn btn-outline-dark btn-sm"
+              >
+                <i class="fa fa-barcode" aria-hidden="true"></i> Choose Product
+              </button>
+            </form>
+          </div> -->
+          <div class="col-10"></div>
+          <div class="col-2">
+            <button
+              type="button"
+              (click)="
+                status == 'request' ? onInitiate() : openApprovalDialogInit()
+              "
+              class="btn btn-danger btn-sm"
+            >
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              {{ status == "request" ? status : "approval" }}
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-hover" style="border: 1px soild grey">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </th>
+                  <th scope="col">PRODUCT</th>
+                  <th scope="col">UPC/GTIN</th>
+                  <th scope="col">PRODUCT DESC</th>
+                  <th class="text-center" scope="col">
+                    FROM LOCATION - ON HAND
+                  </th>
+                  <th class="text-center" scope="col">STATUS</th>
+                  <th class="text-center" scope="col">TRANSFER QUANTITY</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ item.product }}</td>
+                  <td>{{ item.upc }}</td>
+                  <td>{{ item.expiryDate }}</td>
+                  <td align="center">{{ item.onHand }}</td>
+                  <td>{{ status == "request" ? '' : "Pending for Approval" }}</td>
+                  <td align="center">
+                    <input
+                      type="text"
+                      class="table-input"
+                      name="transferQuantity"
+                      value="{{ item.transferQuantity }}"
+                      (input)="
+                        status == 'request'
+                          ? setTransferQuantity($event, i)
+                          : setApprovalTransferQuantity($event, i)
+                      "
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="container-fluid outer-container3"
+        *ngIf="itemsDataFrom.length != 0"
+      >
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="button"
+              style="margin: 5px; border: none; background: #d9d6d6"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-history" aria-hidden="true"></i> Activity Logs
+            </button>
+            <div class="activityScroll">
+              <div
+                class="LibreFranklinRegular h6"
+                *ngIf="itemsDataFrom.length == 0"
+                style="margin: 5px; margin-left: 25px"
+              >
+                No Activity
+              </div>
+
+              <div *ngFor="let item of itemsDataFrom; let i = index">
+                <div class="clearfix">
+                  <div class="card-body" style="padding: 10px">
+                    <div class="title-header" style="font-weight: bold">
+                      {{ item.status == "request" ? "Order ID" : "Order ID" }} :
+                      #{{ item.id }}
+                    </div>
+                    <div class="p-text">
+                      <span style="font-weight: 500">
+                        shipment Delivery Date :
+                      </span>
+                      {{ item.shipmentDeliveryDate }} |
+                      <span style="font-weight: 500">Total Items :</span
+                      >{{ item.totalItem }} |
+                      <span style="font-weight: 500">Total Quantity :</span
+                      >{{ item.transferQuantity }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

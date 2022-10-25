@@ -1,0 +1,117 @@
+<section id="navigation-menu">
+  <div class="container-fluid p-0">
+    <ul id="user-menu">
+      <li
+        *ngFor="let l2 of l1CategoriesFiltered.l2_categories; let i = index"
+        class="navbar-header nav-item"
+      >
+        <a
+          class="navbar-title"
+          [routerLink]="['/category/']"
+          [queryParams]="{ type: type, item: l2.l2_name }"
+          routerLinkActive="active"
+          (mouseover)="over($event)"
+          [ngClass]="{ active: item == l2.l2_name }"
+        >
+          {{ l2.l2_name }}
+        </a>
+
+        <!-- <div class="nav-pane" [attr.data-index]="i">
+          <div class="nav-menu-container">
+            <div *ngFor="let l3 of l2.list" class="nav-menu">
+              <li class="menu-item">
+                <a
+                  pageScroll
+                  [pageScrollDuration]="400"
+                  class=""
+                  href="#target"
+                  (click)="setItems(l2.l2_name); overHide($event)"
+                >
+                  {{ l3 }}
+                </a>
+              </li>
+            </div>
+          </div>
+        </div> -->
+      </li>
+    </ul>
+
+    <div *ngFor="let l2 of l1CategoriesFiltered.l2_categories; let i = index">
+      <div
+        class="container-fluid nav-attr-sec"
+        [routerLink]="['/category/']"
+        [queryParams]="{ type: type, item: l2.l2_name }"
+        routerLinkActive="active"
+        [ngClass]="{ active: item == l2.l2_name }"
+      >
+        <div class="row">
+          <div class="col-12">
+            <div class="type-row">
+              <div class="type-lp-filler" id="target"></div>
+
+              <!-- <a class="type-tab all disabled-tab" href="/categories/makeup">
+                <div class="type-tag all selected-tab">ALL</div>
+              </a> -->
+
+              <span
+                *ngFor="let l3_item of attributes[type]; let j = index"
+                pageScroll
+                [pageScrollDuration]="400"
+                class="type-tab defined-tabs {{ 'defined-tabs-' + j }}"
+                (click)="
+                  setItems(l2.l2_name); toggleDefinedActive($event, j, l3_item)
+                "
+              >
+                <div class="type-tag">{{ l3_item }}</div>
+              </span>
+
+              <div class="type-lp-filler"></div>
+            </div>
+
+            <div class="type-row">
+              <div class="type-lp-filler" id="target"></div>
+
+              <span
+                *ngFor="let l3 of l2.list.slice(0, 7); let k = index"
+                pageScroll
+                [pageScrollDuration]="400"
+                class="type-tab {{ 'normal-tabs-' + k }}"
+                (click)="setItems(l2.l2_name); toggleActive($event, k, l3)"
+              >
+                <div class="type-tag">{{ l3 }}</div>
+              </span>
+
+              <span
+                pageScroll
+                [pageScrollDuration]="400"
+                class="type-tab"
+                (click)="openText()"
+                (mousemove)="onQuickViewHoverAllItems($event)"
+                (mouseout)="onQuickViewHoverOutAllItems($event)"
+              >
+                <div class="type-tag" *ngIf="!open">
+                  <i class="fa-solid fa-plus"></i>
+                  &nbsp; Custom Filter
+                </div>
+
+                <div class="type-tag" *ngIf="open">
+                  <input
+                    id="openText"
+                    value=""
+                    [(ngModel)]="inputOpenText"
+                    autofocus
+                    (keyup)="addL3($event, i)"
+                  />
+                </div>
+              </span>
+
+              <div class="type-lp-filler"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="custom-filter" id="customFilter">Add Custom Filter</div>

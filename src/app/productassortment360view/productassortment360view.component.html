@@ -1,0 +1,22 @@
+<main>
+  <app-nav360
+    *ngIf="!isCartPageActive"
+    [type]="type"
+    [item]="item"
+    [inItem]="inItem"
+    [setItems]="setItems"
+    [l1Categories]="l1Categories"
+    [l1CategoriesFiltered]="l1CategoriesFiltered"
+  ></app-nav360>
+
+  <app-categoriestype
+    *ngIf="!isCartPageActive"
+    [type]="type"
+    [item]="item"
+    [inItem]="inItem"
+    [l1CategoriesFiltered]="l1CategoriesFiltered"
+    [l2CategoriesFiltered]="l2CategoriesFiltered"
+  ></app-categoriestype>
+
+  <app-cart-page *ngIf="isCartPageActive"></app-cart-page>
+</main>

@@ -1,0 +1,613 @@
+@font-face {
+  font-family: Sephora SerifBook;
+  src: url(/assets/categories/fonts/SephoraSerifBook.woff2);
+}
+@font-face {
+  font-family: Sephora SansBold;
+  src: url(/assets/categories/fonts/SephoraSansBold.woff2);
+}
+@font-face {
+  font-family: Sephora SansMedium;
+  src: url(/assets/categories/fonts/SephoraSansMedium.woff2);
+}
+@font-face {
+  font-family: Sephora SansBook;
+  src: url(/assets/categories/fonts/SephoraSansBook.woff2);
+}
+
+.nav1 {
+  background-color: #000;
+  position: relative;
+  top: 0;
+  box-sizing: border-box;
+  height: 35px;
+  width: 100%;
+  z-index: 103000;
+  font-size: 12px;
+  color: #fff;
+}
+
+.nav1 .container {
+  height: 100%;
+}
+
+.nav1 .nav-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav1 .nav-container div.nav-space {
+  flex-grow: 1;
+}
+
+.nav1 .nav-container div.navbar-brand {
+  font-size: 14px;
+  margin-left: 0.5rem;
+}
+
+.nav1 .nav-container div .user-icon {
+  margin-right: 8px;
+  margin-bottom: 5px;
+  width: 13px;
+  height: 15px;
+  vertical-align: bottom;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(/assets/categories/user.svg);
+  background-size: cover;
+}
+
+.nav1 .nav-container div .app-icon {
+  height: 20px;
+  width: 20px;
+  background-size: 20px 20px;
+  vertical-align: bottom;
+  display: inline-block;
+  background-image: url(/assets/categories/app-icon.svg);
+}
+
+.nav1 .nav-container div .location-icon {
+  height: 24px;
+  width: 24px;
+  background-size: 24px 24px;
+  vertical-align: bottom;
+  display: inline-block;
+  background-image: url(/assets/categories/location.svg);
+}
+
+.nav1 .nav-container div .calendar-icon {
+  height: 24px;
+  width: 24px;
+  background-size: 24px 24px;
+  vertical-align: bottom;
+  display: inline-block;
+  background-image: url(/assets/categories/calendar.svg);
+}
+
+.nav1 .nav-container div .bag-icon {
+  height: 25px;
+  width: 25px;
+  background-size: 25px 25px;
+  vertical-align: bottom;
+  display: inline-block;
+  background-image: url(/assets/categories/bag.svg);
+}
+
+.nav1 .nav-container div a {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Sephora SansMedium", CenturyGothic, Helvetica, Arial;
+}
+
+.nav1 .nav-container div:first-child:hover {
+  color: #dd0031;
+  cursor: default;
+}
+
+.nav1 .nav-container div.navbar-brand:hover .user-icon {
+  background-image: url(/assets/categories/user-hover.svg);
+}
+
+.nav1 .nav-container div a:hover {
+  color: #dd0031;
+  cursor: default;
+}
+
+.nav1 .nav-container div a.account {
+  margin-right: 0.3rem;
+}
+
+.nav1 .nav-container div a.register {
+  margin-right: 0.3rem;
+  margin-left: 0.2rem;
+  font-weight: 500;
+}
+
+.nav1 .nav-container div a.signin {
+  margin-left: 0.3rem;
+  font-weight: 500;
+}
+
+.nav1 .nav-item {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.nav2 {
+  /* max-width: 1125px; */
+  /* background: linear-gradient(270deg, #ffbda9 0%, #ff7e67 100%); */
+  background: linear-gradient(270deg, #fff 0%, #fff 100%);
+  color: #fff;
+  height: 45px;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  top: 0;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.nav2.width {
+  max-width: 100%;
+  height: 40px;
+  transition: all 0.3s ease;
+}
+
+.nav2 .container {
+  height: 100%;
+}
+
+.nav2 .nav-container {
+  height: 100%;
+  display: flex;
+  /* align-items: center; */
+  border-top: 1px solid #eaeaea;
+}
+
+.nav2 .nav-container div.nav-space {
+  flex-grow: 1;
+}
+
+.nav2 .nav-container .left-item {
+  width: 22%;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 500;
+  font-size: 19px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: LibreFranklinSemiBold;
+  text-transform: capitalize;
+  color: #919191;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-left: 1px solid #eaeaea;
+  /* background: linear-gradient(rgb(255 255 255), rgb(19, 41, 46)); */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+.nav2 .nav-container .left-item:last-child {
+  border-right: 1px solid #eaeaea;
+}
+
+.nav2 .nav-container .left-item.gradient-text {
+  /* background-color: #ca4246; */
+
+  /* background-image: linear-gradient(
+    45deg,
+    #ca4246 16.666%,
+    #e16541 16.666%,
+    #e16541 33.333%,
+    #f18f43 33.333%,
+    #f18f43 50%,
+    #8b9862 50%,
+    #8b9862 66.666%,
+    #476098 66.666%,
+    #476098 83.333%,
+    #a7489b 83.333%
+  ); */
+
+  /* background-size: 100%; */
+  /* background-repeat: repeat; */
+
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+
+  /* Animate the text when loading the element. */
+  /* This animates it on page load and when hovering out. */
+  /* animation: rainbow-text-simple-animation-rev 0.75s ease forwards; */
+}
+
+.nav2 .nav-container .left-item.gradient-text:hover {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+.nav2 .nav-container .left-item.active.gradient-text {
+  animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+}
+
+/* Move the background and make it smaller. */
+/* Animation shown when entering the page and after the hover animation. */
+@keyframes rainbow-text-simple-animation-rev {
+  0% {
+    background-size: 650%;
+  }
+  40% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+/* Move the background and make it larger. */
+/* Animation shown when hovering over the text. */
+@keyframes rainbow-text-simple-animation {
+  0% {
+    background-size: 100%;
+  }
+  80% {
+    background-size: 650%;
+  }
+  100% {
+    background-size: 650%;
+  }
+}
+
+.nav2 .nav-container .left-item:hover {
+  color: #fff;
+  transition: all 0.3s ease;
+  font-family: LibreFranklinSemiBold;
+  text-transform: capitalize;
+  background: #9e375354;
+  border: none;
+}
+
+.nav2 .nav-container .left-item.active {
+  color: #fff;
+  font-family: LibreFranklinSemiBold;
+  text-transform: capitalize;
+  background: #9e3753;
+  border: none;
+}
+
+.nav2.width .nav-container .left-item {
+  /* font-size: 15.5px; */
+}
+
+.nav2.width .nav-container .left-item:hover {
+  font-size: 19px;
+  font-family: LibreFranklinSemiBold;
+}
+
+.nav2.width .nav-container .left-item.active {
+  font-size: 19px;
+}
+
+.nav2 .nav-container .middle-item {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 40%;
+  font-family: "Sephora SansMedium", CenturyGothic, Helvetica, Arial;
+}
+
+.nav2 .nav-container .text-scroll {
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  height: 45px;
+}
+
+.middle-list.start-scroll {
+  -moz-animation-play-state: running;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+@keyframes scrollUp {
+  0% {
+    -moz-transform: translateY(8%);
+    -webkit-transform: translateY(8%);
+    transform: translateY(8%);
+  }
+  100% {
+    -moz-transform: translateY(-92%);
+    -webkit-transform: translateY(-92%);
+    transform: translateY(-92%);
+  }
+}
+
+.middle-list {
+  font-size: 16px;
+  font-weight: normal;
+  overflow: hidden;
+  margin: 4px 0 0 0;
+  padding: 0;
+  -moz-transform: translateY(8%);
+  -webkit-transform: translateY(8%);
+  transform: translateY(8%);
+  -moz-animation: scrollUp 20s linear infinite;
+  -webkit-animation: scrollUp 20s linear infinite;
+  animation: scrollUp 20s linear infinite;
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+}
+
+.middle-list li {
+  padding: 12px 10px;
+  list-style: none;
+}
+
+.middle-list li a.beauty-pass {
+  text-decoration: underline;
+  color: white;
+}
+
+.nav2 .nav-container .right-item {
+  display: flex;
+  align-items: center;
+  width: 35%;
+  height: 45px;
+  justify-content: flex-end;
+}
+
+.button {
+  float: left;
+  display: block;
+  padding: 4px 13px 5px;
+  border: none;
+  background: none;
+  color: inherit;
+  position: relative;
+  z-index: 1;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 500;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+  background: #000;
+  color: #fff;
+  width: 170px;
+  border: 1px solid #000;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button--signup {
+  background: #fff;
+  color: #000;
+}
+
+.button--signin:hover {
+  color: #fff;
+  opacity: 0.8;
+  border-color: #000;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.button--signup:hover {
+  color: #000;
+  opacity: 0.8;
+  border-color: #000;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.logo-section {
+  max-height: 80px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.svg-logo-dfs {
+  height: 3rem;
+}
+
+.logo-section .navbar-brand {
+  padding-bottom: 0;
+}
+
+.wrap {
+  width: 100%;
+}
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: right;
+}
+
+.searchTerm {
+  width: 80%;
+  /* border: 1px solid #000; */
+  background: #fbf5f4;
+  border-radius: 4px;
+  border: none;
+  padding: 5px;
+  height: 40px;
+  outline: none;
+  color: #000;
+  padding-left: 15px;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  font-size: 14px;
+  font-family: LibreFranklinRegular;
+}
+
+.searchTerm:focus {
+  color: #000;
+}
+
+.search-icon {
+  display: block;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  margin: 0;
+  background-size: 15px 15px;
+  /* background-image: url(/assets/categories/search.svg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 9px 10px 5px;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: opacity 0.12s ease-in-out;
+  color: #fff;
+  background-color: transparent;
+  border-color: none;
+  position: absolute;
+  right: 0;
+}
+
+.search-icon:hover {
+  opacity: 0.8;
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.promotion-banner {
+  display: inline-block;
+  position: static;
+  left: 75%;
+  height: 50px;
+}
+
+.dfs-flame-icon {
+  width: 37px;
+  height: 45px;
+  background-size: 50px 50px;
+  display: inline-block;
+  background-image: url(/assets/categories/fire.svg);
+}
+
+.promotion-banner .promotion-notification {
+  width: 208px;
+  height: 40px;
+  text-transform: uppercase;
+  line-height: 18px;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.promotion-banner .promotion-notification .promotion-list {
+  margin-top: 0;
+  padding: 0;
+}
+
+.promotion-banner .promotion-notification .promotion {
+  height: 38px;
+  padding: 2px 0;
+  color: #000;
+}
+
+.promotion-banner .promotion-notification .promotion-link {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 12px;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+  color: #000;
+}
+
+.promotion-banner .promotion-notification .promotion-link:hover {
+  color: #dd0031;
+  text-decoration: none;
+}
+
+.promotion-banner .promotion-notification .promotion-title {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.promotion-banner .promotion-notification .promotion {
+  height: 38px;
+  padding: 2px 0;
+  color: #000;
+}
+
+.promotion-banner .promotion-notification .promotion:first-child {
+  -moz-animation-play-state: running;
+  -webkit-animation-play-state: running;
+  animation-play-state: running;
+}
+
+@keyframes moveUp {
+  0% {
+    margin-top: 0;
+  }
+  10%,
+  60% {
+    margin-top: -41px;
+  }
+  70%,
+  100% {
+    margin-top: 0px;
+  }
+}
+
+.promotion-banner .promotion-notification .promotion:first-child {
+  -moz-animation: moveUp 5s linear infinite;
+  -webkit-animation: moveUp 5s linear infinite;
+  animation: moveUp 5s linear infinite;
+  /* animation-delay: 4s; */
+}
+
+.promotion-banner .promotion-notification .promotion-link {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.promotion-banner .promotion-notification .promotion-title {
+  font-weight: 500;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 0;
+}
+
+.promotion-banner .promotion-notification .promotion-subtitle {
+  text-align: left;
+  display: inline-block;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  display: block;
+  font-size: 12px;
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+}

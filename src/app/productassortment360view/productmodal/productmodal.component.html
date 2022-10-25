@@ -1,0 +1,386 @@
+<div class="container-fluid modal-product">
+  <i class="fa-solid fa-xmark close" (click)="onCancel()"></i>
+
+  <div class="row">
+    <div class="col-6">
+      <ngx-slick-carousel
+        class="carousel"
+        #slickModal="slick-carousel"
+        [config]="slideConfig"
+        (init)="slickInit($event)"
+        (breakpoint)="breakpoint($event)"
+        (afterChange)="afterChange($event)"
+        (beforeChange)="beforeChange($event)"
+      >
+        <div ngxSlickItem class="slide">
+          <img src="{{ data.img }}" alt="" width="100%" />
+        </div>
+
+        <div ngxSlickItem class="slide">
+          <span class="absolute-center-flex">
+            <img src="assets/product-modal-2.png" alt="" style="width: 216px" />
+
+            <span class="product-desc">
+              <p class="dimension-head">Product dimensions LxWxH</p>
+              <p class="dimension-desc">40 x 40 x 18 millimeters</p>
+              <p class="product-size">Size <span>0.28</span> <span>oz</span></p>
+              <p
+                class="product-colors d-flex align-items-center justify-content-center"
+              >
+                Color
+                <img src="assets/product-colors.png" style="width: 90px" />
+              </p>
+            </span>
+          </span>
+        </div>
+
+        <div ngxSlickItem class="slide">
+          <span class="absolute-center-flex">
+            <img src="assets/product-modal-3.png" alt="" style="width: 240px" />
+          </span>
+        </div>
+
+        <div ngxSlickItem class="slide">
+          <span class="absolute-center-flex">
+            <img src="assets/product-modal-4.png" alt="" style="width: 140px" />
+          </span>
+        </div>
+      </ngx-slick-carousel>
+
+      <div class="container">
+        <span class="row text-center justify-content-center align-items-center">
+          <span class="col-2 thumbs" (click)="slickModal.slickGoTo(0)">
+            <img src="{{ data.img }}" alt="" width="60%" />
+          </span>
+          <span class="col-2 thumbs" (click)="slickModal.slickGoTo(1)">
+            <img src="assets/product-modal-2.png" alt="" width="60%" />
+          </span>
+          <span class="col-2 thumbs" (click)="slickModal.slickGoTo(2)">
+            <img src="assets/product-modal-3.png" alt="" width="60%" />
+          </span>
+          <span class="col-2 thumbs" (click)="slickModal.slickGoTo(3)">
+            <img src="assets/product-modal-4.png" alt="" width="60%" />
+          </span>
+        </span>
+      </div>
+
+      <!-- <carousel
+        [height]="340"
+        [cellsToShow]="1"
+        [loop]="false"
+        [arrowsOutside]="true"
+        [cellsToScroll]="1"
+      >
+        <div class="carousel-cell">
+          <div
+            class="carousel_item featured_product product product_shared item null"
+            style="margin-left: 3px; margin-right: 3px"
+          >
+            <div class="image stable">
+              <a href="" id="banner-clp-mu-phase4-1">
+                <img
+                  alt="Power Bullet Matte Lipstick"
+                  src="assets/categories/pro5.png"
+                  class="ga-image-ready"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div
+            class="carousel_item featured_product product product_shared item null"
+            style="margin-left: 3px; margin-right: 3px"
+          >
+            <div class="image stable absolute-center">
+              <a href="" id="banner-clp-mu-phase4-1">
+                <img
+                  style="width: 216px; margin-bottom: 7px"
+                  alt="Power Bullet Matte Lipstick"
+                  src="assets/product-modal-2.png"
+                  class="ga-image-ready"
+                />
+                <br />
+                <span class="product-desc">
+                  <p class="dimension-head">Product dimensions LxWxH</p>
+                  <p class="dimension-desc">40 x 40 x 18 millimeters</p>
+                  <p class="product-size">
+                    Size <span>0.28</span> <span>oz</span>
+                  </p>
+                  <p
+                    class="product-colors d-flex align-items-center justify-content-center"
+                  >
+                    Color
+                    <img src="assets/product-colors.png" style="width: 90px" />
+                  </p>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div
+            class="carousel_item featured_product product product_shared item null"
+            style="margin-left: 3px; margin-right: 3px"
+          >
+            <div class="image stable absolute-center">
+              <a href="" id="banner-clp-mu-phase4-1">
+                <img
+                  style="width: 240px"
+                  alt="Power Bullet Matte Lipstick"
+                  src="assets/product-modal-3.png"
+                  class="ga-image-ready"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-cell">
+          <div
+            class="carousel_item featured_product product product_shared item null"
+            style="margin-left: 3px; margin-right: 3px"
+          >
+            <div class="image stable absolute-center">
+              <a href="" id="banner-clp-mu-phase4-1">
+                <img
+                  style="width: 140px"
+                  alt="Power Bullet Matte Lipstick"
+                  src="assets/product-modal-4.png"
+                  class="ga-image-ready"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </carousel> -->
+    </div>
+
+    <div class="col-6">
+      <p class="product-card-brand">{{ data.brand }}</p>
+
+      <p class="product-card-product">{{ data.desc }}</p>
+      <p class="product-card-product mini">
+        UPC/GTIN: {{ data.gtin }} | Product ID: {{ data.id }}
+      </p>
+      <p class="product-card-product mini margin">Margin: <span>+20%</span></p>
+
+      <div class="product-price d-flex justify-content-between">
+        <span class="product-price-sale-new">
+          <img src="assets/categories/hongkong.png" />
+          {{ data.price }} HKD
+        </span>
+
+        <span class="product-price-sale-other">
+          <img src="assets/categories/macau.png" />
+          495 MOP
+
+          <img src="assets/categories/singapore.png" />
+          83.71 SGD
+
+          <img src="assets/categories/us.png" />
+          61.36 USD
+        </span>
+      </div>
+
+      <div class="scroll-top-borders">
+        <p>
+          Product Status:
+          <svg
+            width="13"
+            height="14"
+            viewBox="0 0 13 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+              fill="#2AB419"
+            />
+          </svg>
+          Authorized (3389)
+        </p>
+
+        <select id="modal-select-country" autofocus>
+          <option>Hong Kong</option>
+          <option>Macau</option>
+          <option>Singapore</option>
+        </select>
+
+        <div class="modal-track-scroll">
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM4.49082 6.07168L5.65664 7.2375L4.49082 8.40332C4.24277 8.65137 4.24277 9.02344 4.49082 9.24668C4.71406 9.49473 5.08613 9.49473 5.30938 9.24668L6.4752 8.08086L7.66582 9.24668C7.88906 9.49473 8.26113 9.49473 8.48437 9.24668C8.73242 9.02344 8.73242 8.65137 8.48437 8.40332L7.31855 7.2375L8.48437 6.07168C8.73242 5.84844 8.73242 5.47637 8.48437 5.22832C8.26113 5.00508 7.88906 5.00508 7.66582 5.22832L6.4752 6.41895L5.30938 5.22832C5.08613 5.00508 4.71406 5.00508 4.49082 5.22832C4.24277 5.47637 4.24277 5.84844 4.49082 6.07168Z"
+                fill="#D62728"
+              />
+            </svg>
+            T Galleria Beauty, Hong Kong, Causeway Bay
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria, Hong Kong, Tsim Sha Tsui East (987)
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM4.49082 6.07168L5.65664 7.2375L4.49082 8.40332C4.24277 8.65137 4.24277 9.02344 4.49082 9.24668C4.71406 9.49473 5.08613 9.49473 5.30938 9.24668L6.4752 8.08086L7.66582 9.24668C7.88906 9.49473 8.26113 9.49473 8.48437 9.24668C8.73242 9.02344 8.73242 8.65137 8.48437 8.40332L7.31855 7.2375L8.48437 6.07168C8.73242 5.84844 8.73242 5.47637 8.48437 5.22832C8.26113 5.00508 7.88906 5.00508 7.66582 5.22832L6.4752 6.41895L5.30938 5.22832C5.08613 5.00508 4.71406 5.00508 4.49082 5.22832C4.24277 5.47637 4.24277 5.84844 4.49082 6.07168Z"
+                fill="#D62728"
+              />
+            </svg>
+            T Galleria Beauty, Hong Kong, Moko
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria Beauty, Canton Road
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria Beauty, Macau, MGM Cotai
+          </p>
+
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM4.49082 6.07168L5.65664 7.2375L4.49082 8.40332C4.24277 8.65137 4.24277 9.02344 4.49082 9.24668C4.71406 9.49473 5.08613 9.49473 5.30938 9.24668L6.4752 8.08086L7.66582 9.24668C7.88906 9.49473 8.26113 9.49473 8.48437 9.24668C8.73242 9.02344 8.73242 8.65137 8.48437 8.40332L7.31855 7.2375L8.48437 6.07168C8.73242 5.84844 8.73242 5.47637 8.48437 5.22832C8.26113 5.00508 7.88906 5.00508 7.66582 5.22832L6.4752 6.41895L5.30938 5.22832C5.08613 5.00508 4.71406 5.00508 4.49082 5.22832C4.24277 5.47637 4.24277 5.84844 4.49082 6.07168Z"
+                fill="#D62728"
+              />
+            </svg>
+            T Galleria Beauty, Hong Kong, Causeway Bay
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria, Hong Kong, Tsim Sha Tsui East (987)
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM4.49082 6.07168L5.65664 7.2375L4.49082 8.40332C4.24277 8.65137 4.24277 9.02344 4.49082 9.24668C4.71406 9.49473 5.08613 9.49473 5.30938 9.24668L6.4752 8.08086L7.66582 9.24668C7.88906 9.49473 8.26113 9.49473 8.48437 9.24668C8.73242 9.02344 8.73242 8.65137 8.48437 8.40332L7.31855 7.2375L8.48437 6.07168C8.73242 5.84844 8.73242 5.47637 8.48437 5.22832C8.26113 5.00508 7.88906 5.00508 7.66582 5.22832L6.4752 6.41895L5.30938 5.22832C5.08613 5.00508 4.71406 5.00508 4.49082 5.22832C4.24277 5.47637 4.24277 5.84844 4.49082 6.07168Z"
+                fill="#D62728"
+              />
+            </svg>
+            T Galleria Beauty, Hong Kong, Moko
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria Beauty, Macau, Galaxy Macau
+          </p>
+          <p>
+            <svg
+              width="13"
+              height="14"
+              viewBox="0 0 13 14"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.15 7.2375C0.15 3.74004 2.97773 0.8875 6.5 0.8875C9.99746 0.8875 12.85 3.74004 12.85 7.2375C12.85 10.7598 9.99746 13.5875 6.5 13.5875C2.97773 13.5875 0.15 10.7598 0.15 7.2375ZM9.35254 6.14609C9.62539 5.87324 9.62539 5.45156 9.35254 5.17871C9.07969 4.90586 8.65801 4.90586 8.38516 5.17871L5.70625 7.85762L4.59004 6.76621C4.31719 6.49336 3.89551 6.49336 3.62266 6.76621C3.3498 7.03906 3.3498 7.46074 3.62266 7.73359L5.21016 9.32109C5.48301 9.59395 5.90469 9.59395 6.17754 9.32109L9.35254 6.14609Z"
+                fill="#2AB419"
+              />
+            </svg>
+            T Galleria Beauty, Macau, MGM Cotai
+          </p>
+        </div>
+      </div>
+
+      <a
+        [routerLink]="['/categorymap/']"
+        [queryParams]="{
+          map: true,
+          img: data.img,
+          gtin: data.gtin,
+          id: data.id,
+          brand: data.brand,
+          desc: data.desc
+        }"
+        routerLinkActive="active"
+        target="_blank"
+      >
+        <p class="overview-map">Overview of product's performance</p>
+      </a>
+
+      <!-- <p class="product-details">Product Details <span></span></p> -->
+    </div>
+  </div>
+</div>

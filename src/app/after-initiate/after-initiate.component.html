@@ -1,0 +1,49 @@
+<div class="container-fluid" style="padding: 50px">
+  <div class="row">
+    <div class="col-12 text-center mb-4">
+      <svg
+        width="94"
+        height="94"
+        viewBox="0 0 94 94"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0.600002 47.2C0.600002 21.6438 21.2625 0.800004 47 0.800004C72.5562 0.800004 93.4 21.6438 93.4 47.2C93.4 72.9375 72.5562 93.6 47 93.6C21.2625 93.6 0.600002 72.9375 0.600002 47.2ZM67.8437 39.225C69.8375 37.2313 69.8375 34.15 67.8437 32.1563C65.85 30.1625 62.7687 30.1625 60.775 32.1563L41.2 51.7313L33.0438 43.7563C31.05 41.7625 27.9688 41.7625 25.975 43.7563C23.9813 45.75 23.9813 48.8313 25.975 50.825L37.575 62.425C39.5688 64.4188 42.65 64.4188 44.6438 62.425L67.8437 39.225Z"
+          fill="#2AB419"
+        />
+      </svg>
+    </div>
+
+    <div class="col-12">
+      <h2 mat-dialog-title class="LibreFranklinBold" align="center">
+        {{ data.header }}
+      </h2>
+    </div>
+
+    <div class="col-12">
+      <br />
+
+      <h3 mat-dialog-subject class="LibreFranklinRegular" align="center">
+        {{ data.idType }} {{ "#" + data.id }}
+      </h3>
+    </div>
+
+    <div class="col-12">
+      <mat-dialog-actions
+        class="LibreFranklinRegular popup-btns"
+        align="center"
+      >
+        <button
+          mat-raised-button
+          color="warn"
+          mat-dialog-close
+          mat-dialog-close="true"
+          (click)="onReceving()"
+        >
+          {{ data.actionLbl }}
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</div>

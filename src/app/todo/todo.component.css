@@ -1,0 +1,10 @@
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+.register-container {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  min-height: 450px;
+}

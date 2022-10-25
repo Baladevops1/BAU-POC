@@ -1,0 +1,23 @@
+ul.navbar-nav.mr-auto {
+  margin-left: 200px;
+}
+ul.navbar-nav li a {
+  color: var(--active-red);
+}
+.fa-bell:before,
+.fa-user:before,
+.dropdown-toggle::after {
+  color: white;
+}
+
+.nav-item.active {
+  border-bottom: 2px solid var(--active-red);
+}
+
+.dropdown-item.active,
+.dropdown-item:active,
+.dropdown-item:hover {
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--active-red);
+}

@@ -1,0 +1,285 @@
+<div class="main-container todo-container">
+  <div class="register-container">
+    <mat-tab-group mat-align-tabs="start">
+      <mat-tab label="Task">
+        <span *ngIf="activeRole != 5">
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            *ngIf="itemsDataFrom.length != 0 && [1, 2].includes(activeRole)"
+            style="width: 100%"
+          >
+            <!-- <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef style="display: none"></th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox
+                (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)"
+                [aria-label]="checkboxLabel(row)"
+              >
+              </mat-checkbox>
+            </td>
+          </ng-container> -->
+
+            <ng-container matColumnDef="order_id">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Order ID
+                <!-- {{ element.status == "request" ? "Order ID" : "Tracking ID" }} -->
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.id }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="destination_location">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Destination Location
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ getLocation(element.toLocation) }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eta_date">
+              <th mat-header-cell *matHeaderCellDef="let element">ETA Date</th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.shipmentDeliveryDate }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_items">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Total Items
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.totalItem }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_quantity">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Total Quantity
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.totalQuantity }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="button">
+              <th mat-header-cell *matHeaderCellDef="let element">Action</th>
+
+              <td mat-cell *matCellDef="let element">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="onSubmit(element)"
+                >
+                  Pending for
+                  {{ element.status == "request" ? "Approval" : "Fulfillment" }}
+                </button>
+              </td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="product">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              style="font-size: medium; display: none"
+            ></th>
+            <td mat-cell *matCellDef="let element">
+              <span class="active-red">
+                Pending for
+                {{ element.status == "request" ? "Approval" : "Fulfillment" }}
+              </span>
+
+              <div class="clearfix">
+                <div class="card-body">
+                  <div class="title-header" style="font-weight: bold">
+                    {{
+                      element.status == "request" ? "Order ID" : "Tracking ID"
+                    }}
+                    : #{{ element.id }}
+                  </div>
+                  <div class="p-text">
+                    <span style="font-weight: 500">
+                      Destination Location :
+                    </span>
+                    {{ element.toLocation }}
+                    <br />
+                    <span style="font-weight: 500"> ETA Date : </span>
+                    {{ element.shipmentDeliveryDate }} |
+                    <span style="font-weight: 500">Total Items :</span
+                    >{{ element.totalItem }} |
+                    <span style="font-weight: 500">Total Quantity :</span
+                    >{{ element.totalQuantity }}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              (click)="selection.toggle(row)"
+            ></tr>
+
+            <tr class="mat-row" *matNoDataRow></tr>
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+            *ngIf="itemsDataFrom.length != 0 && [1, 2].includes(activeRole)"
+          >
+          </mat-paginator>
+        </span>
+
+        <span *ngIf="activeRole == 5">
+          <table
+            mat-table
+            [dataSource]="dataSource"
+            *ngIf="itemsDataFrom.length != 0"
+            style="width: 100%"
+          >
+            <ng-container matColumnDef="order_id">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Order ID
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.order_creation_id }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="destination_location">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Destination Location
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.store }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eta_date">
+              <th mat-header-cell *matHeaderCellDef="let element">ETA Date</th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.eta_date }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_items">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Total Items
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.totalItem }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="total_quantity">
+              <th mat-header-cell *matHeaderCellDef="let element">
+                Total Quantity
+              </th>
+
+              <td mat-cell *matCellDef="let element">
+                {{ element.totalQuantity }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="button">
+              <th mat-header-cell *matHeaderCellDef="let element">Action</th>
+
+              <td mat-cell *matCellDef="let element">
+                <button
+                  mat-raised-button
+                  color="warn"
+                  (click)="onSubmitOrderCreation(element)"
+                >
+                  Pending for Approval
+                </button>
+              </td>
+            </ng-container>
+
+            <!-- <ng-container matColumnDef="product">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              style="font-size: medium; display: none"
+            ></th>
+            <td mat-cell *matCellDef="let element">
+              <span class="active-red">
+                Pending for
+                {{ element.status == "request" ? "Approval" : "Fulfillment" }}
+              </span>
+
+              <div class="clearfix">
+                <div class="card-body">
+                  <div class="title-header" style="font-weight: bold">
+                    {{
+                      element.status == "request" ? "Order ID" : "Tracking ID"
+                    }}
+                    : #{{ element.id }}
+                  </div>
+                  <div class="p-text">
+                    <span style="font-weight: 500">
+                      Destination Location :
+                    </span>
+                    {{ element.toLocation }}
+                    <br />
+                    <span style="font-weight: 500"> ETA Date : </span>
+                    {{ element.shipmentDeliveryDate }} |
+                    <span style="font-weight: 500">Total Items :</span
+                    >{{ element.totalItem }} |
+                    <span style="font-weight: 500">Total Quantity :</span
+                    >{{ element.totalQuantity }}
+                  </div>
+                </div>
+              </div>
+            </td>
+          </ng-container> -->
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumns"
+              (click)="selection.toggle(row)"
+            ></tr>
+
+            <tr class="mat-row" *matNoDataRow></tr>
+          </table>
+
+          <mat-paginator
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            aria-label="Select page of users"
+            *ngIf="itemsDataFrom.length != 0 && [1, 2].includes(activeRole)"
+          >
+          </mat-paginator>
+        </span>
+
+        <!-- <button
+          mat-raised-button
+          color="warn"
+          (click)="onSubmit()"
+          *ngIf="itemsDataFrom.length != 0 && [1, 2].includes(activeRole)"
+        >
+          Submit
+        </button> -->
+      </mat-tab>
+      <mat-tab label="Approval"></mat-tab>
+      <mat-tab label="Info"></mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

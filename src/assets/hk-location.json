@@ -1,0 +1,789 @@
+{
+    "Locations": [
+        {
+            "Location": 23,
+            "LocationDescription": "TST EAST DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 26,
+            "LocationDescription": "MOKO BEAUTY DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 27,
+            "LocationDescription": "TCR DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 28,
+            "LocationDescription": "TCB DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 35,
+            "LocationDescription": "HKIA WH - GM",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 38,
+            "LocationDescription": "HKIA WH - BEAUTY",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 39,
+            "LocationDescription": "HKIA WH - FOOD",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 45,
+            "LocationDescription": "REVERSE LOGISTIC WHSE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 58,
+            "LocationDescription": "ATL BONDED WAREHOUSE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 59,
+            "LocationDescription": "HKG ETR WAREHOUSE (RELAY)",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 68,
+            "LocationDescription": "HKIA 4W509 T1 WAREHOUSE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 96,
+            "LocationDescription": "EXPENSE WAREHOUSE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 104,
+            "LocationDescription": "RSV HCM ARR SHOP",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 436,
+            "LocationDescription": "SHENZHEN DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 905,
+            "LocationDescription": "HNN MH BOH WH FOR PICK",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 907,
+            "LocationDescription": "HNN BOH WH FOR BUGOU PICK",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 110,
+            "LocationDescription": "HKIA 6E154 T1E HALL CX-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 111,
+            "LocationDescription": "HKIA 6E176 T1E HALL SN-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 112,
+            "LocationDescription": "HKIA 6E198B T1E KIEHLS-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 113,
+            "LocationDescription": "HKIA 6E178B T1E MAC-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 114,
+            "LocationDescription": "HKIA 6W540 T1W HL MAIN-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 115,
+            "LocationDescription": "HKIA 6W503 T1W HL SMLL-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 116,
+            "LocationDescription": "HKIA 6S501 T1S GATE 1 -PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 117,
+            "LocationDescription": "HKIA 6N501 T1N GATE 15-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 118,
+            "LocationDescription": "HKIA 6Z517 T1C GATE 27-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 119,
+            "LocationDescription": "HKIA 6Y588 T1SW GATE43-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 120,
+            "LocationDescription": "HKIA 5E525B T1N AR CNT-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 121,
+            "LocationDescription": "HKIA 5NC123 T1N SATELL-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 122,
+            "LocationDescription": "HKIA 5E535B T1S ARR FI-PC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 123,
+            "LocationDescription": "HKIA T1 POP UP GM STORE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 124,
+            "LocationDescription": "HKIA GM KIOSK - GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 125,
+            "LocationDescription": "HKIA LT KIOSK - LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 128,
+            "LocationDescription": "HKIA - VICTORIA SECRET",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 130,
+            "LocationDescription": "HKIA BT KIOSK - BT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 132,
+            "LocationDescription": "HKIA FERRAGAMO- LIC E",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 136,
+            "LocationDescription": "HKIA BURBERRY- LIC F",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 140,
+            "LocationDescription": "HKIA 6E103 T1E HALL SN-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 141,
+            "LocationDescription": "HKIA 6E153 T1E HALL CX-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 142,
+            "LocationDescription": "HKIA 6W501 T1W HL TG70-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 143,
+            "LocationDescription": "HKIA 6W560 T1W HL TG50-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 144,
+            "LocationDescription": "HKIA 6S505 T1S GATE 2 -GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 145,
+            "LocationDescription": "HKIA 6N504 T1N GATE 16-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 146,
+            "LocationDescription": "HKIA 6Z514 T1C GATE 28-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 147,
+            "LocationDescription": "HKIA 6Y587 T1SW GATE44-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 148,
+            "LocationDescription": "HKIA 5E535A T1 ARRIVAL-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 149,
+            "LocationDescription": "HKIA 5NC124 T1N SATELL-GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 150,
+            "LocationDescription": "HKIA NSC POPUP STORE BT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 155,
+            "LocationDescription": "AA ONLINE SHOP - GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 156,
+            "LocationDescription": "AA ONLINE SHOP - BT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 157,
+            "LocationDescription": "HKIA BURBERRY WEST",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 159,
+            "LocationDescription": "HKIA COACH WEST",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 160,
+            "LocationDescription": "HKIA T1 MIDFIELD OUTPOST",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 161,
+            "LocationDescription": "HKIA 6MC100 MIDFIELD LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 162,
+            "LocationDescription": "HKIA 6MC100 MIDFIELD GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 163,
+            "LocationDescription": "HKIA 6MC150 MIDFIELD BT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 164,
+            "LocationDescription": "HKIA 6MC150 MIDFIELD GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 168,
+            "LocationDescription": "HKIA POLO RALPHLAUREN",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 169,
+            "LocationDescription": "HKIA COACH EAST",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 173,
+            "LocationDescription": "CLK CELINE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 174,
+            "LocationDescription": "CLK CHLOE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 175,
+            "LocationDescription": "CLK DUNHILL",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 176,
+            "LocationDescription": "HKIA TUMI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 177,
+            "LocationDescription": "HKIA MARC JACOB",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 178,
+            "LocationDescription": "HKIA SHADES",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 179,
+            "LocationDescription": "HKIA LESPORTSAC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 180,
+            "LocationDescription": "HKIA DFS WATCHES",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 182,
+            "LocationDescription": "HKIAT1 HOLIDAY OUTPOST",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 183,
+            "LocationDescription": "HKIA EAST EXHIBITION A LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 184,
+            "LocationDescription": "HKIA MIDFIELD OUTPOST-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 185,
+            "LocationDescription": "HKIA 6E177 T1E HALL SN-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 186,
+            "LocationDescription": "HKIA 6E145 T1E HALL CX-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 187,
+            "LocationDescription": "HKIA 6W521 T1W HL TG70-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 188,
+            "LocationDescription": "HKIA 6W570 T1W HL TG50-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 189,
+            "LocationDescription": "HKIA 6S506 T1S GATE 2 -LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 190,
+            "LocationDescription": "HKIA 6N503 T1N GATE 15-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 191,
+            "LocationDescription": "HKIA 6Z513 T1C GATE 27-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 192,
+            "LocationDescription": "HKIA 6Y589 T1SW GATE43-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 193,
+            "LocationDescription": "HKIA 5E591 T1N ARR NTH-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 194,
+            "LocationDescription": "HKIA 5E592 T1S AR STH -LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 195,
+            "LocationDescription": "HKIA 5E525C T1CS AR CS-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 196,
+            "LocationDescription": "HKIA 5E535E T1CN AR CN-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 197,
+            "LocationDescription": "HKIA 5NC136 T1N SATELL-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 198,
+            "LocationDescription": "HKIA 4P012 T1 SKYPIER4-LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 199,
+            "LocationDescription": "HKIA 3P145 TERMINAL 2 -LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 203,
+            "LocationDescription": "TST EAST  MAIN SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 207,
+            "LocationDescription": "CANTON ROAD MAIN SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 210,
+            "LocationDescription": "TST EAST DFS.COM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 211,
+            "LocationDescription": "TST EAST ONLINE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 214,
+            "LocationDescription": "SELECT BUSINESS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 215,
+            "LocationDescription": "TSTE SELECT LITE E-SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 232,
+            "LocationDescription": "TST EAST  FENDI BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 234,
+            "LocationDescription": "TST EAST CARTIER BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 235,
+            "LocationDescription": "TST EAST WJA - SIS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 236,
+            "LocationDescription": "TSTE BURBERRY SCARF POPUP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 237,
+            "LocationDescription": "TST EAST UG2",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 238,
+            "LocationDescription": "TSTE FW & SUNGLASSESS GA",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 250,
+            "LocationDescription": "TST EAST BTQ BVLGARI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 252,
+            "LocationDescription": "TST EAST BTQ TIFFANY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 253,
+            "LocationDescription": "TST EAST BTQ TORY BURCH",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 254,
+            "LocationDescription": "TST EAST BTQ FERRAGAMO254",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 255,
+            "LocationDescription": "TST EAST MICHAEL KORS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 257,
+            "LocationDescription": "TST EAST BTQ GUCCI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 258,
+            "LocationDescription": "TST EAST DUNHILL CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 259,
+            "LocationDescription": "TST EAST MONTBLANC CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 288,
+            "LocationDescription": "TST EAST ARMANI CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 289,
+            "LocationDescription": "TST EAST TOD'S CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 290,
+            "LocationDescription": "TST EAST OMEGA CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 298,
+            "LocationDescription": "TST EAST LONGINES CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 299,
+            "LocationDescription": "TST EAST TAG HEUER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 301,
+            "LocationDescription": "TCB STAFF SALE LOC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 302,
+            "LocationDescription": "TST EAST STAFFSALE LOC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 303,
+            "LocationDescription": "CANTON ROAD STAFFSALE LOC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 304,
+            "LocationDescription": "HKIA 5E535A AR-GM STAFF S",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 305,
+            "LocationDescription": "HKIA BT STAFF SALES LOC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 310,
+            "LocationDescription": "CANTON ROAD DFS.COM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 311,
+            "LocationDescription": "TCR ONLINE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 345,
+            "LocationDescription": "CANTON ROAD BTQ CHOPARD",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 350,
+            "LocationDescription": "CANTON ROAD BTQ BVLGARI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 352,
+            "LocationDescription": "CANTON ROAD BTQ CARTIER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 354,
+            "LocationDescription": "CANTON ROAD BTQ FERRAGAMO",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 355,
+            "LocationDescription": "CANTON ROAD MICHAEL KORS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 357,
+            "LocationDescription": "CANTON ROAD BTQ GUCCI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 358,
+            "LocationDescription": "CANTON ROAD BTQ TIFFANY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 359,
+            "LocationDescription": "CANTON ROAD COACH CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 361,
+            "LocationDescription": "SUN BTQ POLO",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 362,
+            "LocationDescription": "CANTON ROAD MONTBLANC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 363,
+            "LocationDescription": "CANTON ROAD BUR POP UP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 364,
+            "LocationDescription": "CANTON ROAD DUNHILLCORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 366,
+            "LocationDescription": "CANTON ROAD CELINE CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 368,
+            "LocationDescription": "CANTON ROAD BALLY CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 369,
+            "LocationDescription": "CANTON ROAD TUMI CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 370,
+            "LocationDescription": "CANTON ROAD GIVENCHY CORN",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 371,
+            "LocationDescription": "CANTON ROAD BOTTEGA CORNE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 372,
+            "LocationDescription": "CANTON ROAD BVLGARI LTHER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 373,
+            "LocationDescription": "CANTON ROAD CHLOE CORNER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 375,
+            "LocationDescription": "CANTON ROAD VAN CLEEF&ARP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 381,
+            "LocationDescription": "TCB ONLINE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 388,
+            "LocationDescription": "CAUSEWAY BAY MAIN SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 391,
+            "LocationDescription": "MOKO BEAUTY ONLINE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 398,
+            "LocationDescription": "MOKO BEAUTY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 399,
+            "LocationDescription": "NON-STORE HK ETR",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 400,
+            "LocationDescription": "TCR ELECTRONIC GIFT CARD",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 401,
+            "LocationDescription": "TST EAST ELECTRONIC GC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 402,
+            "LocationDescription": "HYSAN ELECTRONIC GC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 407,
+            "LocationDescription": "HKIA ELECTRONIC GC - LT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 408,
+            "LocationDescription": "HKIA ELECTRONIC GC - BT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 409,
+            "LocationDescription": "HKIA ELECTRONIC GC - GM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 435,
+            "LocationDescription": "SHENZHEN",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 685,
+            "LocationDescription": "HKIA SHOP & COLLECT (SQ)",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 686,
+            "LocationDescription": "HKIA SHOP & COLLECT (CX)",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 901,
+            "LocationDescription": "HAIKOU",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 902,
+            "LocationDescription": "CENTRAL BOH MISSION HILL",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 903,
+            "LocationDescription": "HAINAN E-SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 904,
+            "LocationDescription": "HNN MH OFFLINE STORE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 906,
+            "LocationDescription": "HNN MH BUGOU ONLINE STORE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 997,
+            "LocationDescription": "HK SUPPLY-JDS HANEDA",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 998,
+            "LocationDescription": "HK SUPPLY - JDS",
+            "LocationType": "Store"
+        }
+    ]
+}

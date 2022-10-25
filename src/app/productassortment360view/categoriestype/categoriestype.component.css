@@ -1,0 +1,456 @@
+.type-banner {
+  height: 272px;
+  max-width: 1126px;
+  background: linear-gradient(180deg, #e6917d 0%, #e05c49 100%);
+  margin: auto;
+  position: relative;
+  margin-top: 25px;
+  transition: all 0.3s ease;
+}
+
+.type-banner.active-banner {
+  height: 181px;
+  transition: all 0.3s ease;
+}
+
+.type-filler {
+  position: absolute;
+  bottom: 0;
+  height: 65.08px;
+  width: 100%;
+  background: #ffffff;
+}
+
+.type-title-section {
+  color: #ffffff;
+  font-weight: 300;
+  letter-spacing: 0.81px;
+  line-height: 22px;
+  text-align: center;
+  padding: 32px;
+}
+
+.type-main-title {
+  text-transform: uppercase;
+  font-size: 38px;
+  margin-bottom: 12px;
+  font-family: "Sephora SerifBook", CenturyGothic, Helvetica, Arial;
+}
+
+.type-sub-title {
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 13px;
+}
+
+.type-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.type-lp-filler {
+  min-width: 8.5px;
+}
+
+a.type-tab.disabled-tab {
+  pointer-events: none;
+  touch-action: none;
+}
+
+.type-tab {
+  width: 117px;
+  height: 36px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 50%);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  margin: 24px 11px;
+}
+
+.type-tab:hover {
+  opacity: 0.8;
+}
+
+.type-tab:hover .type-tag {
+  color: #dd0031;
+}
+
+.type-img {
+  height: 87px;
+  width: 100%;
+}
+
+.type-tag.selected-tab {
+  background: #000000;
+  color: #ffffff;
+}
+
+.type-tag {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.26px;
+  line-height: 15px;
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #d3d3d3;
+  height: 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+}
+
+.category-body {
+  margin-top: 25px;
+}
+
+.beautyfeed-banner-title {
+  text-transform: uppercase;
+  color: #bb6613;
+  font-weight: 300;
+  text-align: center;
+  font-size: 26px;
+  line-height: 31px;
+  letter-spacing: 0.43px;
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+}
+
+.beautyfeed-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 0px 9.825vw;
+}
+
+.beautyfeed-section {
+  margin: 21px 23px;
+  width: 50%;
+}
+
+.beautyfeed-image {
+  width: 100%;
+}
+
+.beautyfeed-message {
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.23px;
+  line-height: 25px;
+  margin: 14px 16px 24px;
+  height: 80px;
+}
+
+.beautyfeed-message .header {
+  font-size: 18px;
+}
+
+.beautyfeed-message .main-text {
+  min-height: 50px;
+}
+
+.beautyfeed-btn-container {
+  text-align: center;
+}
+
+.beautyfeed-btn {
+  display: inline-block;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  border-radius: 0;
+  transition: opacity 0.12s ease-in-out;
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  padding: 11px 15px;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+  width: 160px;
+}
+
+.phase-three-top-brands {
+  margin: 32px auto 48px;
+}
+
+.phase-three-top-brands .banner-header {
+  font-size: 26px;
+  line-height: 31px;
+  letter-spacing: 0.43px;
+  text-align: center;
+  color: #bb6613;
+  margin-bottom: 16px;
+}
+
+.phase-three-top-brands .banner-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#category-lp-template .phase-three-top-brands.hide-brands {
+  display: none;
+}
+
+#category-lp-template .phase-three-top-brands {
+  display: none;
+}
+
+#category-lp-template .phase-three-top-brands {
+  display: block;
+}
+
+.phase-three-top-brands .button-container {
+  border-radius: 8px;
+  max-width: 174px;
+  height: 85px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  padding: 12px 8px;
+  margin: 0px 9px;
+}
+
+.phase-three-top-brands.flags .button-container {
+  padding: 0;
+}
+
+#banner-mu-clp3-brand-5 {
+  position: relative;
+}
+
+.phase-three-top-brands .see-all,
+.best-sellers .wrapper .see-all {
+  font-size: 13px;
+  background-color: #e37662;
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  right: -50px;
+  top: 0%;
+  transform: translate(0, -50%);
+}
+
+.best-sellers .wrapper {
+  position: relative;
+}
+
+.phase-three-top-brands .button-container:hover {
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
+}
+
+.phase-three-top-brands .button-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.best-sellers {
+  margin-bottom: 60px;
+}
+
+.best-sellers-page-title {
+  font-family: "Sephora SerifBook", CenturyGothic, Helvetica, Arial;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  font-size: 34px;
+  line-height: 36px;
+}
+
+li {
+  list-style: none;
+}
+
+/* jj///////////////////////////////////////////////// */
+
+.product-card {
+  text-align: left;
+}
+
+.product-card .product-card-description {
+  font-size: 13px;
+  line-height: 18px;
+  display: block;
+  margin-top: 17px;
+  width: 90%;
+  color: #000;
+  text-decoration: none;
+}
+
+.product-card .product-card-description {
+  margin-top: 30px;
+}
+
+.product-card .product-card-label {
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: #aaa;
+  text-transform: uppercase;
+}
+
+.product-card .product-card-label .product-card-label-primary {
+  color: #dd0031;
+}
+
+.product-card .product-card-brand {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1px;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+}
+
+.product-card .product-card-product {
+  overflow-wrap: break-word;
+  margin-bottom: 1px;
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+}
+
+.product-card .product-price {
+  margin-bottom: 2px;
+}
+
+.product-price .product-price-sale-old {
+  font-weight: 400;
+  text-decoration: line-through;
+  margin-right: 5px;
+  font-family: "Sephora SansBook", CenturyGothic, Helvetica, Arial;
+}
+
+.product-price .product-price-sale-new {
+  margin-right: 5px;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+}
+
+.product-price .product-price-sale-text {
+  color: #dd0031;
+  font-family: "Sephora SansBold", CenturyGothic, Helvetica, Arial;
+}
+
+.product-card .product-card-rating {
+  margin-bottom: 2px;
+}
+
+div.rateit {
+  display: inline-block;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.rating-container .rateit .rateit-range {
+  background: url(/assets/categories/star.png);
+  background-size: 15px 12px;
+  background-repeat: repeat-x;
+}
+
+div.rateit div.rateit-range {
+  position: relative;
+  display: inline-block;
+  height: 14px;
+  vertical-align: top;
+}
+
+.rating-container .rateit .rateit-selected,
+.rating-container .rateit .rateit-preset {
+  position: absolute;
+  top: 0;
+  background: url(/assets/categories/star-filled.png);
+  background-size: 15px 12px;
+  background-repeat: repeat-x;
+}
+
+div.rateit div.rateit-hover,
+div.rateit div.rateit-selected {
+  position: absolute;
+  left: 0px;
+}
+
+.product_shared .add_to_bag_and_variant_relative,
+.product .add_to_bag_and_variant_relative {
+  position: relative;
+}
+
+.product_shared .add_to_bag_and_variant,
+.product .add_to_bag_and_variant {
+  position: absolute;
+  bottom: 30px;
+  top: auto;
+  width: 100%;
+  height: 30px;
+}
+
+.product_shared .hidden,
+.product .hidden {
+  display: none;
+}
+
+.product_shared .add_to_bag_text,
+.product_shared .waitlist_me_text,
+.product_shared .waitlisted_text,
+.product .add_to_bag_text,
+.product .waitlist_me_text,
+.product .waitlisted_text {
+  padding: 6px 12px;
+}
+
+.sep-carousel ul li a > img,
+.sep-carousel ul .carousel_item a > img {
+  vertical-align: bottom;
+}
+
+.sep-carousel ul li img,
+.sep-carousel ul .carousel_item img {
+  width: 100%;
+}
+
+.product_shared img,
+.product img {
+  user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.sep-carousel ul li,
+.sep-carousel ul .carousel_item {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+  overflow: hidden;
+  list-style: none;
+}
+
+.sep-carousel.custom ul li {
+  display: block;
+  float: left;
+}
+
+.clp-mu-phase4-1-template
+  .carousel_item.featured_product.product.product_shared.item {
+  width: 203px !important;
+  margin-left: 3px !important;
+  margin-right: 3px !important;
+}

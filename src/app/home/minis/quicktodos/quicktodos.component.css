@@ -1,0 +1,46 @@
+a.linktext {
+  /* color: #bf2f1a; */
+  /* color: black; */
+  width: 100%;
+  text-align: center;
+  color: #000;
+  line-height: 10px;
+  font-size: 15px;
+  font-family: Avenir Next LT Pro Light;
+}
+
+.player-buttons1 {
+  margin: 0;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.player-container1 a {
+  margin-left: 5px;
+}
+
+.player-buttons1 i {
+  color: #fff;
+  font-size: 25px;
+}
+
+.player-buttons1 {
+  display: none;
+}
+
+.player-buttons1.playShow {
+  display: block;
+}
+
+.player-buttons {
+  right: 10px;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+}
+
+.player-container a {
+  margin-left: 5px;
+}

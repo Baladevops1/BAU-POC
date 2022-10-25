@@ -1,0 +1,115 @@
+<div class="container-fluid" style="padding: 20px">
+  <div class="row">
+    <div class="col-12">
+      <h4
+        class="LibreFranklinBold active-red h4"
+        style="text-align: center; font-weight: bold; font-size: 21px"
+      >
+        Enrich Shipment Creation
+      </h4>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    <div class="col-12">
+      <input
+        class="d-none"
+        matInput
+        (keyup)="applyFilter($event)"
+        placeholder="Search Order"
+        #input
+      />
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-12">
+      <div
+        class="mat-elevation-z8"
+        style="
+          padding: 20px 15px;
+          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),
+            0px 5px 15px rgba(0, 0, 0, 0.1); ;
+        "
+      >
+        <table class="table table-hover" style="border: 1px soild grey">
+          <thead>
+            <tr>
+              <th scope="col">Shipment ID</th>
+              <th scope="col">Special Products</th>
+              <th scope="col">Shipment Weight</th>
+              <th scope="col">Package Info.</th>
+              <th scope="col">MOT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ data.id }}</td>
+
+              <td>
+                <select (change)="setSpecialProducts($event, data)">
+                  <option
+                    [selected]="data.specialproducts == 'Yes'"
+                    value="Yes"
+                  >
+                    Yes
+                  </option>
+                  <option [selected]="data.specialproducts == 'No'" value="No">
+                    No
+                  </option>
+                </select>
+              </td>
+
+              <td>
+                <input type="text" placeholder="weight" [value]="data.weight" (input)="setShipmentWeight($event, data)" />
+              </td>
+
+              <td>
+                <input
+                  type="text"
+                  placeholder="package info"
+                  [value]="data.package_info"
+                  (input)="setPackageInfo($event, data)"
+                />
+              </td>
+
+              <td>
+                <select (change)="setMOT($event, data)" >
+                  <option value="Air">Air</option>
+                  <option value="Sea">Sea</option>
+                  <option value="Truck">Truck</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[5, 10, 25, 100]"
+          aria-label="Select page of users"
+        >
+        </mat-paginator>
+      </div>
+      <mat-divider></mat-divider>
+      <mat-dialog-actions align="space-between">
+        <button
+          mat-raised-button
+          color="primary"
+          class="cancelBtn"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          class="submitBtn"
+          (click)="onCancel()"
+        >
+          Submit
+        </button>
+      </mat-dialog-actions>
+    </div>
+  </div>
+</div>

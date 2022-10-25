@@ -1,0 +1,122 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "02ba5ef6-cc9d-4ff0-8dc9-1d88c6f1e76e"
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "oneCognizant": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "optimization": false,
+            "outputPath": "dist/oneCognizant",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
+              "node_modules/@okta/okta-signin-widget/dist/js/okta-sign-in.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "15mb",
+                  "maximumError": "15mb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": false,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "oneCognizant:build:production"
+            },
+            "development": {
+              "browserTarget": "oneCognizant:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "oneCognizant:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "./node_modules/slick-carousel/slick/slick.scss",
+              "./node_modules/slick-carousel/slick/slick-theme.scss",
+              "./node_modules/ion-rangeslider/css/ion.rangeSlider.css",
+              "./node_modules/ion-rangeslider/css/ion.rangeSlider.skinFlat.css",
+              "./node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css"
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/slick-carousel/slick/slick.min.js",
+              "./node_modules/ion-rangeslider/js/ion.rangeSlider.min.js"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "oneCognizant"
+}

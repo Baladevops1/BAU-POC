@@ -1,0 +1,54 @@
+export interface Interdata {
+  id: string;
+  toLocation: string;
+  fromLocation: string;
+  selectedFrom: string;
+  toDivision: string;
+  shipmentDeliveryDate: string;
+  transferInitiatedDate: string;
+  reference: string;
+  orders: {
+    id: any;
+    toLocation: string;
+    toLocationName?: string;
+    fromLocation: string;
+    fromLocationName?: string;
+    toDivision: string;
+    shipmentDeliveryDate: string;
+    transferInitiatedDate?: string;
+    gridData: any;
+    totalQuantity: any;
+    totalItem: any;
+    rlQuantity: any;
+    transferQuantity: any;
+    receiveQuantity: any;
+    status: any;
+    isConsolidate: boolean;
+    specialProducts: any;
+    weight: any;
+    package_info: any;
+    dimensions: any;
+  }[];
+  shipments: {
+    id: any;
+    orders: any[];
+    shipmentDeliveryDate: any;
+    totalQuantity: any;
+    totalItem: any;
+    specialProducts: any;
+    weight: any;
+    package_info: any;
+    dimensions: any;
+    mot: any;
+    isCompleted: any;
+    toLocation: any;
+    toLocationName: any;
+  }[];
+  gridData: any;
+  rowType: string;
+  status: string;
+  transferQuantity: any;
+  totalQuantity: any;
+  totalItem: any;
+  ItemDetails: any;
+}

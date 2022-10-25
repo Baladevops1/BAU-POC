@@ -1,0 +1,86 @@
+.register-container{
+  border-radius: 5px;
+  padding:10px;
+  background-color: white;
+  }
+  .main-container{
+    padding:10px;
+  }
+  .order-lbl{
+    margin: 5px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .container1{
+    padding: 10px;
+
+  }
+
+  body, html {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .material-textfield {
+    position: relative;
+  }
+  label {
+    position: absolute;
+    font-size: 1rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    padding: 0 0.3rem;
+    margin: 0 0.5rem;
+    transition: .1s ease-out;
+    transform-origin: left top;
+    pointer-events: none;
+    border-radius: 3px;
+  }
+  input {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 1rem 0.7rem;
+    color: gray;
+    transition: 0.1s ease-out;
+  }
+  select {
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: gray;
+    transition: 0.1s ease-out;
+  }
+  input:focus, select:focus {
+    border-color: #bf2f1a;
+    border:1px solid #bf2f1a;
+  }
+  input:focus + label, select:focus + label {
+    color: #bf2f1a;
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+  input:not(:placeholder-shown) + label, select:not(:placeholder-shown) + label {
+    top: 0;
+    transform: translateY(-50%) scale(.9);
+  }
+  th{
+    font-size: 12px;
+  }
+  .form-control1{
+    width: 100%;
+  }
+  input.table-input {
+    height: 30px;
+    width: 120px;
+  }
+  .form-control[readonly] {
+    background-color: white;
+  }

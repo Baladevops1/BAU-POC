@@ -1,0 +1,464 @@
+{
+    "Locations": [
+        {
+            "Location": 80,
+            "LocationDescription": "MACAO MGM DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 81,
+            "LocationDescription": "MACAO MGM IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 82,
+            "LocationDescription": "MACAO MGM COTAI DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 83,
+            "LocationDescription": "MACAO MGM COTAI IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 84,
+            "LocationDescription": "MACAO WYNN PALACE DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 85,
+            "LocationDescription": "MACAO LONDONER DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 86,
+            "LocationDescription": "STUDIO SUNGLASS DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 87,
+            "LocationDescription": "STUDIO SUNGLASS IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 90,
+            "LocationDescription": "CITY OF DREAMS DEFECTIVE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 91,
+            "LocationDescription": "CITY OF DREAMS DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 92,
+            "LocationDescription": "CITY OF DREAMS IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 93,
+            "LocationDescription": "MACAO GALAXY IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 94,
+            "LocationDescription": "MACAO GALAXY DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 96,
+            "LocationDescription": "STUDIO BEAUTY DAMAGE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 97,
+            "LocationDescription": "STUDIO BEAUTY IDT/RTV",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 98,
+            "LocationDescription": "FOUR SEASONS IDT/RTV LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 99,
+            "LocationDescription": "FOUR SEASONS DAMAGE LOC",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 100,
+            "LocationDescription": "FOUR SEASONS DEFECTIVE",
+            "LocationType": "Warehouse"
+        },
+        {
+            "Location": 300,
+            "LocationDescription": "EGC-STUDIO BEAUTY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 400,
+            "LocationDescription": "EGC-COD",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 500,
+            "LocationDescription": "EGC-FS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 501,
+            "LocationDescription": "CORPORATE PURCHASE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 502,
+            "LocationDescription": "FOUR SEASONS STAFF SALE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 503,
+            "LocationDescription": "CITY OF DREAMS STAFF SALE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 504,
+            "LocationDescription": "FOUR SEASONS SRC COUNTER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 505,
+            "LocationDescription": "COD REDEMPTION COUNTER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 507,
+            "LocationDescription": "FOUR SEASONS FOLLI FOLLIE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 508,
+            "LocationDescription": "FOUR SEASONS SWAROVISKI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 509,
+            "LocationDescription": "FOUR SEASONS TUMI BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 510,
+            "LocationDescription": "FOUR SEASONS PENACHE BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 511,
+            "LocationDescription": "FOUR SEASONS OMEGA BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 512,
+            "LocationDescription": "FOUR SEASONS TAG HEUER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 513,
+            "LocationDescription": "FOUR SEASONS TOD'S BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 514,
+            "LocationDescription": "FOUR SEASONS DUNHILL BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 515,
+            "LocationDescription": "FOUR SEASONS ZEGNA BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 516,
+            "LocationDescription": "FOUR SEASONS GUCCI BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 517,
+            "LocationDescription": "FOUR SEASONS CELINE BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 518,
+            "LocationDescription": "FOUR SEASONS BURBERRY BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 519,
+            "LocationDescription": "FOUR SEASONS POLO BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 520,
+            "LocationDescription": "FOUR SEASONS ARMANI BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 521,
+            "LocationDescription": "FOUR SEASONS FERRAGAMO",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 522,
+            "LocationDescription": "FOUR SEASONS LOEWE BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 523,
+            "LocationDescription": "FOUR SEASONS CARTIER BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 524,
+            "LocationDescription": "FOUR SEASONS BALLY BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 525,
+            "LocationDescription": "FOUR SEASONS SELECT",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 526,
+            "LocationDescription": "FOUR SEASONS GRAND SUITE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 527,
+            "LocationDescription": "FOUR SEASONS GIOR.ARMANI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 528,
+            "LocationDescription": "FOUR SEASONS COACH BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 529,
+            "LocationDescription": "FOUR SEASONS MOYNAT BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 530,
+            "LocationDescription": "CITY OF DREAMS ARMANIJEAN",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 531,
+            "LocationDescription": "CITY OF DREAMS FERRAGAMO",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 532,
+            "LocationDescription": "CITY OF DREAMS YSL BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 533,
+            "LocationDescription": "CITY OF DREAMS MAIN",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 534,
+            "LocationDescription": "CITY OF DREAMS BUR MEN'S",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 535,
+            "LocationDescription": "MACAO ALTIRA",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 536,
+            "LocationDescription": "CITY OF DREAMS TAG HEUER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 538,
+            "LocationDescription": "CITY OF DREAMS CHOPARD",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 539,
+            "LocationDescription": "CITY OF DREAMS GIVENCHY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 540,
+            "LocationDescription": "CITY OF DREAMS CARTIER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 541,
+            "LocationDescription": "CITY OF DREAMS CARTIER L",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 547,
+            "LocationDescription": "CITY OF DREAMS JLC BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 548,
+            "LocationDescription": "CITY OF DREAMS VERTU BTQ",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 550,
+            "LocationDescription": "COD FASHION ARC BTQ L1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 551,
+            "LocationDescription": "COD SHOE AND ACC LEVEL 1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 552,
+            "LocationDescription": "COD FASHION ARC BTQ L2",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 553,
+            "LocationDescription": "COD SHOE AND ACC LEVEL 2",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 554,
+            "LocationDescription": "COD WJA AREA LEVEL 1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 555,
+            "LocationDescription": "STUDIO CITY BY TGALLERIA",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 556,
+            "LocationDescription": "COD TIMEPIECES & WHISKIES",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 557,
+            "LocationDescription": "STUDIO CITY SUNGLASS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 558,
+            "LocationDescription": "COD POP UP STORE LEVEL 1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 559,
+            "LocationDescription": "COD POP UP STORE LEVEL 2",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 560,
+            "LocationDescription": "COD SUNGLASSES BTQ L1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 561,
+            "LocationDescription": "COD FASHION ARC GA L1",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 562,
+            "LocationDescription": "COD FASHION ARC GA L2",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 563,
+            "LocationDescription": "COD WJA FW & SUN SIS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 578,
+            "LocationDescription": "MACAO GALAXY BEAUTY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 579,
+            "LocationDescription": "MACAO STARWORLD",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 580,
+            "LocationDescription": "MACAO MGM BEAUTY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 582,
+            "LocationDescription": "MACAO MGM COTAI",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 584,
+            "LocationDescription": "MACAO WYNN PALACE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 585,
+            "LocationDescription": "MACAO LONDONER",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 587,
+            "LocationDescription": "MACAO GALAXY DIOR BTY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 588,
+            "LocationDescription": "FOUR SEASONS REMOTE LOC",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 595,
+            "LocationDescription": "FOUR SEASONS E-SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 599,
+            "LocationDescription": "FOUR SEASONS GALLERIA SHP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 600,
+            "LocationDescription": "EGC-GALAXY",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 666,
+            "LocationDescription": "MAO MGMC SEL LITE E-SHOP",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 682,
+            "LocationDescription": "MACAO MGM C STAFF SALE",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 700,
+            "LocationDescription": "EGC-STUDIO SUNGLASS",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 800,
+            "LocationDescription": "EGC-MACAO MGM",
+            "LocationType": "Store"
+        },
+        {
+            "Location": 900,
+            "LocationDescription": "EGC-MACAO MGM COTAI",
+            "LocationType": "Store"
+        }
+    ]
+}

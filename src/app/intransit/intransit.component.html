@@ -1,0 +1,251 @@
+<div class="container-fluid" style="width: 100%">
+  <div class="row" style="width: 100%">
+    <div class="col-2 innerpage-column1">
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <div class="heading">
+        <h2 class="LibreFranklinBold">IDT Overview</h2>
+        <p class="LibreFranklinRegular">Transfer Process</p>
+      </div>
+
+      <ul class="StepProgress">
+        <li
+          class="StepProgress-item current"
+          *ngFor="let item of steps"
+          [ngClass]="{ grey: !item.active }"
+        >
+          <p class="LibreFranklinRegular">{{ item.p }}</p>
+          <h2 class="LibreFranklinSemiBold">{{ item.h2 }}</h2>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-10 column2">
+      <div class="container-fluid outer-container1">
+        <div class="row">
+          <div class="col-6">
+            <span class="order-lbl LibreFranklinRegular active-red">
+              Shipment Visibility
+            </span>
+          </div>
+
+          <div class="col-6 text-right buttons-container">
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-print" aria-hidden="true"></i> Print
+            </button>
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-envelope" aria-hidden="true"></i> Email
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm">
+              <i class="fa fa-undo" aria-hidden="true"></i>Undo
+            </button>
+          </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div class="container1">
+          <span class="LibreFranklinRegular" style="font-size: 12px">
+            # Search for Shipment ID, Order ID, Product ID or Destination
+            Location
+          </span>
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="material-textfield col-5">
+                  <!-- <input
+                    type="text"
+                    placeholder="Search..."
+                    matInput
+                    (keyup)="applyFilter($event)"
+                    #input
+                  /> -->
+
+                    <!-- <select>
+                      <option>All</option>
+                      <option>Shipment ID</option>
+                      <option>Order ID</option>
+                      <option>Product ID</option>
+                    </select> -->
+
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    name="searcher"
+                    [(ngModel)]="searcher"
+                    (input)="onSubmit($event)"
+                  />
+                </div>
+
+                <!-- <div class="material-textfield col-2">
+                  <input type="text" placeholder="Order ID" />
+                </div>
+
+                <div class="material-textfield col-2">
+                  <input type="text" placeholder="Product ID" />
+                </div>
+
+                <div class="material-textfield col-4">
+                  <mat-select name="toLocation" [(ngModel)]="selectedTo">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="toLocations"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredToLocations = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let toLocation of filteredToLocations"
+                      [value]="toLocation.abbrev"
+                    >
+                      {{ toLocation.name }}
+                    </mat-option>
+                  </mat-select>
+                </div> -->
+
+                <!-- <div class="material-textfield col-2">
+                  <button
+                    type="submit"
+                    style="width: 100%; background-color: #000; border: none"
+                    class="btn btn-danger btn-sm LibreFranklinRegular"
+                  >
+                    <i class="fa fa-search" aria-hidden="true"></i> Search
+                  </button>
+                </div> -->
+              </div>
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div *ngIf="items.length != 0" class="container-fluid outer-container3">
+        <div class="row">
+          <div class="col-6 h5 LibreFranklinBold active-red">
+            Search Results
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-12">
+            <!-- <table mat-table [dataSource]="dataSource">
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>#</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.shipment_id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>Shipment ID</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.shipment_id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>Order ID</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.order_id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>ETA</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.eta }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>Product ID</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.product_id }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>Quantity</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.qty }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>MOT</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.mot }}
+                </td>
+              </ng-container>
+
+              <ng-container matColumnDef="#">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element">
+                  {{ element.status }}
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">
+                  No data matching the filter "{{ input.value }}"
+                </td>
+              </tr>
+            </table>
+
+            <mat-paginator
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page of users"
+            >
+            </mat-paginator> -->
+
+            <table class="table table-hover" style="border: 1px soild grey">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Shipment ID</th>
+                  <th scope="col">Order ID</th>
+                  <th scope="col">Destination Location</th>
+                  <th scope="col">ETA</th>
+                  <th scope="col">Product ID</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">MOT</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ item.shipment_id }}</td>
+                  <td>{{ item.order_id }}</td>
+                  <td>{{ item.toLocationName }}</td>
+                  <td>{{ item.eta }}</td>
+                  <td>{{ item.product_id }}</td>
+                  <td>{{ item.qty }}</td>
+                  <td>{{ item.mot }}</td>
+                  <td>{{ item.status }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,213 @@
+<section class="logo-section">
+    <div class="container-fluid">
+        <div class="header-container col-lg-12 col-md-12 col-sm-12">
+            <h1 style="padding: 10px;">Product Lookup</h1>
+            <div class="row-container row">
+                <div class="search col-lg-3 col-md-3 col-sm-3">
+                    <input
+                        type="text"
+                        class="searchTerm"
+                        placeholder="Search Product"
+                        name="searchProd"
+                        [(ngModel)]="searchProd"
+                        (input)="SearchProduct()"
+                        matTooltip="Search product"
+                    />
+                    <svg
+                        class="search-icon"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M16.6608 14.875L12.9108 11.125C13.7545 9.875 14.192 8.3125 13.9733 6.625C13.567 3.75 11.2233 1.4375 8.37955 1.0625C4.12955 0.53125 0.5358 4.125 1.06705 8.375C1.44205 11.2188 3.75455 13.5625 6.62955 13.9688C8.31705 14.1875 9.87955 13.75 11.1608 12.9062L14.8795 16.6562C15.3795 17.125 16.1608 17.125 16.6608 16.6562C17.1295 16.1562 17.1295 15.375 16.6608 14.875ZM3.50455 7.5C3.50455 5.3125 5.2858 3.5 7.50455 3.5C9.69205 3.5 11.5045 5.3125 11.5045 7.5C11.5045 9.71875 9.69205 11.5 7.50455 11.5C5.2858 11.5 3.50455 9.71875 3.50455 7.5Z"
+                        fill="#C0311A"
+                        />
+                    </svg>
+                </div>
+                <div class="dropdown col-lg-3 col-md-3 col-sm-3">
+                    <mat-form-field appearance="fill" class="dropdown-wrap">
+                        <mat-label>Category</mat-label>
+                        <mat-select name="category" [(value)]="selectedCategory" matTooltip="Choose Category" [(ngModel)]="selectedCategory" (selectionChange)="onCategorySelection($event.value)">
+                            <mat-option>
+                              <lib-mat-select-search
+                                [list]="category"
+                                [searchProperties]="['name']"
+                                (filtered)="filteredCategory = $event"
+                              >
+                              </lib-mat-select-search>
+                            </mat-option>
+                            <mat-option
+                              *ngFor="let category of filteredCategory"
+                              [value]="category.name"
+                            >
+                            {{ category.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="dropdown col-lg-3 col-md-3 col-sm-3">
+                    <mat-form-field appearance="fill" class="dropdown-wrap">
+                        <mat-label>Brand</mat-label>
+                        <mat-select name="brand" matTooltip="Choose Brand" [(ngModel)]="selectedBrand" (selectionChange)="onBrandSelection($event.value)">
+                            <mat-option>
+                              <lib-mat-select-search
+                                [list]="brand"
+                                [searchProperties]="['name']"
+                                (filtered)="filteredBrand = $event"
+                              >
+                              </lib-mat-select-search>
+                            </mat-option>
+                            <mat-option
+                              *ngFor="let brand of filteredBrand"
+                              [value]="brand.value"
+                            >
+                            {{ brand.name }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="search col-lg-3 col-md-3 col-sm-3">
+                    <input
+                        type="text"
+                        class="searchTerm"
+                        placeholder="Search for Single Article"
+                        name="searcher"
+                        [(ngModel)]="searcher"
+                        matTooltip="Search Single Product"
+                    />
+                    <button type="button" class="btn btn-md large-buttons buttonload" matTooltip="Search Product"  style="color: #FFF;" (click)="onSearchSingleProduct()">
+                        <i *ngIf="isSearched == true" class="fa fa-spinner fa-spin"></i> Search
+                    </button>
+                </div>
+                <!-- <div class="col-lg-3 col-md-3 col-sm-3 row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <button type="button" class="btn btn-lg large-buttons"  style="color: #FFF;">
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <button type="button" class="btn btn-md small-buttons" style="color: var(--active-red); font-size: 20px;">
+                            Clear
+                        </button>
+                    </div>
+                </div> -->
+            </div>
+            <div>
+                <h1>Product Details</h1>
+            </div>
+            <div class="mat-elevation-z8 table-style" style="box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),0px 5px 15px rgba(0, 0, 0, 0.1);">
+                <!-- <div  class="loader" *ngIf="isLoading == true"></div> -->
+                <ngx-spinner size="medium" [type]="loaderSelected"></ngx-spinner>
+                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 table-container">
+                    <!-- Checkbox Column -->
+                    <ng-container matColumnDef="Select">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"
+                                [aria-label]="checkboxLabel()">
+                            </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null"
+                                [checked]="selection.isSelected(row)"
+                                [aria-label]="checkboxLabel(row)">
+                            </mat-checkbox>
+                        </td>
+                    </ng-container>
+                    <!-- Article Number Column -->
+                    <ng-container matColumnDef="articleNumber">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Article Number
+                        </th>
+                        <td mat-cell *matCellDef="let element"> {{element.article_Number}} </td>
+                    </ng-container>
+                
+                    <!-- Item description Column -->
+                    <ng-container matColumnDef="itemDescription">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Item description
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.item_description}}</td>
+                    </ng-container>
+                
+                    <!-- Product ID Column -->
+                    <ng-container matColumnDef="productID">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Product ID
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.product_ID}}</td>
+                    </ng-container>
+                
+                    <!-- Product Type Column -->
+                    <ng-container matColumnDef="productType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Product Type
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.product_Type}}</td>
+                    </ng-container>
+
+                    <!-- Primary UPC Column -->
+                    <ng-container matColumnDef="primaryUPC">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Primary UPC
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.primary_UPC}}</td>
+                    </ng-container>
+
+                    <!-- Item Status Column -->
+                    <ng-container matColumnDef="itemStatus">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Item Status
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.item_Status}}</td>
+                    </ng-container>
+
+                    <!-- Vendor Style Column -->
+                    <ng-container matColumnDef="vendorStyle">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Vendor Style
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.vendor_Style}}</td>
+                    </ng-container>
+
+                    <!-- Vendor Color Name Column -->
+                    <ng-container matColumnDef="vendorColorName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Vendor Color Name
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.vendor_Color_Name}}</td>
+                    </ng-container>
+
+                    <!-- Vendor Size Column -->
+                    <ng-container matColumnDef="vendorSize">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                            Vendor Size
+                        </th>
+                        <td mat-cell *matCellDef="let element">{{element.vendor_Size}}</td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+                        (click)="selection.toggle(row)">
+                    </tr>
+                </table>
+            </div>
+            <!-- <div class="footer-container">
+                <mat-paginator
+                    class="mat-paginator-sticky"
+                    [length]="100"
+                    [pageSize]="10"
+                    [pageSizeOptions]="[10, 20]"
+                    showFirstLastButtons 
+                    aria-label="Select page">
+                </mat-paginator>
+            </div> -->
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,200 @@
+<div class="container-fluid" style="width: 100%">
+  <div class="row" style="width: 100%">
+    <div class="col-2 innerpage-column1">
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <div class="heading">
+        <h2 class="LibreFranklinBold">IDT Overview</h2>
+        <p class="LibreFranklinRegular">Transfer Process</p>
+      </div>
+
+      <ul class="StepProgress">
+        <li
+          class="StepProgress-item current"
+          *ngFor="let item of steps"
+          [ngClass]="{ grey: !item.active }"
+        >
+          <p class="LibreFranklinRegular">{{ item.p }}</p>
+          <h2 class="LibreFranklinSemiBold">{{ item.h2 }}</h2>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-10 column2">
+      <div class="container-fluid outer-container1">
+        <div class="row">
+          <div class="col-6">
+            <span class="order-lbl LibreFranklinRegular active-red">
+              Shipment Receiving
+            </span>
+          </div>
+
+          <div class="col-6 text-right buttons-container">
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-print" aria-hidden="true"></i> Print
+            </button>
+            <button
+              type="button"
+              style="margin-right: 15px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-envelope" aria-hidden="true"></i> Email
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm">
+              <i class="fa fa-undo" aria-hidden="true"></i>Undo
+            </button>
+          </div>
+        </div>
+
+        <br />
+        <br />
+
+        <div class="container1">
+          <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="material-textfield col-10">
+                  <mat-label>Destination Location</mat-label>
+                  <mat-select name="toLocation" [(ngModel)]="selectedTo">
+                    <mat-option>
+                      <lib-mat-select-search
+                        [list]="toLocations"
+                        [searchProperties]="['name']"
+                        (filtered)="filteredToLocations = $event"
+                      >
+                      </lib-mat-select-search>
+                    </mat-option>
+
+                    <mat-option
+                      *ngFor="let toLocation of filteredToLocations"
+                      [value]="toLocation.abbrev"
+                    >
+                      {{ toLocation.name }}
+                    </mat-option>
+                  </mat-select>
+                </div>
+
+                <div class="material-textfield col-4">
+                  <button
+                    type="submit"
+                    style="width: 40%"
+                    class="btn btn-danger btn-sm"
+                  >
+                    <i class="fa fa-barcode" aria-hidden="true"></i> Search
+                  </button>
+                </div>
+              </div>
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- <div class="container-fluid outer-container2">
+        <div class="row">
+          <div class="col-12">
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i> Order
+            </button>
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-arrow-right" aria-hidden="true"></i> Tracking
+            </button>
+            <button
+              type="button"
+              style="margin: 5px; border: none"
+              class="btn btn-light btn-sm"
+            >
+              <i class="fa fa-history" aria-hidden="true"></i> Product
+            </button>
+          </div>
+        </div>
+      </div> -->
+
+      <div *ngIf="items.length != 0" class="container-fluid outer-container3">
+        <div class="row">
+          <div class="col-9" style="display: inline-flex">
+            <!-- <button
+              type="button"
+              style="margin: 5px"
+              class="btn btn-outline-dark btn-sm"
+            >
+              <i class="fa fa-download" aria-hidden="true"></i> Import
+            </button> -->
+          </div>
+
+          <div class="col-3" style="margin-left: -12px">
+            <button
+              type="button"
+              (click)="openDialogInit()"
+              class="btn btn-danger btn-sm"
+            >
+              <i class="fa fa-check-circle" aria-hidden="true"></i>
+              Shipment Receiving
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+          <div class="col-12">
+            <table class="table table-hover" style="border: 1px soild grey">
+              <thead>
+                <tr>
+                  <th scope="col">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </th>
+                  <th scope="col">SHIPPING ID</th>
+                  <th scope="col">ORDER ID</th>
+                  <th scope="col">PRODUCT</th>
+                  <!-- <th scope='col'>TRACKING ID</th> -->
+                  <!-- <th scope="col">UPC/GTIN</th> -->
+                  <th scope="col">PRODUCT DESC</th>
+                  <th scope="col">TRANSFER QUANTITY</th>
+                  <th scope="col">RECEIVE QUANTITY</th>
+                  <th scope="col">STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of items; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ item.shipment_id }}</td>
+                  <td>{{ item.order_id }}</td>
+                  <td>{{ item.product_id }}</td>
+                  <!-- <td>{{item.id}}</td> -->
+                  <!-- <td>{{ item.upc }}</td> -->
+                  <td>{{ item.product_desc }}</td>
+                  <td>{{ item.qty }}</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="table-input"
+                      name="transferQuantity"
+                      value="{{ item.rqty }}"
+                      (input)="setReceiveQuantity($event, item)"
+                    />
+                  </td>
+                  <td>{{ item.comments }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

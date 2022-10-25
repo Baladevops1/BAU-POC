@@ -1,0 +1,383 @@
+<section class="logo-section">
+    <div class="container-fluid">
+        <div class="header-container col-lg-12 col-md-12 col-sm-12">
+            <div class="row" style="justify-content: space-between;">
+                <h1 style="padding: 10px;">Product Details - {{singleProduct.article_Number}} {{singleProduct.item_description}}</h1>
+            </div>
+            <table>
+                <tr>
+                    <th>Article Number</th><td>{{singleProduct.article_Number}}</td><th>Product ID</th><td>{{singleProduct.product_ID}}</td>
+                </tr>
+                <tr>
+                    <th>Item description</th><td>{{singleProduct.item_description}}</td><th>Product Type</th><td>{{singleProduct.product_Type}}</td>
+                </tr>
+                <tr>
+                    <th>Primary UPC</th><td>{{singleProduct.primary_UPC}}</td><th>Item Status</th><td>{{singleProduct.item_Status}}</td>
+                </tr>
+                <tr>
+                    <th>Vendor_Style</th><td>{{singleProduct.vendor_Style}}</td><th>Vendor Color Name</th><td>{{singleProduct.vendor_Color_Name}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="row-container col-lg-12 col-md-12 col-sm-12 tab-header-container" >
+            <mat-tab-group animationDuration="1000ms" #tabGroup (selectedTabChange)="tabChanged($event)">
+                <mat-tab label="UPC Details">
+                    <div class="tab-container" style="padding: 10px;">
+                        <div class="sync-button">
+                            <button type="button" class="btn btn-md large-buttons sync-refresh" matTooltip="Search Product"  style="color: #FFF;" (click)="openDialog()">
+                                <i class="fa fa-arrows-rotate"></i> Sync
+                          </button>
+                        </div>
+                        <div class="row" style="margin-right: 0px; margin-left: 0px;">
+                            <div class="card-container col-lg-6 col-md-6 col-sm-6">
+                                <h2 class="header-text">UPC - SAP</h2>
+                                <table>
+                                    <tr>
+                                        <th>Primary UPC</th><td>{{singleSapUPC.primary}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singleSapUPC.secondary[0]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singleSapUPC.secondary[1]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singleSapUPC.secondary[2]}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="card-container upc-view-style col-lg-6 col-md-6 col-sm-6">
+                                <h2 class="header-text">UPC - PIM</h2>
+                                <table>
+                                    <tr>
+                                        <th>Primary UPC</th><td>{{singlePimUPC.primary}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singlePimUPC.secondary[0]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singlePimUPC.secondary[1]}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Secondary UPC</th><td>{{singlePimUPC.secondary[2]}}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="tab-container row" style="margin-right: 0px; margin-left: 0px; padding: 10px;">
+                        <div class="card-container col-lg-6 col-md-6 col-sm-6" style="margin-top: 4px;">
+                            <h2 class="header-text">UPC - MCS</h2>
+                            <div class="row dropdown">
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT DIVISION</mat-label>
+                                    <mat-select name="division" placeholder="PLEASE SELECT DIVISION" required [formControl]="mcsDivisionControl" [(ngModel)]="selectedMcsDivision" (selectionChange)="onMcsDivisionSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="mcsDivision"
+                                            [searchProperties]="['name']"
+                                            (filtered)="filteredMcsDivision = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT DIVISION</mat-option>
+                                        <mat-option
+                                          *ngFor="let mcsDivision of filteredMcsDivision"
+                                          [value]="mcsDivision.value"
+                                        >
+                                        {{ mcsDivision.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="mcsDivisionControl.hasError('required')">PLEASE SELECT DIVISION.</mat-error>
+                                    <mat-hint>{{mcsDivisionControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT LOCATION</mat-label>
+                                    <mat-select name="Location" placeholder="PLEASE SELECT LOCATION" [formControl]="mcsLocationControl" required [(ngModel)]="selectedMcsLocation" (selectionChange)="onMcsLocationSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="mcsLocation"
+                                            [searchProperties]="['LocationDescription']"
+                                            (filtered)="filteredMcsLocation = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT LOCATION</mat-option>
+                                        <mat-option
+                                          *ngFor="let mcsLocation of filteredMcsLocation"
+                                          [value]="mcsLocation.Location"
+                                        >
+                                        {{ mcsLocation.LocationDescription }} - {{mcsLocation.Location}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="mcsLocationControl.hasError('required')">PLEASE SELECT LOCATION.</mat-error>
+                                    <mat-hint>{{mcsLocationControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                            </div>
+                            <table *ngIf="selectedMcsLocation != '' && selectedMcsDivision != ''">
+                                <tr>
+                                    <th>Primary UPC</th><td>{{singlePimUPC.primary}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Secondary UPC</th><td>{{singlePimUPC.secondary[0]}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Secondary UPC</th><td>{{singlePimUPC.secondary[1]}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Secondary UPC</th><td>{{singlePimUPC.secondary[2]}}</td>
+                                </tr>
+                                <!-- <tr>
+                                    <th>Secondary UPC</th><td>{{singlePimUPC.secondary[3]}}</td>
+                                </tr> -->
+                                <!-- <tr>
+                                    <th>Secondary UPC</th><td>Secondary UPC</td>
+                                </tr> -->
+                            </table>
+                        </div>
+                        <div class="card-container upc-view-style col-lg-6 col-md-6 col-sm-6" style="margin-top: 4px;">
+                            <h2 class="header-text">UPC - POS</h2>
+                            <div class="row dropdown">
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT DIVISION</mat-label>
+                                    <mat-select name="division" required placeholder="PLEASE SELECT DIVISION" [formControl]="posDivisionControl" [(ngModel)]="selectedPosDivision" (selectionChange)="onPosDivisionSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="posDivision"
+                                            [searchProperties]="['name']"
+                                            (filtered)="filteredPosDivision = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT DIVISION</mat-option>
+                                        <mat-option
+                                          *ngFor="let posDivision of filteredPosDivision"
+                                          [value]="posDivision.value"
+                                        >
+                                        {{ posDivision.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="posDivisionControl.hasError('required')">PLEASE SELECT DIVISION.</mat-error>
+                                    <mat-hint>{{posDivisionControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT LOCATION</mat-label>
+                                    <mat-select name="Location" placeholder="PLEASE SELECT LOCATION" required [formControl]="posLocationControl" [(ngModel)]="selectedPosLocation" (selectionChange)="onPosLocationSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="posLocation"
+                                            [searchProperties]="['LocationDescription']"
+                                            (filtered)="filteredPosLocation = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT LOCATION</mat-option>
+                                        <mat-option
+                                          *ngFor="let posLocation of filteredPosLocation"
+                                          [value]="posLocation.Location"
+                                        >
+                                        {{ posLocation.LocationDescription}} - {{posLocation.Location}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="posLocationControl.hasError('required')">PLEASE SELECT LOCATION.</mat-error>
+                                    <mat-hint>{{posLocationControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                            </div>
+                                <table *ngIf="selectedPosLocation != '' && selectedPosDivision != ''" >
+                                    <tr *ngFor="let posUpc of posUpcData">
+                                        <th>{{posUpc.Title}}</th><td>{{posUpc.UPC}}</td>
+                                    </tr>
+                                </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Attribute Details">
+                    <div class="tab-container" style="padding: 10px;">
+                        <div class="sync-button" style="justify-content: center;">
+                            <button type="button" class="btn btn-md large-buttons sync-refresh" matTooltip="Sync Product"  style="color: #FFF;" (click)="openDialog()">
+                                <i class="fa fa-arrows-rotate"></i> Sync
+                          </button>
+                        </div>
+                        <div class="row" style="margin-right: 0px; margin-left: 0px;">
+                            <div class="card-container col-lg-4 col-md-4 col-sm-4">
+                                <div class="row row-style" *ngFor="let attribute of attributeData">
+                                    <p class="title-style">{{attribute.keyName}}</p>
+                                    <p class="value-style">{{attribute.keyValue}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Vendor Cost">
+                    <div class="tab-container">
+                        <div class="card-container col-lg-12 col-md-12 col-sm-12" style="margin-top: 4px;">
+                            <div class="row dropdown" style="padding: 15px;">
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT DIVISION</mat-label>
+                                    <mat-select name="division" placeholder="PLEASE SELECT DIVISION" required [formControl]="vendorDivisionControl" [(ngModel)]="selectedVendorDivision" (selectionChange)="onVendorDivisionSelection($event.value)">
+                                        <mat-option>
+                                            <lib-mat-select-search
+                                            [list]="vendorDivision"
+                                            [searchProperties]="['name']"
+                                            (filtered)="filteredVendorDivision = $event"
+                                            >
+                                            </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT DIVISION</mat-option>
+                                        <mat-option
+                                            *ngFor="let vendorDivision of filteredVendorDivision"
+                                            [value]="vendorDivision.value"
+                                        >
+                                        {{ vendorDivision.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="vendorDivisionControl.hasError('required')">PLEASE SELECT DIVISION.</mat-error>
+                                    <mat-hint>{{vendorDivisionControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT LOCATION</mat-label>
+                                    <mat-select name="Location" placeholder="PLEASE SELECT LOCATION" required [(ngModel)]="selectedVendorLocation" (selectionChange)="onVendorLocationSelection($event.value)">
+                                        <mat-option>
+                                            <lib-mat-select-search
+                                            [list]="vendorLocation"
+                                            [searchProperties]="['LocationDescription']"
+                                            (filtered)="filteredVendorLocation = $event"
+                                            >
+                                            </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT LOCATION</mat-option>
+                                        <mat-option
+                                            *ngFor="let vendorLocation of filteredVendorLocation"
+                                            [value]="vendorLocation.Location"
+                                        >
+                                        {{ vendorLocation.LocationDescription }} - {{vendorLocation.Location}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <div *ngIf="selectedVendorDivision !== ''">
+                                    <!-- <h2 class="header-text">Vendor Cost</h2> -->
+                                    <button type="button" class="btn btn-md large-buttons buttonRefresh" matTooltip="Sync Product"  style="color: #FFF; margin: 10px;" (click)="openDialog()">
+                                        <i class="fa fa-arrows-rotate"></i> Sync
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- <table *ngIf="selectedVendorDivision != ''">
+                            </table> -->
+                            <table class="table table-hover text-nowrap" #table *ngIf="selectedVendorDivision !== ''">
+                                <thead>
+                                    <tr style="background-color: #e6e4e4;">
+                                        <th scope="col">Article Number</th>
+                                        <th scope="col">Location</th>
+                                        <th scope="col">MCS Location</th>
+                                        <th scope="col">Start Date</th>
+                                        <th scope="col">End Date</th>
+                                        <th scope="col">Vendor Currency Code</th>
+                                        <th scope="col">Vendor Unit Cost</th>
+                                        <th scope="col">Vendor Unit of Measure</th>
+                                        <th scope="col">Vendor Unit of Measure Qty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let vendorCost of vendorResponseData">
+                                        <td>{{vendorCost.articleNumber}}</td>
+                                        <td>{{vendorCost.location}}</td>
+                                        <td>{{vendorCost.mcsLocation}}</td>
+                                        <td>{{vendorCost.startDate}}</td>
+                                        <td>{{vendorCost.endDate}}</td>
+                                        <td>{{vendorCost.vendorCurrencyCode}}</td>
+                                        <td>{{vendorCost.vendorUnitCost}}</td>
+                                        <td>{{vendorCost.VendorUnitOfMeasure}}</td>
+                                        <td>{{vendorCost.VendorUnitOfMeasureQty}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Listing">
+                    <div class="tab-container">
+                        <div class="card-container col-lg-12 col-md-12 col-sm-12" style="margin-top: 4px;">
+                            <div class="row dropdown" style="padding: 15px;">
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT DIVISION</mat-label>
+                                    <mat-select name="division" required placeholder="PLEASE SELECT DIVISION" [formControl]="listingDivisionControl" [(ngModel)]="selectedListingDivision" (selectionChange)="onListingDivisionSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="listingDivision"
+                                            [searchProperties]="['name']"
+                                            (filtered)="filteredListingDivision = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT DIVISION</mat-option>
+                                        <mat-option
+                                          *ngFor="let listingDivision of filteredListingDivision"
+                                          [value]="listingDivision.value"
+                                        >
+                                        {{ listingDivision.name }}
+                                        </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="listingDivisionControl.hasError('required')">PLEASE SELECT DIVISION.</mat-error>
+                                    <mat-hint>{{listingDivisionControl.value?.sound}}</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="dropdown-wrap">
+                                    <mat-label>SELECT LOCATION</mat-label>
+                                    <mat-select name="Location" placeholder="PLEASE SELECT LOCATION" required [(ngModel)]="selectedListingLocation" (selectionChange)="onListingLocationSelection($event.value)">
+                                        <mat-option>
+                                          <lib-mat-select-search
+                                            [list]="listingLocation"
+                                            [searchProperties]="['LocationDescription']"
+                                            (filtered)="filteredListingLocation = $event"
+                                          >
+                                          </lib-mat-select-search>
+                                        </mat-option>
+                                        <mat-option disabled>PLEASE SELECT LOCATION</mat-option>
+                                        <mat-option
+                                          *ngFor="let listingLocation of filteredListingLocation"
+                                          [value]="listingLocation.Location"
+                                        >
+                                        {{ listingLocation.LocationDescription}} - {{listingLocation.Location}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <div *ngIf="selectedListingDivision !== ''">
+                                    <!-- <h2 class="header-text">Listing</h2> -->
+                                    <button type="button" class="btn btn-md large-buttons buttonRefresh" matTooltip="Sync Product"  style="color: #FFF; margin: 10px;" (click)="openDialog()">
+                                        <i class="fa fa-arrows-rotate"></i> Sync
+                                    </button>
+                                </div>
+                            </div>
+                                <!-- <table *ngIf="selectedListingDivision != ''" >
+                                </table> -->
+                                <table class="table table-hover text-nowrap" #table *ngIf="selectedListingDivision !== ''">
+                                    <thead>
+                                        <tr style="background-color: #e6e4e4;">
+                                            <th scope="col">Article Number</th>
+                                            <th scope="col">Location</th>
+                                            <th scope="col">MCS Location</th>
+                                            <th scope="col">Start Date</th>
+                                            <th scope="col">End Date</th>
+                                            <th scope="col">SAP Status</th>
+                                            <th scope="col">MCS Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let listing of listingResponseData">
+                                            <td>{{listing.articleNumber}}</td>
+                                            <td>{{listing.location}}</td>
+                                            <td>{{listing.mcsLocation}}</td>
+                                            <td>{{listing.startDate}}</td>
+                                            <td>{{listing.endDate}}</td>
+                                            <td>{{listing.sapStatus}}</td>
+                                            <td>{{listing.mcsStatus}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</section>

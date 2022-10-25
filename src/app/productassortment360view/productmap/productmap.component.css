@@ -1,0 +1,175 @@
+main {
+  background: #fff;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05), 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin: 25px;
+  padding: 25px;
+  padding-top: 40px;
+}
+
+.map-section {
+  background-color: #f9f6f6;
+  width: 100%;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.map-section .map {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+
+.map-product-details {
+  position: absolute;
+  background: #fff;
+  box-shadow: 0px 1px 4px rgb(0 0 0 / 5%), 0px 5px 15px rgb(0 0 0 / 10%);
+  border-radius: 2px;
+  top: 0;
+  padding: 10px;
+  width: 350px;
+}
+
+.map-section p {
+  margin: 0;
+}
+
+.map-section .product-card-brand {
+  color: var(--active-red);
+  text-transform: capitalize;
+  font-family: LibreFranklinSemiBold;
+}
+
+.map-section .product-card-product {
+  font-family: LibreFranklinBold;
+}
+
+.map-section .product-card-product.mini {
+  font-size: 9px;
+  font-family: LibreFranklinMedium;
+}
+
+ul.countries-list {
+  list-style: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-left: 15px;
+  font-family: LibreFranklinBold;
+  font-size: 13px;
+}
+
+.right-top-corner {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 15px;
+  padding-top: 15px;
+  text-align: right;
+}
+
+.right-top-corner .line-1 {
+  font-family: LibreFranklinSemiBold;
+  font-size: 30px;
+  color: var(--active-red);
+}
+
+.right-top-corner .line-1 span {
+  font-family: LibreFranklinSemiBold;
+  font-size: 60px;
+}
+
+.right-top-corner .line-2 {
+  font-family: LibreFranklinRegular;
+  font-size: 12px;
+}
+
+.right-top-corner .line-2 span {
+  font-family: LibreFranklinSemiBold;
+}
+
+.north-america {
+  position: absolute;
+  top: 38%;
+  left: 24%;
+}
+
+.asia-pacific-islands {
+  position: absolute;
+  top: 50%;
+  left: 69%;
+}
+
+.europe {
+  position: absolute;
+  top: 31%;
+  left: 50%;
+}
+
+.middle-east {
+  position: absolute;
+  top: 45%;
+  left: 59%;
+}
+
+.oceania {
+  position: absolute;
+  top: 87%;
+  left: 80%;
+}
+
+.country-pin-hover1,
+.country-pin-hover2 {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  right: 0;
+  width: 104px;
+  padding: 2px 0;
+  background-color: #000;
+  background-color: rgb(255 255 255);
+  color: #000;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.1s ease-in-out;
+  text-align: center;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 3px;
+  /* border: 1px solid #000; */
+  box-shadow: 0px 2px 5px 0px #000;
+  z-index: 99;
+}
+
+.country-pin-hover2 {
+  width: 380px;
+}
+
+.countries2-head {
+  font-family: LibreFranklinSemiBold;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 4px;
+}
+
+.countries2-left-items span {
+  font-family: LibreFranklinBold;
+  font-size: 23px;
+  color: #919191;
+  padding-bottom: 6px;
+}
+
+.countries2-left-items > span:first-child {
+  color: var(--active-red);
+}
+
+.countries2-right-items span {
+  font-family: LibreFranklinRegular;
+  font-size: 13px;
+  padding-bottom: 6px;
+}

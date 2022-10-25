@@ -1,0 +1,834 @@
+<div class="container-fluid mt-3 pl-0" *ngIf="item != ''">
+  <div class="d-flex">
+    <div class="left-nav js-left-nav mr-4">
+      <!-- <div class="index-breadcrumbs-container js-breadcrumbs">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/" class="breadcrumb-text">Home</a>
+          </li>
+          <li class="breadcrumb-item" *ngIf="type != ''">
+            <a
+              href="/categories/makeup"
+              class="breadcrumb-text router-link-active"
+              >{{ capitalize(type) }}</a
+            >
+          </li>
+          <li class="breadcrumb-item" *ngIf="item != ''">
+            <a
+              href="/categories/makeup/face"
+              class="breadcrumb-text router-link-active"
+              >{{ capitalize(item) }}</a
+            >
+          </li>
+          <li class="breadcrumb-item active" *ngIf="innerItem != ''">
+            <a
+              href="/categories/makeup/face/contour"
+              class="breadcrumb-text router-link-exact-active router-link-active"
+              >Contour</a
+            >
+          </li>
+        </ol>
+      </div> -->
+
+      <div
+        role="tablist"
+        class="js-sidebar accordion accordion-sidebar"
+        style="width: 257.75px"
+      >
+        <!-- <div class="card card-light">
+          <div
+            id="skin-concerns-heading"
+            data-toggle="collapse"
+            data-target="#skin-concerns-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h1 class="h4">
+              {{ capitalize(item) }}
+            </h1>
+          </div>
+
+          <div
+            id="skin-concerns-collapse"
+            aria-labelledby="skin-concerns-heading"
+            role="tabpanel"
+            class="collapse show"
+          >
+            <div class="card-block">
+              <ul>
+                <li>
+                  <a href="/categories/makeup" class="">
+                    {{ capitalize(type) }}
+                  </a>
+                  <ul class="secondary">
+                    <li
+                      *ngFor="
+                        let l2 of l1CategoriesFiltered.l2_categories;
+                        let i = index
+                      "
+                      [ngClass]="{ active: item == l2.l2_name }"
+                    >
+                      <a
+                        href="/categories/makeup/face"
+                        [ngClass]="{
+                          active: item == l2.l2_name && innerItem == ''
+                        }"
+                      >
+                        {{ capitalize(l2.l2_name) }}
+                      </a>
+                      <ul class="secondary" *ngIf="item == l2.l2_name">
+                        <li
+                          *ngFor="let l3 of l2CategoriesFiltered.l3_categories"
+                        >
+                          <a href="/categories/makeup/face/contour">{{
+                            capitalize(l3.l3_name)
+                          }}</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+
+        <div class="card card-light">
+          <button
+            disabled="disabled"
+            class="btn btn-sm btn-block clear-all-btn"
+          >
+            Clear all filters
+          </button>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="gender-heading"
+            data-toggle="collapse"
+            data-target="#gender-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Gender</h4>
+          </div>
+
+          <div
+            id="gender-collapse"
+            role="tabpanel"
+            aria-labelledby="gender-heading"
+            class="collapse show"
+          >
+            <div class="card-block">
+              <div class="filter-list-container">
+                <ul class="pb-1">
+                  <li class="form-check p-0">
+                    <input type="checkbox" name="gender" id="unisex" />
+                    <label for="unisex">Unisex</label>
+                  </li>
+                  <li class="form-check p-0">
+                    <input type="checkbox" name="gender" id="men" />
+                    <label for="men">Men</label>
+                  </li>
+                  <li class="form-check p-0">
+                    <input
+                      type="checkbox"
+                      name="gender"
+                      id="women"
+                      (change)="genderFilter($event, 'Women')"
+                    />
+                    <label for="women">Women</label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="brands-heading"
+            data-toggle="collapse"
+            data-target="#brands-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Brands</h4>
+          </div>
+
+          <div
+            id="brands-collapse"
+            role="tabpanel"
+            aria-labelledby="brands-heading"
+            class="collapse show"
+          >
+            <div class="card-block">
+              <div class="filter-brands-search">
+                <input
+                  type="text"
+                  placeholder="Search Brands"
+                  class="form-control filter-search-bar"
+                  (input)="searchBrands($event)"
+                />
+                <svg
+                  class="search-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.6608 14.875L12.9108 11.125C13.7545 9.875 14.192 8.3125 13.9733 6.625C13.567 3.75 11.2233 1.4375 8.37955 1.0625C4.12955 0.53125 0.5358 4.125 1.06705 8.375C1.44205 11.2188 3.75455 13.5625 6.62955 13.9688C8.31705 14.1875 9.87955 13.75 11.1608 12.9062L14.8795 16.6562C15.3795 17.125 16.1608 17.125 16.6608 16.6562C17.1295 16.1562 17.1295 15.375 16.6608 14.875ZM3.50455 7.5C3.50455 5.3125 5.2858 3.5 7.50455 3.5C9.69205 3.5 11.5045 5.3125 11.5045 7.5C11.5045 9.71875 9.69205 11.5 7.50455 11.5C5.2858 11.5 3.50455 9.71875 3.50455 7.5Z"
+                    fill="#9e3753"
+                  />
+                </svg>
+              </div>
+              <div class="filter-list-container">
+                <ul>
+                  <li
+                    class="form-check p-0"
+                    *ngFor="let item of brands; let i = index"
+                  >
+                    <input
+                      type="checkbox"
+                      name="brand"
+                      id="{{ 'brand' + i }}"
+                      (change)="brandFilter($event, item)"
+                    />
+                    <label class="LibreFranklinRegular" for="{{ 'brand' + i }}">
+                      {{ item }}
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-light" *ngIf="activeRole === 2">
+          <div
+            id="countries-region-heading"
+            data-toggle="collapse"
+            data-target="#countries-region-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Regions, Countries</h4>
+          </div>
+
+          <div
+            id="countries-region-collapse"
+            role="tabpanel"
+            aria-labelledby="countries-region-heading"
+            class="collapse show"
+          >
+            <div class="card-block">
+              <div class="filter-brands-search">
+                <input
+                  type="text"
+                  placeholder="Search Brands"
+                  class="form-control filter-search-bar"
+                  (input)="searchBrands($event)"
+                />
+                <svg
+                  class="search-icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16.6608 14.875L12.9108 11.125C13.7545 9.875 14.192 8.3125 13.9733 6.625C13.567 3.75 11.2233 1.4375 8.37955 1.0625C4.12955 0.53125 0.5358 4.125 1.06705 8.375C1.44205 11.2188 3.75455 13.5625 6.62955 13.9688C8.31705 14.1875 9.87955 13.75 11.1608 12.9062L14.8795 16.6562C15.3795 17.125 16.1608 17.125 16.6608 16.6562C17.1295 16.1562 17.1295 15.375 16.6608 14.875ZM3.50455 7.5C3.50455 5.3125 5.2858 3.5 7.50455 3.5C9.69205 3.5 11.5045 5.3125 11.5045 7.5C11.5045 9.71875 9.69205 11.5 7.50455 11.5C5.2858 11.5 3.50455 9.71875 3.50455 7.5Z"
+                    fill="#9e3753"
+                  />
+                </svg>
+              </div>
+              <div class="filter-list-container filter-list-container-coutries">
+                <ul>
+                  <li
+                    class="form-check p-0"
+                    *ngFor="let task of countries; let i = index"
+                  >
+                    <input
+                      type="checkbox"
+                      name="country"
+                      id="{{ 'country' + i }}"
+                      class="countryUl"
+                      (change)="
+                        updateAllComplete(i); countryFilter($event, task, false)
+                      "
+                      [checked]="task.completed"
+                    />
+                    <label
+                      class="LibreFranklinRegular"
+                      for="{{ 'country' + i }}"
+                    >
+                      {{ task.name }}
+                    </label>
+
+                    <ul class="countries-inner-list">
+                      <li
+                        class="form-check p-0"
+                        *ngFor="let subtask of task.subtasks; let j = index"
+                      >
+                        <input
+                          type="checkbox"
+                          name="countryLi"
+                          id="{{ 'country' + i + j }}"
+                          class="country"
+                          (change)="
+                            someComplete(i, j);
+                            countryFilter($event, subtask, true)
+                          "
+                          [checked]="subtask.completed"
+                        />
+                        <label
+                          class="LibreFranklinRegular"
+                          for="{{ 'country' + i + j }}"
+                        >
+                          {{ subtask.name }}
+                        </label>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="price-heading"
+            data-toggle="collapse"
+            data-target="#price-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Price</h4>
+          </div>
+
+          <div
+            id="price-collapse"
+            role="tabpanel"
+            aria-labelledby="price-heading"
+            class="collapse show"
+          >
+            <div class="card-block">
+              <div class="range-slider">
+                <ngx-slider
+                  [(value)]="value"
+                  [(highValue)]="highValue"
+                  [options]="options"
+                ></ngx-slider>
+
+                <div class="min-max-slider">
+                  <input type="text" [value]="'$ ' + value" />
+                  <div>
+                    <svg
+                      width="20"
+                      height="2"
+                      viewBox="0 0 20 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="20" height="2" rx="1" fill="#919191" />
+                    </svg>
+                  </div>
+                  <input type="text" [value]="'$ ' + highValue" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="color-heading"
+            data-toggle="collapse"
+            data-target="#color-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Colour</h4>
+          </div>
+
+          <div
+            id="color-collapse"
+            role="tabpanel"
+            aria-labelledby="color-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="size-heading"
+            data-toggle="collapse"
+            data-target="#size-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Size</h4>
+          </div>
+
+          <div
+            id="size-collapse"
+            role="tabpanel"
+            aria-labelledby="size-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="country-heading"
+            data-toggle="collapse"
+            data-target="#country-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Country of Origin</h4>
+          </div>
+
+          <div
+            id="country-collapse"
+            role="tabpanel"
+            aria-labelledby="country-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="shelf-life-heading"
+            data-toggle="collapse"
+            data-target="#shelf-life-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Shelf Life</h4>
+          </div>
+
+          <div
+            id="shelf-life-collapse"
+            role="tabpanel"
+            aria-labelledby="shelf-life-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="unit-of-measure-heading"
+            data-toggle="collapse"
+            data-target="#unit-of-measure-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Unit of Measure</h4>
+          </div>
+
+          <div
+            id="unit-of-measure-collapse"
+            role="tabpanel"
+            aria-labelledby="unit-of-measure-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="product-code-heading"
+            data-toggle="collapse"
+            data-target="#product-code-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Product Code</h4>
+          </div>
+
+          <div
+            id="product-code-collapse"
+            role="tabpanel"
+            aria-labelledby="product-code-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+
+        <div class="card card-light">
+          <div
+            id="vendor-number-heading"
+            data-toggle="collapse"
+            data-target="#vendor-number-collapse"
+            role="tab"
+            class="card-header"
+          >
+            <i class="collapse-arrow"></i>
+            <h4 class="h4 active-red-wine">Vendor Number</h4>
+          </div>
+
+          <div
+            id="vendor-number-collapse"
+            role="tabpanel"
+            aria-labelledby="vendor-number-heading"
+            class="collapse show"
+          >
+            <div class="card-block"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="" *ngIf="slides.length > 0">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="sortingFilter">
+          Sort By
+
+          <select>
+            <option>Price low to high</option>
+            <option>Price high to low</option>
+          </select>
+
+          <!-- <svg
+            style="margin-left: 6px"
+            width="18"
+            height="17"
+            viewBox="0 0 18 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.75 0.375C16.9805 0.375 18 1.39453 18 2.625V13.875C18 15.1406 16.9805 16.125 15.75 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V2.625C0 1.39453 0.984375 0.375 2.25 0.375H15.75ZM15.75 2.625H10.125V7.125H15.75V2.625ZM15.75 9.375H10.125V13.875H15.75V9.375ZM7.875 7.125V2.625H2.25V7.125H7.875ZM2.25 13.875H7.875V9.375H2.25V13.875Z"
+              fill="#919191"
+            />
+          </svg>
+
+          <svg
+            style="margin-left: 6px"
+            width="18"
+            height="17"
+            viewBox="0 0 18 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.75 0.375C16.9805 0.375 18 1.39453 18 2.625V13.875C18 15.1406 16.9805 16.125 15.75 16.125H2.25C0.984375 16.125 0 15.1406 0 13.875V2.625C0 1.39453 0.984375 0.375 2.25 0.375H15.75ZM5.34375 2.625H2.25V4.875H5.34375V2.625ZM7.3125 4.875H10.4062V2.625H7.3125V4.875ZM15.75 2.625H12.6562V4.875H15.75V2.625ZM2.25 9.375H5.34375V7.125H2.25V9.375ZM10.4062 7.125H7.3125V9.375H10.4062V7.125ZM12.6562 9.375H15.75V7.125H12.6562V9.375ZM5.34375 11.625H2.25V13.875H5.34375V11.625ZM7.3125 13.875H10.4062V11.625H7.3125V13.875ZM15.75 11.625H12.6562V13.875H15.75V11.625Z"
+              fill="#9E3753"
+            />
+          </svg> -->
+        </div>
+
+        <div class="products-found">
+          {{ this.slides.length }} Products Found
+        </div>
+
+        <pagination-controls
+          *ngIf="activeRole !== 2"
+          (pageChange)="p = $event"
+        ></pagination-controls>
+      </div>
+
+      <div class="row" *ngIf="slides.length > 0 && activeRole !== 2">
+        <div
+          class="col-6 col-lg-3 product-item mb-5"
+          *ngFor="
+            let pageItem of slides
+              | paginate
+                : {
+                    itemsPerPage: 20,
+                    currentPage: p
+                  };
+            let i = index
+          "
+        >
+          <div
+            class="carousel_item featured_product product product_shared item null"
+            style="margin-left: 3px; margin-right: 3px"
+          >
+            <div class="image stable">
+              <!-- <img
+                alt="Power Bullet Matte Lipstick"
+                [src]="
+                  'assets/categories/' +
+                  pageItem.item.toLowerCase().replace(' ', '') +
+                  '/' +
+                  pageItem.brand.toLowerCase().replace(' ', '') +
+                  '/' +
+                  pageItem.url
+                "
+                class="ga-image-ready"
+                style="width: 100%"
+              /> -->
+              <img
+                alt="Power Bullet Matte Lipstick"
+                [src]="pageItem.img"
+                class="ga-image-ready"
+                style="width: 100%"
+              />
+              <svg
+                *ngIf="pageItem['DFS Exclusive']"
+                class="float-right"
+                width="70"
+                height="34"
+                viewBox="0 0 70 34"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="70"
+                  height="34"
+                  rx="4"
+                  fill="url(#paint0_linear_133_340)"
+                />
+                <path
+                  d="M24.7746 6.6154C24.88 6.6154 25.0345 6.6154 25.2379 6.6154C25.4488 6.6154 25.671 6.6154 25.9046 6.6154C26.1381 6.6154 26.3566 6.6154 26.56 6.6154C26.7709 6.6154 26.9291 6.61917 27.0346 6.6267C28.0591 6.6493 28.8953 6.8301 29.5432 7.1691C30.1986 7.50057 30.6807 7.9714 30.9896 8.5816C31.2984 9.18427 31.4529 9.91123 31.4529 10.7625C31.4529 11.6514 31.2871 12.4123 30.9557 13.0451C30.6317 13.6779 30.1345 14.1638 29.4641 14.5028C28.8011 14.8343 27.9649 15 26.9555 15H24.7746C24.6239 15 24.5486 14.9209 24.5486 14.7627V6.8188C24.5486 6.74347 24.5636 6.69073 24.5938 6.6606C24.6314 6.63047 24.6917 6.6154 24.7746 6.6154ZM26.334 7.8132C26.2586 7.8132 26.221 7.86593 26.221 7.9714V13.6666C26.221 13.757 26.2699 13.8022 26.3679 13.8022H26.6504C27.3434 13.8022 27.916 13.7043 28.368 13.5084C28.82 13.3125 29.1552 12.9924 29.3737 12.5479C29.5921 12.1034 29.7014 11.5158 29.7014 10.7851C29.7014 10.0619 29.5959 9.4856 29.385 9.0562C29.174 8.61927 28.8501 8.30287 28.4132 8.107C27.9762 7.91113 27.4225 7.8132 26.7521 7.8132H26.334ZM32.9242 6.8075C32.9242 6.67943 32.9807 6.6154 33.0937 6.6154H38.4838C38.5818 6.6154 38.6307 6.6719 38.6307 6.7849L38.6194 7.6437C38.6194 7.78683 38.5554 7.8584 38.4273 7.8584H34.7887C34.6607 7.8584 34.5966 7.91113 34.5966 8.0166V10.1184C34.5966 10.2314 34.6494 10.2879 34.7548 10.2879H37.399C37.5045 10.2879 37.5572 10.3406 37.5572 10.4461V11.3501C37.5572 11.4405 37.5045 11.4857 37.399 11.4857H34.7435C34.6456 11.4857 34.5966 11.5347 34.5966 11.6326V14.7853C34.5966 14.9284 34.5138 15 34.348 15H33.1389C33.0561 15 32.9996 14.9849 32.9694 14.9548C32.9393 14.9171 32.9242 14.8644 32.9242 14.7966V6.8075ZM44.4453 8.446C44.2645 8.25013 44.0423 8.07687 43.7786 7.9262C43.5149 7.77553 43.1533 7.7002 42.6938 7.7002C42.1891 7.7002 41.8049 7.79813 41.5412 7.994C41.2775 8.18987 41.1457 8.44977 41.1457 8.7737C41.1457 8.87917 41.1683 8.99217 41.2135 9.1127C41.2662 9.23323 41.3642 9.35377 41.5073 9.4743C41.658 9.5873 41.8727 9.689 42.1514 9.7794L43.8916 10.2992C44.5847 10.5026 45.0819 10.8077 45.3832 11.2145C45.6921 11.6138 45.8465 12.0808 45.8465 12.6157C45.8465 13.128 45.7147 13.5724 45.451 13.9491C45.1873 14.3258 44.8144 14.6158 44.3323 14.8192C43.8502 15.0151 43.2739 15.113 42.6034 15.113C42.1137 15.113 41.6542 15.0565 41.2248 14.9435C40.8029 14.8305 40.4263 14.6648 40.0948 14.4463C39.7709 14.2278 39.5072 13.9679 39.3038 13.6666C39.2661 13.6063 39.2511 13.5536 39.2586 13.5084C39.2737 13.4557 39.3113 13.4067 39.3716 13.3615L40.0835 12.8643C40.1739 12.8116 40.2417 12.789 40.2869 12.7965C40.3396 12.804 40.3848 12.8304 40.4225 12.8756C40.6108 13.1167 40.7954 13.3163 40.9762 13.4745C41.1645 13.6252 41.3792 13.7382 41.6203 13.8135C41.8614 13.8888 42.1552 13.9265 42.5017 13.9265C43.029 13.9265 43.4509 13.8399 43.7673 13.6666C44.0837 13.4858 44.2419 13.2071 44.2419 12.8304C44.2419 12.6797 44.208 12.5441 44.1402 12.4236C44.0799 12.2955 43.9745 12.1788 43.8238 12.0733C43.6807 11.9678 43.4697 11.8699 43.191 11.7795L41.4847 11.2597C41.0478 11.1241 40.6862 10.9433 40.3999 10.7173C40.1212 10.4838 39.9102 10.2163 39.7671 9.915C39.624 9.61367 39.5524 9.30103 39.5524 8.9771C39.5524 8.49497 39.6805 8.06933 39.9366 7.7002C40.1927 7.32353 40.5543 7.02973 41.0214 6.8188C41.4885 6.60787 42.0346 6.5024 42.6599 6.5024C43.0667 6.5024 43.4471 6.55137 43.8012 6.6493C44.1628 6.7397 44.4867 6.87153 44.773 7.0448C45.0668 7.21807 45.3079 7.42523 45.4962 7.6663C45.5263 7.70397 45.5489 7.7454 45.564 7.7906C45.5791 7.82827 45.5565 7.87347 45.4962 7.9262L44.6939 8.5251C44.6562 8.55523 44.6186 8.56653 44.5809 8.559C44.5508 8.54393 44.5056 8.50627 44.4453 8.446ZM10.7822 17.8075C10.7822 17.6794 10.8387 17.6154 10.9517 17.6154H16.4322C16.5301 17.6154 16.5791 17.6719 16.5791 17.7849V18.6437C16.5791 18.7868 16.5113 18.8584 16.3757 18.8584H12.6467C12.5186 18.8584 12.4546 18.9111 12.4546 19.0166V20.9941C12.4546 21.1071 12.5073 21.1636 12.6128 21.1636H15.1892C15.3022 21.1636 15.3587 21.2201 15.3587 21.3331V22.2484C15.3587 22.2861 15.3474 22.32 15.3248 22.3501C15.3022 22.3727 15.2608 22.384 15.2005 22.384H12.6015C12.5036 22.384 12.4546 22.4292 12.4546 22.5196V24.6214C12.4546 24.7118 12.496 24.757 12.5789 24.757H16.5339C16.6544 24.757 16.7147 24.8097 16.7147 24.9152V25.8305C16.7147 25.8757 16.6996 25.9171 16.6695 25.9548C16.6394 25.9849 16.5904 26 16.5226 26H10.9969C10.8538 26 10.7822 25.9322 10.7822 25.7966V17.8075ZM23.0989 25.6723C23.1893 25.7928 23.227 25.8795 23.2119 25.9322C23.2044 25.9774 23.1441 26 23.0311 26H21.8107C21.6601 26 21.5508 25.951 21.483 25.8531L20.1722 24.0112C20.1195 23.9359 20.0781 23.8982 20.0479 23.8982C20.0253 23.8982 19.9839 23.9359 19.9236 24.0112L18.5789 25.8531C18.5111 25.951 18.4019 26 18.2512 26H17.4602C17.3472 26 17.2719 25.9699 17.2342 25.9096C17.1966 25.8493 17.2342 25.7476 17.3472 25.6045L19.2682 23.1411C19.3134 23.0808 19.3323 23.0281 19.3247 22.9829C19.3247 22.9377 19.3021 22.885 19.2569 22.8247L17.3811 20.2822C17.3359 20.2219 17.3246 20.1617 17.3472 20.1014C17.3774 20.0411 17.4376 20.011 17.528 20.011H18.6919C18.7748 20.011 18.8388 20.0223 18.884 20.0449C18.9292 20.0675 18.9707 20.1052 19.0083 20.1579L20.2174 21.8529C20.2777 21.9433 20.338 21.9433 20.3982 21.8529L21.5621 20.1579C21.5998 20.1052 21.6412 20.0675 21.6864 20.0449C21.7316 20.0223 21.7957 20.011 21.8785 20.011H22.7486C22.8466 20.011 22.8993 20.0336 22.9068 20.0788C22.9144 20.124 22.8993 20.1767 22.8616 20.237L21.0988 22.61C21.0536 22.6703 21.031 22.723 21.031 22.7682C21.0386 22.8134 21.0649 22.8661 21.1101 22.9264L23.0989 25.6723ZM26.2892 19.898C26.7412 19.898 27.1329 19.9771 27.4644 20.1353C27.7958 20.286 28.067 20.4856 28.278 20.7342C28.4964 20.9753 28.6622 21.2314 28.7752 21.5026C28.8204 21.6382 28.7827 21.7098 28.6622 21.7173L27.6678 21.8416C27.5924 21.8567 27.5397 21.8228 27.5096 21.7399C27.4116 21.5742 27.3099 21.4273 27.2045 21.2992C27.099 21.1711 26.9785 21.0694 26.8429 20.9941C26.7073 20.9188 26.5415 20.8811 26.3457 20.8811C26.0443 20.8811 25.7769 20.964 25.5434 21.1297C25.3174 21.2879 25.1403 21.5252 25.0123 21.8416C24.8917 22.158 24.8315 22.546 24.8315 23.0055C24.8315 23.4726 24.8955 23.8643 25.0236 24.1807C25.1592 24.4971 25.3437 24.7382 25.5773 24.9039C25.8108 25.0621 26.0895 25.1412 26.4135 25.1412C26.7525 25.1412 27.0312 25.0546 27.2497 24.8813C27.4681 24.7005 27.6715 24.4519 27.8599 24.1355C27.8825 24.1054 27.9051 24.0865 27.9277 24.079C27.9503 24.0715 27.9879 24.0752 28.0407 24.0903L28.7526 24.2824C28.8279 24.305 28.8505 24.369 28.8204 24.4745C28.745 24.6478 28.6358 24.8323 28.4927 25.0282C28.3571 25.2241 28.1876 25.4049 27.9842 25.5706C27.7808 25.7288 27.5359 25.8606 27.2497 25.9661C26.9709 26.064 26.6508 26.113 26.2892 26.113C25.7166 26.113 25.2081 25.9849 24.7637 25.7288C24.3192 25.4651 23.9689 25.1035 23.7128 24.644C23.4642 24.1769 23.3399 23.6383 23.3399 23.0281C23.3399 22.4104 23.4679 21.868 23.7241 21.4009C23.9802 20.9263 24.3305 20.5572 24.775 20.2935C25.2194 20.0298 25.7242 19.898 26.2892 19.898ZM31.3047 25.7514C31.3047 25.8418 31.2858 25.9058 31.2482 25.9435C31.2105 25.9812 31.1427 26 31.0448 26H30.0504C29.8997 26 29.8244 25.9322 29.8244 25.7966L29.8583 17.8075C29.8583 17.6794 29.9148 17.6154 30.0278 17.6154H31.1465C31.2519 17.6154 31.3047 17.6757 31.3047 17.7962V25.7514ZM35.0544 25.0395C35.3181 25.0395 35.5667 24.9679 35.8002 24.8248C36.0413 24.6817 36.2711 24.4933 36.4895 24.2598V20.237C36.4895 20.0863 36.5762 20.011 36.7494 20.011H37.7664C37.902 20.011 37.9698 20.0826 37.9698 20.2257L37.9472 25.8192C37.9472 25.9397 37.8945 26 37.789 26H36.6816C36.5762 26 36.5234 25.9435 36.5234 25.8305V25.2316C36.5234 25.1939 36.5121 25.1713 36.4895 25.1638C36.4745 25.1487 36.4481 25.16 36.4104 25.1977C36.0564 25.5292 35.7211 25.7665 35.4047 25.9096C35.0883 26.0452 34.7606 26.113 34.4216 26.113C34.0826 26.113 33.7813 26.0414 33.5176 25.8983C33.254 25.7552 33.0468 25.548 32.8961 25.2768C32.7455 25.0056 32.6701 24.6892 32.6701 24.3276V20.2483C32.6701 20.0901 32.7492 20.011 32.9074 20.011H33.947C34.0751 20.011 34.1391 20.0826 34.1391 20.2257V24.079C34.1391 24.3653 34.2182 24.5988 34.3764 24.7796C34.5422 24.9529 34.7682 25.0395 35.0544 25.0395ZM43.0423 21.4913C42.8992 21.303 42.7108 21.1448 42.4773 21.0167C42.2438 20.8886 41.9575 20.8246 41.6185 20.8246C41.2946 20.8246 41.0234 20.8886 40.8049 21.0167C40.5864 21.1448 40.4772 21.3256 40.4772 21.5591C40.4772 21.6721 40.5224 21.7813 40.6128 21.8868C40.7032 21.9923 40.9028 22.0864 41.2117 22.1693L42.5564 22.5309C43.144 22.674 43.5621 22.9 43.8107 23.2089C44.0668 23.5102 44.1949 23.853 44.1949 24.2372C44.1949 24.6289 44.0819 24.9642 43.8559 25.2429C43.6374 25.5216 43.3286 25.7363 42.9293 25.887C42.5376 26.0377 42.0893 26.113 41.5846 26.113C40.9367 26.113 40.383 25.9962 39.9235 25.7627C39.464 25.5216 39.14 25.2241 38.9517 24.87C38.9291 24.8248 38.9178 24.7834 38.9178 24.7457C38.9178 24.7005 38.9366 24.6628 38.9743 24.6327L39.641 24.2937C39.7013 24.256 39.7502 24.241 39.7879 24.2485C39.8256 24.256 39.8557 24.2749 39.8783 24.305C39.9913 24.4632 40.1194 24.6063 40.2625 24.7344C40.4132 24.8625 40.594 24.9642 40.8049 25.0395C41.0234 25.1148 41.287 25.1487 41.5959 25.1412C41.8294 25.1412 42.0404 25.1111 42.2287 25.0508C42.4246 24.9905 42.579 24.9077 42.692 24.8022C42.805 24.6892 42.8615 24.5536 42.8615 24.3954C42.8615 24.2447 42.7975 24.1129 42.6694 23.9999C42.5413 23.8869 42.3116 23.789 41.9801 23.7061L40.8275 23.4349C40.255 23.2993 39.8331 23.0959 39.5619 22.8247C39.2982 22.5535 39.1664 22.2145 39.1664 21.8077C39.1664 21.431 39.2643 21.0996 39.4602 20.8133C39.6636 20.527 39.9499 20.3048 40.319 20.1466C40.6881 19.9809 41.1251 19.898 41.6298 19.898C42.1873 19.898 42.6694 19.9997 43.0762 20.2031C43.483 20.4065 43.7806 20.6589 43.9689 20.9602C43.999 20.9979 44.0179 21.0393 44.0254 21.0845C44.0405 21.1297 44.0216 21.1674 43.9689 21.1975L43.2683 21.5478C43.2231 21.5704 43.1817 21.5779 43.144 21.5704C43.1063 21.5553 43.0724 21.529 43.0423 21.4913ZM46.776 25.7514C46.776 25.8418 46.7534 25.9058 46.7082 25.9435C46.6705 25.9812 46.6027 26 46.5048 26H45.5217C45.4388 26 45.3823 25.9849 45.3522 25.9548C45.322 25.9171 45.307 25.8644 45.307 25.7966V20.2031C45.307 20.075 45.3635 20.011 45.4765 20.011H46.6178C46.7232 20.011 46.776 20.0713 46.776 20.1918V25.7514ZM46.7986 18.9036C46.7986 19.0769 46.7082 19.1635 46.5274 19.1635H45.4991C45.4162 19.1635 45.3597 19.1447 45.3296 19.107C45.2994 19.0693 45.2844 19.0128 45.2844 18.9375V17.8301C45.2844 17.687 45.3446 17.6154 45.4652 17.6154H46.6291C46.7421 17.6154 46.7986 17.6794 46.7986 17.8075V18.9036ZM53.4527 20.011C53.5205 20.011 53.5657 20.0336 53.5883 20.0788C53.6109 20.124 53.6109 20.1767 53.5883 20.237L51.3396 25.7853C51.2793 25.9284 51.1701 26 51.0119 26H50.3452C50.1794 26 50.0664 25.9322 50.0062 25.7966L47.7575 20.2483C47.7349 20.1805 47.7386 20.124 47.7688 20.0788C47.7989 20.0336 47.8479 20.011 47.9157 20.011H49.1022C49.1549 20.011 49.2001 20.0261 49.2378 20.0562C49.283 20.0863 49.3131 20.1278 49.3282 20.1805L50.7859 23.8869C50.8386 24.03 50.8989 24.0263 50.9667 23.8756L52.4131 20.1692C52.4357 20.124 52.462 20.0863 52.4922 20.0562C52.5298 20.0261 52.575 20.011 52.6278 20.011H53.4527ZM55.4438 23.4688C55.4438 23.7777 55.5153 24.0564 55.6585 24.305C55.8016 24.5461 55.9975 24.7382 56.2461 24.8813C56.5022 25.0169 56.7809 25.0847 57.0823 25.0847C57.3911 25.0847 57.6699 25.0207 57.9185 24.8926C58.1746 24.7645 58.4157 24.5574 58.6417 24.2711C58.6718 24.2334 58.6982 24.2146 58.7208 24.2146C58.7434 24.2071 58.781 24.2184 58.8338 24.2485L59.5231 24.5536C59.621 24.5988 59.6323 24.6666 59.557 24.757C59.331 25.0885 59.0861 25.3559 58.8225 25.5593C58.5663 25.7552 58.2801 25.8983 57.9637 25.9887C57.6548 26.0716 57.3045 26.113 56.9128 26.113C56.3402 26.113 55.828 25.9849 55.376 25.7288C54.924 25.4727 54.5661 25.1186 54.3025 24.6666C54.0463 24.2071 53.9183 23.6797 53.9183 23.0846C53.9183 22.4292 54.0501 21.8642 54.3138 21.3896C54.585 20.915 54.9466 20.5496 55.3986 20.2935C55.8506 20.0298 56.3478 19.898 56.8902 19.898C57.4627 19.898 57.9599 20.0223 58.3818 20.2709C58.8112 20.5195 59.1464 20.8773 59.3875 21.3444C59.6285 21.8039 59.7491 22.3652 59.7491 23.0281C59.7491 23.1034 59.7415 23.1637 59.7265 23.2089C59.7189 23.2541 59.6662 23.2805 59.5683 23.288H55.5681C55.5229 23.288 55.489 23.3031 55.4664 23.3332C55.4513 23.3633 55.4438 23.4085 55.4438 23.4688ZM58.1219 22.4518C58.1972 22.4518 58.2462 22.4443 58.2688 22.4292C58.2989 22.4066 58.314 22.3614 58.314 22.2936C58.314 22.0601 58.2612 21.8303 58.1558 21.6043C58.0503 21.3783 57.8959 21.1937 57.6925 21.0506C57.4891 20.8999 57.2405 20.8246 56.9467 20.8246C56.6453 20.8246 56.3817 20.8999 56.1557 21.0506C55.9297 21.1937 55.7564 21.3896 55.6359 21.6382C55.5229 21.8793 55.4664 22.1505 55.4664 22.4518H58.1219Z"
+                  fill="white"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_133_340"
+                    x1="22.5"
+                    y1="6.5"
+                    x2="43"
+                    y2="30.5"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#C0311A" />
+                    <stop offset="1" stop-color="#9E3753" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+
+            <!-- <div class="add_to_bag_and_variant_relative desk_only notouch">
+              <div class="add_to_bag_and_variant hidden">
+                <div class="add_to_bag">
+                  <p
+                    class="btn btn-block btn-primary product-card-add-to-bag add_to_bag_text button bg_red"
+                  >
+                    Add To Bag
+                  </p>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="product-card">
+              <span
+                class="product-card-description"
+                id="dy-banner-clp-mu-phase4-1"
+              >
+                <p class="product-card-label">
+                  <span class="product-card-label-primary"></span>
+                </p>
+
+                <p class="product-card-brand">{{ pageItem.brand }}</p>
+
+                <p class="product-card-product">
+                  {{ pageItem.desc }}
+                </p>
+                <p class="product-card-product mini">
+                  UPC/GTIN: {{ pageItem.gtin }}
+                </p>
+                <p class="product-card-product mini">
+                  Product ID: {{ pageItem.id }}
+                </p>
+                <p class="product-card-product mini">
+                  CSKU: {{ pageItem.csku }}
+                </p>
+                <p class="product-card-product mini active-red">
+                  Margin: <span>+20%</span>
+                </p>
+
+                <div class="product-price d-flex justify-content-between">
+                  <span class="under-sale" style="display: none">true</span>
+
+                  <!-- <span class="product-price-sale-old" style="display: inline">
+                    $40.00
+                  </span> -->
+
+                  <span class="product-price-sale-new">
+                    ${{ pageItem.price }}
+                  </span>
+
+                  <span
+                    class="quick-view"
+                    (click)="openDialog(pageItem)"
+                    (mousemove)="onQuickViewHoverAllItems($event)"
+                    (mouseout)="onQuickViewHoverOutAllItems($event)"
+                  >
+                    <svg
+                      width="16"
+                      height="15"
+                      viewBox="0 0 16 15"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M15.0292 12.8906L11.748 9.60938C12.4863 8.51562 12.8691 7.14844 12.6777 5.67188C12.3222 3.15625 10.2714 1.13281 7.78313 0.804688C4.03704 0.339844 0.919852 3.45703 1.3847 7.20312C1.71282 9.69141 3.73626 11.7422 6.25188 12.0703C7.72845 12.2891 9.09563 11.9062 10.2167 11.168L13.4706 14.4492C13.9081 14.8594 14.5917 14.8594 15.0292 14.4492C15.4394 14.0117 15.4394 13.3281 15.0292 12.8906ZM9.23235 7.09375H7.67376V8.625C7.67376 9.00781 7.37298 9.28125 7.04485 9.28125C6.66204 9.28125 6.3886 9.00781 6.3886 8.625V7.09375H4.83001C4.47454 7.09375 4.2011 6.82031 4.2011 6.4375C4.2011 6.08203 4.47454 5.78125 4.83001 5.78125H6.3886V4.25C6.3886 3.89453 6.66204 3.59375 7.01751 3.59375C7.34563 3.59375 7.67376 3.89453 7.67376 4.25V5.78125H9.20501C9.58782 5.78125 9.8886 6.08203 9.8886 6.4375C9.8886 6.82031 9.58782 7.09375 9.23235 7.09375Z"
+                        fill="#C0311A"
+                      />
+                    </svg>
+                  </span>
+                </div>
+                <div
+                  class="product-card-rating rating-container"
+                  style="display: block"
+                ></div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="slides.length > 0 && activeRole === 2">
+        <span class="text-right LibreFranklinRegular" style="width: 100%">
+          1. VSP - Vendor Selling Price &nbsp; 2. Price RP - Retail Price &nbsp;
+          3. WSP - Whole Sale Price
+        </span>
+
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container matColumnDef="image">
+            <mat-header-cell *matHeaderCellDef style="flex: 3">
+              Image
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 3">
+              <img
+                alt="Power Bullet Matte Lipstick"
+                [src]="element.img"
+                class="ga-image-ready"
+                style="width: 80%"
+              />
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="product_id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 3">
+              Product ID
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 3">
+              {{ element.id }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="product_desc">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 5">
+              Product Description
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 5">
+              {{ element.desc }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="brand">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 2">
+              Brand
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 2">
+              {{ element.brand }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="store">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 5">
+              Store
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 5">
+              {{ element.store }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="vsp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 2">
+              VSP
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 2">
+              {{
+                math.round((element.price - (element.price * 20) / 100) * 10) /
+                  10
+              }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="rp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 2">
+              RRP
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 2">
+              {{ element.price }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="qty">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 2">
+              QTY
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 2">
+              {{ 2 }}
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="wsp">
+            <mat-header-cell *matHeaderCellDef mat-sort-header style="flex: 4">
+              On Order Qty
+            </mat-header-cell>
+            <mat-cell *matCellDef="let element" style="flex: 4">
+              2
+            </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="cart">
+            <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+            <mat-cell *matCellDef="let element; let i = index">
+              <i
+              *ngIf="element.isInCart === false"
+                (mousemove)="onAddToCartHoverAllItems($event)"
+                (mouseout)="onAddToCartHoverOutAllItems($event)"
+                (click)="addToCart(element, i)"
+                class="fa-solid fa-cart-shopping"
+                style="color: var(--active-red-wine); cursor: pointer"
+              ></i>
+
+              <i
+              *ngIf="element.isInCart === true"
+                class="fa-solid fa-cart-shopping"
+                style="color: rgba(214, 210, 210, 0.151)"
+              ></i>
+            </mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+          <!-- <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter</mat-cell>
+          </tr> -->
+        </mat-table>
+
+        <mat-paginator
+          [pageSizeOptions]="[20, 50, 100]"
+          aria-label="Select page of users"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="quick-view-hover" id="quickViewHover">Quick View</div>
+<div class="add-to-cart" id="addToCart">Add to Cart</div>

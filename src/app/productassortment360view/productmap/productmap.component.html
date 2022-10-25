@@ -1,0 +1,283 @@
+<main>
+  <section class="logo-section">
+    <div class="container-fluid ml-0">
+      <div class="row align-items-center">
+        <div class="col-lg-6 col-md-6 col-sm-6 d-flex align-items-center">
+          <a class="navbar-brand" href="#"> </a>
+          <h1
+            class="LibreFranklinBold"
+            style="
+              margin: 5px;
+              margin-left: -5px;
+              color: var(--active-red);
+              font-size: 22px;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Product snapshot overview
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid map-section">
+      <div class="row">
+        <div class="col-12">
+          <img src="assets/world-map.png" class="map" />
+
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-4 map-product-details">
+                <div class="container-fluid p-0">
+                  <div class="row align-items-center justify-content-center">
+                    <div class="col-3">
+                      <img src="{{ img }}" alt="" width="100%" />
+                    </div>
+
+                    <div class="col-9 pl-0">
+                      <p class="product-card-brand">{{ brand }}</p>
+
+                      <p class="product-card-product">
+                        {{ desc }}
+                      </p>
+                      <p class="product-card-product mini">
+                        UPC/GTIN: {{ gtin }} | Product ID: {{ id }}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="countries-list">
+            <li>
+              <svg
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.79688 15.5234C4.27344 13.6191 0.875 9.07812 0.875 6.5C0.875 3.39453 3.36523 0.875 6.5 0.875C9.60547 0.875 12.125 3.39453 12.125 6.5C12.125 9.07812 8.69727 13.6191 7.17383 15.5234C6.82227 15.9629 6.14844 15.9629 5.79688 15.5234ZM6.5 8.375C7.52539 8.375 8.375 7.55469 8.375 6.5C8.375 5.47461 7.52539 4.625 6.5 4.625C5.44531 4.625 4.625 5.47461 4.625 6.5C4.625 7.55469 5.44531 8.375 6.5 8.375Z"
+                  fill="#C0311A"
+                />
+              </svg>
+              Europe
+            </li>
+
+            <li>
+              <svg
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.79688 15.5234C4.27344 13.6191 0.875 9.07812 0.875 6.5C0.875 3.39453 3.36523 0.875 6.5 0.875C9.60547 0.875 12.125 3.39453 12.125 6.5C12.125 9.07812 8.69727 13.6191 7.17383 15.5234C6.82227 15.9629 6.14844 15.9629 5.79688 15.5234ZM6.5 8.375C7.52539 8.375 8.375 7.55469 8.375 6.5C8.375 5.47461 7.52539 4.625 6.5 4.625C5.44531 4.625 4.625 5.47461 4.625 6.5C4.625 7.55469 5.44531 8.375 6.5 8.375Z"
+                  fill="#C0311A"
+                />
+              </svg>
+              Asia & Pacific Islands
+            </li>
+
+            <li>
+              <svg
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.79688 15.5234C4.27344 13.6191 0.875 9.07812 0.875 6.5C0.875 3.39453 3.36523 0.875 6.5 0.875C9.60547 0.875 12.125 3.39453 12.125 6.5C12.125 9.07812 8.69727 13.6191 7.17383 15.5234C6.82227 15.9629 6.14844 15.9629 5.79688 15.5234ZM6.5 8.375C7.52539 8.375 8.375 7.55469 8.375 6.5C8.375 5.47461 7.52539 4.625 6.5 4.625C5.44531 4.625 4.625 5.47461 4.625 6.5C4.625 7.55469 5.44531 8.375 6.5 8.375Z"
+                  fill="#C0311A"
+                />
+              </svg>
+              North America
+            </li>
+
+            <li>
+              <svg
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.79688 15.5234C4.27344 13.6191 0.875 9.07812 0.875 6.5C0.875 3.39453 3.36523 0.875 6.5 0.875C9.60547 0.875 12.125 3.39453 12.125 6.5C12.125 9.07812 8.69727 13.6191 7.17383 15.5234C6.82227 15.9629 6.14844 15.9629 5.79688 15.5234ZM6.5 8.375C7.52539 8.375 8.375 7.55469 8.375 6.5C8.375 5.47461 7.52539 4.625 6.5 4.625C5.44531 4.625 4.625 5.47461 4.625 6.5C4.625 7.55469 5.44531 8.375 6.5 8.375Z"
+                  fill="#C0311A"
+                />
+              </svg>
+              Middle East
+            </li>
+
+            <li>
+              <svg
+                width="13"
+                height="16"
+                viewBox="0 0 13 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.79688 15.5234C4.27344 13.6191 0.875 9.07812 0.875 6.5C0.875 3.39453 3.36523 0.875 6.5 0.875C9.60547 0.875 12.125 3.39453 12.125 6.5C12.125 9.07812 8.69727 13.6191 7.17383 15.5234C6.82227 15.9629 6.14844 15.9629 5.79688 15.5234ZM6.5 8.375C7.52539 8.375 8.375 7.55469 8.375 6.5C8.375 5.47461 7.52539 4.625 6.5 4.625C5.44531 4.625 4.625 5.47461 4.625 6.5C4.625 7.55469 5.44531 8.375 6.5 8.375Z"
+                  fill="#C0311A"
+                />
+              </svg>
+              Oceania
+            </li>
+          </ul>
+
+          <div class="right-top-corner">
+            <div class="line-1">$<span>60</span>mil</div>
+
+            <div class="line-2">In revenue in <span>2021</span></div>
+          </div>
+
+          <div
+            class="north-america big"
+            (mousemove)="onQuickViewHoverAllItems($event, 'northamericahover')"
+            (mouseout)="
+              onQuickViewHoverOutAllItems($event, 'northamericahover')
+            "
+          >
+            <svg
+              width="36"
+              height="49"
+              viewBox="0 0 36 49"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.75 46.875C10.875 40.7812 0 26.25 0 18C0 8.0625 7.96875 0 18 0C27.9375 0 36 8.0625 36 18C36 26.25 25.0312 40.7812 20.1562 46.875C19.0312 48.2812 16.875 48.2812 15.75 46.875ZM18 24C21.2812 24 24 21.375 24 18C24 14.7188 21.2812 12 18 12C14.625 12 12 14.7188 12 18C12 21.375 14.625 24 18 24Z"
+                fill="#C0311A"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="asia-pacific-islands big"
+            (mousemove)="
+              onQuickViewHoverAllItems($event, 'asia&pacificislandshover')
+            "
+            (mouseout)="
+              onQuickViewHoverOutAllItems($event, 'asia&pacificislandshover')
+            "
+          >
+            <svg
+              width="36"
+              height="49"
+              viewBox="0 0 36 49"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.75 46.875C10.875 40.7812 0 26.25 0 18C0 8.0625 7.96875 0 18 0C27.9375 0 36 8.0625 36 18C36 26.25 25.0312 40.7812 20.1562 46.875C19.0312 48.2812 16.875 48.2812 15.75 46.875ZM18 24C21.2812 24 24 21.375 24 18C24 14.7188 21.2812 12 18 12C14.625 12 12 14.7188 12 18C12 21.375 14.625 24 18 24Z"
+                fill="#C0311A"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="europe"
+            (mousemove)="onQuickViewHoverAllItems($event, 'europehover')"
+            (mouseout)="onQuickViewHoverOutAllItems($event, 'europehover')"
+          >
+            <svg
+              width="19"
+              height="25"
+              viewBox="0 0 19 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.9108 23.4375C5.4733 20.3906 0.0358 13.125 0.0358 9C0.0358 4.03125 4.02017 0 9.0358 0C14.0045 0 18.0358 4.03125 18.0358 9C18.0358 13.125 12.5514 20.3906 10.1139 23.4375C9.55142 24.1406 8.4733 24.1406 7.9108 23.4375ZM9.0358 12C10.6764 12 12.0358 10.6875 12.0358 9C12.0358 7.35938 10.6764 6 9.0358 6C7.3483 6 6.0358 7.35938 6.0358 9C6.0358 10.6875 7.3483 12 9.0358 12Z"
+                fill="#C0311A"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="middle-east"
+            (mousemove)="onQuickViewHoverAllItems($event, 'middleeasthover')"
+            (mouseout)="onQuickViewHoverOutAllItems($event, 'middleeasthover')"
+          >
+            <svg
+              width="19"
+              height="25"
+              viewBox="0 0 19 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.9108 23.4375C5.4733 20.3906 0.0358 13.125 0.0358 9C0.0358 4.03125 4.02017 0 9.0358 0C14.0045 0 18.0358 4.03125 18.0358 9C18.0358 13.125 12.5514 20.3906 10.1139 23.4375C9.55142 24.1406 8.4733 24.1406 7.9108 23.4375ZM9.0358 12C10.6764 12 12.0358 10.6875 12.0358 9C12.0358 7.35938 10.6764 6 9.0358 6C7.3483 6 6.0358 7.35938 6.0358 9C6.0358 10.6875 7.3483 12 9.0358 12Z"
+                fill="#C0311A"
+              />
+            </svg>
+          </div>
+
+          <div
+            class="oceania"
+            (mousemove)="onQuickViewHoverAllItems($event, 'oceaniahover')"
+            (mouseout)="onQuickViewHoverOutAllItems($event, 'oceaniahover')"
+          >
+            <svg
+              width="19"
+              height="25"
+              viewBox="0 0 19 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M7.9108 23.4375C5.4733 20.3906 0.0358 13.125 0.0358 9C0.0358 4.03125 4.02017 0 9.0358 0C14.0045 0 18.0358 4.03125 18.0358 9C18.0358 13.125 12.5514 20.3906 10.1139 23.4375C9.55142 24.1406 8.4733 24.1406 7.9108 23.4375ZM9.0358 12C10.6764 12 12.0358 10.6875 12.0358 9C12.0358 7.35938 10.6764 6 9.0358 6C7.3483 6 6.0358 7.35938 6.0358 9C6.0358 10.6875 7.3483 12 9.0358 12Z"
+                fill="#C0311A"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div
+  *ngFor="let item of countries1"
+  id="{{
+    item.split('&').join('').split(' ').join('').toLowerCase() + 'hover'
+  }}"
+  class="country-pin-hover1"
+>
+  {{ item }}
+</div>
+
+<div
+  *ngFor="let item of countries2"
+  id="{{ item.split(' ').join('').toLowerCase() + 'hover' }}"
+  class="country-pin-hover2"
+>
+  <div class="countries2-head">{{ item }}</div>
+
+  <div class="container-fluid pt-2">
+    <div class="row">
+      <div class="col-4 d-flex flex-column text-right countries2-left-items">
+        <span>20mil</span>
+        <span>32</span>
+        <span>16</span>
+        <span>8</span>
+      </div>
+
+      <div
+        class="col-8 d-flex flex-column text-left countries2-right-items pl-0"
+      >
+        <span>Sales</span>
+        <span>DFS Stores</span>
+        <span>Stores active product</span>
+        <span>Stores discontinued with your product</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.clearfix {
+  padding: 5px;
+}
+
+.img2 {
+  float: left;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+select,
+input,
+.mat-select {
+  background: #fbf5f4;
+  border-radius: 4px;
+  border: none;
+  padding: 11px;
+  font-family: LibreFranklinRegular;
+  width: 60%;
+  text-align: left;
+}
+.mat-dialog-actions[align="space-between"] {
+  justify-content: space-between;
+}
+
+.cancelBtn {
+  background-color: transparent;
+  border: 2px solid #000;
+  color: #000;
+  font-family: LibreFranklinRegular;
+}
+
+.submitBtn {
+  background-color: #000;
+  border: 2px solid #000;
+  color: #fff;
+  font-family: LibreFranklinRegular;
+}

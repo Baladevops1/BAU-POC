@@ -1,0 +1,33 @@
+.p-text {
+  font-size: 13px;
+}
+
+mat-row {
+  font-family: "LibreFranklinMedium";
+  border-bottom-width: 3px;
+}
+
+mat-header-row {
+  border-bottom: 1px solid #000;
+  border-top: 1px solid #000;
+}
+
+button {
+  border-radius: 2px;
+  border: 2px solid #000000;
+  background: #000;
+  color: #fff;
+  font-family: LibreFranklinRegular;
+  height: calc(100% - 1.34375em);
+  width: 145px;
+  height: 45px;
+}
+
+.back {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  font-size: 12px;
+  color: var(--active-red-wine);
+  cursor: pointer;
+}

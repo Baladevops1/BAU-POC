@@ -1,0 +1,315 @@
+<span>
+  <!-- <div class="type-banner" [ngClass]="{ 'active-banner': type == '' }">
+    <div class="type-filler"></div>
+    <div class="type-title-section">
+      <div class="type-main-title">
+        SHOP <span>{{ head() }}</span>
+      </div>
+      <div class="type-sub-title">
+        Spoilt for choice, from global to cult brands
+      </div>
+    </div>
+
+    <div class="type-row">
+      <div class="type-lp-filler" id="target"></div>
+      <a class="type-tab all disabled-tab" href="/categories/makeup">
+        <div class="type-tag all selected-tab">ALL</div>
+      </a>
+
+      <a
+        *ngFor="let l3_item of attributes[type]; let i = index"
+        [routerLink]="[
+          '/categories/makeup/' +
+            l3_item.split(' &').join('').split(' ').join('-')
+        ]"
+        class="type-tab"
+      >
+        <div class="type-tag">{{ l3_item.toUpperCase() }}</div>
+      </a>
+
+
+      <div class="type-lp-filler"></div>
+    </div>
+  </div> -->
+
+  <div class="container category-body" *ngIf="type == 1">
+    <div class="category-beautyfeed-banner">
+      <div class="beautyfeed-banner-title">DISCOVER BEAUTYFEED</div>
+      <div class="beautyfeed-content">
+        <div class="beautyfeed-section left">
+          <img
+            class="beautyfeed-image"
+            src="assets/categories/bf1.jpg"
+            alt="Beauty Feed"
+          />
+          <div class="beautyfeed-message">
+            <div class="header">Best Rated Foundations</div>
+            <div class="main-text">
+              Explore our bestsellers by finish and formula to discover your
+              perfect match.
+            </div>
+          </div>
+          <div class="beautyfeed-btn-container">
+            <a
+              id="banner-mu-clp2-lmore-1"
+              href="/beautyfeed/article/best-foundation-makeup"
+            >
+              <button class="beautyfeed-btn btn">READ MORE</button>
+            </a>
+          </div>
+        </div>
+        <div class="beautyfeed-section right">
+          <img
+            class="beautyfeed-image"
+            src="assets/categories/bf2.jpg"
+            alt="Beauty Feed"
+          />
+          <div class="beautyfeed-message">
+            <div class="header">Best Rated Mascaras</div>
+            <div class="main-text">
+              Meet the bestselling lash enhancements that cater to your every
+              need.
+            </div>
+          </div>
+          <div class="beautyfeed-btn-container">
+            <a
+              id="banner-mu-clp2-lmore-2"
+              href="/beautyfeed/article/best-mascara"
+            >
+              <button class="beautyfeed-btn btn">READ MORE</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-three-top-brands flags" *ngIf="item == ''">
+    <div class="banner-header">COUNTRIES</div>
+    <div class="banner-body">
+      <a id="banner-mu-clp3-brand-1" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/hongkong.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-2" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/macau.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-3" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/singapore.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-4" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/okinawa.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-5" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/guam.png"
+            alt="button-logo"
+          />
+        </div>
+        <a class="see-all">See All</a>
+      </a>
+    </div>
+  </div>
+
+  <div class="phase-three-top-brands" *ngIf="item == ''">
+    <div class="banner-header">
+      TOP BRANDS
+
+      <!-- <div>See All</div> -->
+    </div>
+    <div class="banner-body">
+      <a id="banner-mu-clp3-brand-1" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/logoo1.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-2" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/logoo2.jpg"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-3" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/logoo3.jpg"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-4" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/logoo4.png"
+            alt="button-logo"
+          />
+        </div>
+      </a>
+      <a id="banner-mu-clp3-brand-5" class="button-link" href="">
+        <div class="button-container">
+          <img
+            class="button-logo"
+            src="assets/categories/logoo5.jpg"
+            alt="button-logo"
+          />
+        </div>
+        <a class="see-all">See All</a>
+      </a>
+    </div>
+  </div>
+
+  <span *ngIf="item == ''">
+    <section
+      *ngFor="let header of carouselHeaders"
+      class="best-sellers text-center"
+    >
+      <div class="container">
+        <h2 class="best-sellers-page-title">{{ header }}</h2>
+
+        <div class="wrapper">
+          <carousel
+            [height]="340"
+            [cellsToShow]="5"
+            [loop]="false"
+            [arrowsOutside]="true"
+            [cellsToScroll]="5"
+          >
+            <div *ngFor="let slide of slides" class="carousel-cell">
+              <div
+                class="carousel_item featured_product product product_shared item null"
+                style="margin-left: 3px; margin-right: 3px"
+              >
+                <div class="image stable">
+                  <a href="" id="banner-clp-mu-phase4-1">
+                    <img
+                      alt="Power Bullet Matte Lipstick"
+                      [src]="['assets/categories/pro' + slide + '.png']"
+                      class="ga-image-ready"
+                    />
+                  </a>
+                </div>
+
+                <div class="add_to_bag_and_variant_relative desk_only notouch">
+                  <div class="add_to_bag_and_variant hidden">
+                    <div class="add_to_bag">
+                      <p
+                        class="btn btn-block btn-primary product-card-add-to-bag add_to_bag_text button bg_red"
+                      >
+                        Add To Bag
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="product-card">
+                  <a
+                    href="https://www.sephora.sg/products/huda-beauty-power-bullet-matte-lipstick/v/rendez-vous-a-strong-brick-pink-warm-toned"
+                    class="product-card-description"
+                    id="dy-banner-clp-mu-phase4-1"
+                  >
+                    <p class="product-card-label">
+                      <span class="product-card-label-primary"></span>
+                    </p>
+                    <p class="product-card-brand">Huda Beauty</p>
+                    <p class="product-card-product">
+                      Power Bullet Matte Lipstick
+                    </p>
+                    <div class="product-price">
+                      <span class="under-sale" style="display: none">true</span>
+                      <span
+                        class="product-price-sale-old"
+                        style="display: inline"
+                        >$40.00
+                      </span>
+                      <span class="product-price-sale-new">$20.00</span>
+                      <!-- <div
+                        class="product-price-sale-text"
+                        style="display: block"
+                      >
+                        (50%)
+                      </div> -->
+                    </div>
+                    <!-- <div
+                      class="product-card-rating rating-container"
+                      style="display: block"
+                    >
+                      <div
+                        class="product_rating rateit sm_stars js-rateit rateit-bg"
+                      >
+                        <button
+                          id="rateit-reset-12"
+                          type="button"
+                          class="rateit-reset"
+                          style="display: none"
+                        >
+                          <span></span>
+                        </button>
+                        <div
+                          id="rateit-range-12"
+                          class="rateit-range"
+                          style="width: 72.8px; height: 12px"
+                        >
+                          <div class="rateit-empty"></div>
+                          <div
+                            class="rateit-selected rateit-preset"
+                            style="height: 12px; width: 62.608px"
+                          ></div>
+                          <div class="rateit-hover" style="height: 12px"></div>
+                        </div>
+                      </div>
+                      </div
+                  > -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </carousel>
+
+          <a class="see-all">See All</a>
+        </div>
+      </div>
+    </section>
+  </span>
+
+  <app-categorytypefilter
+    [type]="type"
+    [item]="item"
+    [l1CategoriesFiltered]="l1CategoriesFiltered"
+    [l2CategoriesFiltered]="l2CategoriesFiltered"
+    [attributes]="attributes"
+  ></app-categorytypefilter>
+</span>

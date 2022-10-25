@@ -1,0 +1,92 @@
+<h3 class="LibreFranklinSemiBold" style="margin-bottom: 20px">
+  - Quick To-do's
+</h3>
+
+<div class="card mb-3">
+  <img src="assets\Vendor.jpg" class="card-img-top" alt="..." />
+  <div class="card-body">
+    <h4 class="card-title m-0">
+      <a
+        class="linktext LibreFranklinBold"
+        style="color: #bf2f1a"
+        routerLink="/newvendor"
+        >Vendor Onboarding</a
+      >
+    </h4>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <!-- <img src="assets\welcome1.jpg" style="height: 80%;" class="card-img-top" alt="..."> -->
+  <video
+    playsinline=""
+    src="assets\1.mp4"
+    loop="loop"
+    tabindex="-1"
+    aria-hidden="true"
+    autoplay
+    muted
+    onloadedmetadata="this.muted = true"
+    style="height: 80%; cursor: pointer"
+    id="video"
+    class="card-img-top"
+    (click)="onPlay(play)"
+  ></video>
+
+  <div class="player-buttons1">
+    <div class="player-container1">
+      <a (click)="onPlay(play)">
+        <i
+          class="fa-solid"
+          [ngClass]="{
+            'fa-circle-play': play === false,
+            'fa-circle-pause': play === true
+          }"
+        ></i
+      ></a>
+    </div>
+  </div>
+
+  <div class="player-buttons">
+    <div class="player-container">
+      <a (click)="onMute(mute)">
+        <i
+          class="fa-solid"
+          [ngClass]="{
+            'fa-volume-xmark': mute === true,
+            'fa-volume-high': mute === false
+          }"
+        ></i
+      ></a>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <h4 class="card-title m-0">
+      <a
+        class="linktext LibreFranklinBold"
+        style="color: #bf2f1a"
+        routerLink="/home"
+        >OneDFS: New Avatar</a
+      >
+    </h4>
+  </div>
+</div>
+
+<div class="card mb-3">
+  <img
+    src="assets\mobile-app-development.jpeg"
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h4 class="card-title m-0">
+      <a
+        class="linktext LibreFranklinBold"
+        style="color: #bf2f1a"
+        routerLink="/onedfsmobile"
+        >One DFS Mobile</a
+      >
+    </h4>
+  </div>
+</div>

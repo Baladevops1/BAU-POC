@@ -1,0 +1,110 @@
+<div class="main-container">
+  <div class="register-container">
+    <div class="row justify-content-between" style="margin-bottom: -25px;">
+      <div class="col-9">
+        <span class="order-lbl">STOCK RECEVING #TR-{{x}}</span>
+      </div>
+      <div class="col-3">
+        <button type="button" style="margin-right: 15px;" class="btn btn-outline-dark btn-sm"><i class="fa fa-print"
+            aria-hidden="true"></i> Print</button>
+        <button type="button" style="margin-right: 15px;" class="btn btn-outline-dark btn-sm"><i class="fa fa-envelope"
+            aria-hidden="true"></i> Email</button>
+        <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-undo"
+            aria-hidden="true"></i>Undo</button>
+      </div>
+    </div>
+    <br>
+    <hr>
+    <div class="container1">
+      <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+        <div class="form-group">
+          <div class="form-row">
+            <div class="material-textfield col-md-6">
+              <select class="form-control form-control-sm" name="fromLocation" [(ngModel)]="selectedFrom">
+                <option *ngFor="let fromLocation of fromLocations" [ngValue]="fromLocation.name">
+                  {{ fromLocation.name }}
+                </option>
+              </select>
+              <label>From location</label>
+            </div>
+            <div class="material-textfield col-md-6">
+              <select class="form-control form-control-sm" name="toLocation" [(ngModel)]="selectedTo">
+                <option *ngFor="let toLocation of toLocations" [ngValue]="toLocation.name">
+                  {{ toLocation.name }}
+                </option>
+              </select>
+              <label>To location</label>
+            </div>
+          </div><br>
+          <div class="form-row">
+            <div class="material-textfield col-md-6">
+              <input placeholder="Choose..." type="date" name="shipmentDeliveryDate"
+                class="form-control form-control-sm" ngModel>
+              <label>Shipment delivery date</label>
+            </div>
+            <div class="material-textfield col-md-6">
+              <button type="submit" style="margin: 5px; width: 40%;" class="btn btn-danger btn-sm"><i
+                  class="fa fa-barcode" aria-hidden="true"></i> Search</button>
+            </div>
+          </div><br>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="main-container">
+  <div class="register-container">
+    <button type="button" style="margin: 5px; border: none;" class="btn btn-light btn-sm"><i class="fa fa-shopping-cart"
+        aria-hidden="true"></i> Order</button>
+    <button type="button" style="margin: 5px; border: none;" class="btn btn-light btn-sm"><i class="fa fa-arrow-right"
+        aria-hidden="true"></i> Tracking</button>
+    <button type="button" style="margin: 5px; border: none;" class="btn btn-light btn-sm"><i class="fa fa-history"
+        aria-hidden="true"></i> Product</button>
+  </div>
+</div>
+
+<div *ngIf=gridData class="main-container">
+  <div class="register-container">
+    <div class="row">
+      <div class="col-10" style="display: inline-flex;">
+        <button type="button" style="margin: 5px;" class="btn btn-outline-dark btn-sm"><i class="fa fa-plus"
+            aria-hidden="true"></i></button>
+        <button type="button" style="margin: 5px;" class="btn btn-outline-dark btn-sm"><i class="fa fa-upload"
+            aria-hidden="true"></i> Export</button>
+        <button type="button" style="margin: 5px;" class="btn btn-outline-dark btn-sm"><i class="fa fa-download"
+            aria-hidden="true"></i> Import</button>
+      </div>
+      <div class="col-2">
+        <button type="button" (click)="openDialogInit()" class="btn btn-danger btn-sm"><i class="fa fa-check-circle"
+            aria-hidden="true"></i>
+          Transfer Receive</button>
+      </div>
+    </div>
+    <table class="table table-hover" style="border: 1px soild grey">
+      <thead>
+        <tr>
+          <th scope="col"><i class="fa fa-cog" aria-hidden="true"></i></th>
+          <th scope="col">PRODUCT</th>
+          <th scope="col">UPC/GTIN</th>
+          <th scope="col">PRODUCT DESC</th>
+          <th scope="col">TRANSFER QUANTITY</th>
+          <th scope="col">RECEIVE QUANTITY</th>
+          <th scope="col">COMMENTS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items; let i = index;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{item.product}}</td>
+          <td>{{item.upc}}</td>
+          <td>{{item.productDesc}}</td>
+          <td>{{item.transferQuantity}}</td>
+          <td>
+            <input type="text" class="table-input" name="transferQuantity" value="0" />
+          </td>
+          <td>{{item.comments}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

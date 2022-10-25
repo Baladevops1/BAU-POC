@@ -1,0 +1,343 @@
+  @font-face {
+    font-family: Sephora SerifBook;
+    src: url(/assets/categories/fonts/SephoraSerifBook.woff2);
+  }
+  @font-face {
+    font-family: Sephora SansBold;
+    src: url(/assets/categories/fonts/SephoraSansBold.woff2);
+  }
+  @font-face {
+    font-family: Sephora SansMedium;
+    src: url(/assets/categories/fonts/SephoraSansMedium.woff2);
+  }
+  @font-face {
+    font-family: Sephora SansBook;
+    src: url(/assets/categories/fonts/SephoraSansBook.woff2);
+  }
+  
+  .header-container {
+    flex: 1;
+    width: 100%;
+    /* height: 180px; */
+    background-color: #FFF;
+    margin-top: 10px;
+    border-radius: 5px;
+    min-height: 880px;
+  }
+  
+  .row-container {
+    padding: 20px;
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    padding: 5px;
+    background: #fbf5f4;
+    border-radius: 4px;
+    border: none;
+    padding: 5px;
+    height: 53px;
+    outline: none;
+    color: #000;
+    padding-left: 15px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    font-size: 14px;
+    font-family: LibreFranklinRegular;
+    margin-bottom: 15px;
+  }
+  
+  .searchTerm:focus {
+    color: #000;
+  }
+  
+  .search-icon {
+    min-width: 40px;
+    width: 40px;
+    height: 53px;
+    padding: 5px 5px 3px;
+    position: absolute;
+    right: 10px;
+  }
+
+  .table-view {
+    margin-top: 10px;
+  }
+  
+  .dropdown {
+    justify-content: center;
+  }
+  
+  .dropdown-wrap {
+    width: 100%;
+  }
+  
+  .mat-select-panel::-webkit-scrollbar-thumb {
+    background: var(--active-red-wine) !important;
+  }
+  
+  .mat-select-panel::-webkit-scrollbar-thumb:hover {
+    background: #922943 !important;
+  }
+  
+  
+  .metric-fields {
+    margin-top: 30px;
+  }
+  
+  .metric-fields .mat-form-field.mat-focused .mat-form-field-label {
+    color: var(--active-red) !important;
+  }
+  
+  .metric-fields .mat-radio-button {
+    font-family: LibreFranklinMedium;
+  }
+  
+  .metric-fields .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  
+  .metric-fields button {
+    border-radius: 2px;
+    border: 2px solid #000000;
+    background: #000;
+    color: #fff;
+    font-family: LibreFranklinRegular;
+    height: calc(100% - 1.34375em);
+    width: 145px;
+  }
+  
+  .metric-data-title {
+    font-size: 15.78px;
+    font-family: LibreFranklinMedium;
+  }
+  
+  .metric-data-title-value {
+    font-size: 18.78px;
+    font-family: LibreFranklinBold;
+    color: var(--active-red-wine);
+  }
+  
+  .metrics-graph-title {
+    font-size: 16px;
+    font-family: LibreFranklinBold;
+  }
+  
+  .large-buttons {
+    /* width: 100%; */
+    background-color: var(--active-red);
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+  }
+  
+  
+  .large-buttons:focus {
+    border-color: #fff;
+    border-width: 1px;
+    box-shadow: var(--active-red);
+  }
+  
+  
+  .small-buttons {
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 50px;
+    text-align: center;
+  }
+  
+  .small-buttons:focus {
+    border-color: var(--active-red);
+    border-width: 1px;
+    box-shadow: var(--active-red);
+  }
+  
+  .table-container {
+    width: 100%;
+    margin: 0px;
+  }
+  
+  .mat-row:nth-child(even){
+    background-color: #f5f5f5;
+  }
+        
+  .mat-row:nth-child(odd){
+    background-color: #FFF;
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    /* text-align: center; */
+  }
+  
+  th.mat-header-cell {
+    background-color: #f5f5f5;
+    font-family: "LibreFranklinBold";
+    font-size: 16px !important;
+    /* border-right: 3px solid #FFF; */
+  }
+  
+  th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding: 0px;
+  }
+
+  th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
+    padding-right: 0px;
+  }
+  
+  th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 0px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+  }
+  
+  .mat-paginator {
+    margin-top: 5px;
+    display: block;
+    background-color: #f5f5f5;
+    font-size: 12px;
+    color : rgba(0,0,0,.54);
+    font-family: "LibreFranklinBold";
+  }
+  
+  .table-style {
+    position: relative;
+    min-height: 400px;
+    max-height: 590px;
+    overflow: auto;
+    border-radius: 5px;
+  }
+  
+  .buttonload {
+    background-color: var(--active-red);
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px
+  }
+  
+  .mat-paginator-sticky {
+    bottom: 0px;
+    position: sticky;
+    z-index: 10;
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .table thead th {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),0px 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  th {
+    border: 2px solid #F5F5F5;
+  }
+
+  td {
+    border: none !important;
+  }
+
+  td, th {
+    text-align: left;
+    /* padding: 8px; */
+    font-size: 18px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #F5F5F5;
+  }
+
+  .card-container {
+    flex: 1;
+    background-color: #FFF;
+    margin-top: 10px;
+    border-radius: 5px;
+    min-height: 250px;
+  }
+
+  .row-style {
+    padding: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+  }
+
+  .tab-container {
+    padding: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .header-view-style {
+    margin-left: 20px;
+  }
+
+  .buttonExportToCvs {
+    background-color: var(--active-red);
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    font-size: 16px;
+    margin: 10px;
+  }
+
+  .export-button {
+    display: flex;
+    justify-content: end;
+  }
+
+  .title-style {
+    width: 40%;
+    border-bottom: 2px solid #F5F5F5;
+    font-size: 14px;
+    font-family: "LibreFranklinBold";
+  }
+
+  .value-style {
+    margin-left: 25px;
+    font-size: 14px;
+    font-family: "LibreFranklinRegular";
+  }
+
+
+.tab-header-container{
+    flex: 1;
+    width: 100%;
+    background-color: #FFF;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05),0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.upc-view-style { 
+    margin-left: 20px;
+}
+
+.header-text {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1.5px solid #922943;
+}
+  
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  
